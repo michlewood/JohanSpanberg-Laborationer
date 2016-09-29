@@ -21,7 +21,6 @@ namespace LaborationerGP
             set { listLength = value; }
         }
 
-
         public static void FileFetcher()
         {
             bool filenameExceptionHandler = true;
@@ -75,6 +74,5 @@ namespace LaborationerGP
             }
             File.WriteAllLines(folderPath + @"\" + saveFileName + ".txt", Arrays.Combined);
         }
-
     }
 }

@@ -32,7 +32,6 @@ namespace LaborationerGP
             set { editDetailChoiceController = value; }
         }
 
-
         public static bool MainMenu() // Huvudmenyn.
         {
             int mainMenuSwitch = 0;
