@@ -13,12 +13,8 @@ namespace LaborationerGP
         {
             while (true)
             {
-                Menus.MainMenu();
+                Menus.MainMenu(); // Kör startmenyn.
             }
-
-
-            //Arrays.ArrayDiscombiner();
-
         }
     }
 }
