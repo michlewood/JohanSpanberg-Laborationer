@@ -74,10 +74,12 @@ namespace LaborationerGP
             }
 
         }
+
         public static void FileSelector()
         {
             Console.Write("Enter filename (not .txt): ");
         }
+
         public static void Editor()
         {
             int editorMenu = 0;
@@ -102,7 +104,6 @@ namespace LaborationerGP
                     Console.WriteLine("2. Return to main menu.");
                     Console.WriteLine("---");
                 }
-
                 Console.Write("Enter choice: ");
                 try
                 {
@@ -122,7 +123,6 @@ namespace LaborationerGP
                         case 4: return;
                         default: break;
                     }
-
                 }
                 else
                 {
@@ -133,10 +133,9 @@ namespace LaborationerGP
                         default: break;
                     }
                 }
-
             }
-
         }
+
         public static void EditorFileEditMenu()
         {
             Arrays.CombinedArrayShower();
@@ -181,7 +180,6 @@ namespace LaborationerGP
                 }
             }
 
-
             EditDetailChoiceController = true;
             while (EditDetailChoiceController)
             {
@@ -193,7 +191,6 @@ namespace LaborationerGP
                 Console.Write("Enter choice: ");
                 Arrays.ArrayDetailEditor();
             }
-
         }
     }
 }

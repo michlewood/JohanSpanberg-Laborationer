@@ -49,6 +49,7 @@ namespace LaborationerGP
             get { return combined; }
             set { combined = value; }
         }
+
         public static void ArrayDiscombiner()
         {
             for (int i = 0; i < FileHandler.ListLength / 3; i++)
@@ -58,6 +59,7 @@ namespace LaborationerGP
                 Year[i] = Combined[i * 3 + 2];
             }
         }
+
         public static void CombinedArrayShower()
         {
             Console.Clear();
@@ -85,6 +87,7 @@ namespace LaborationerGP
             Console.WriteLine();
             return;
         }
+
         public static void EmptyChecker()
         {
             for (int i = 0; i < artist.Length; i++)
@@ -96,6 +99,7 @@ namespace LaborationerGP
                 }
             }
         }
+
         public static void ArrayAdder()
         {
             EmptyChecker();
@@ -152,6 +156,7 @@ namespace LaborationerGP
             EmptyChecker();
             Console.ReadLine();
         }
+
         public static void ArrayRemover()
         {
             CombinedArrayShower();
@@ -195,10 +200,12 @@ namespace LaborationerGP
             Console.WriteLine("Done. Removed {0}.", arrayRemoveChoice + 1);
             Console.ReadLine();
         }
+
         public static void ArrayEditor()
         {
             throw new NotImplementedException(); // Inte ännu implementerat.
         }
+
         public static void ArrayDetailEditor()
         {
             try
