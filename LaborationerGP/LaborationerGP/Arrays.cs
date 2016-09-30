@@ -9,7 +9,7 @@ namespace LaborationerGP
     class Arrays
     {
         static int emptyPosition;
-
+        static string chosenEdit;
         public static int EmptyPosition
         {
             get { return emptyPosition; }
@@ -19,14 +19,16 @@ namespace LaborationerGP
         static string artistInput;
         static string albumInput;
         static string yearInput;
-        static string[] artist = new string[33];
+        static string nameInput;
+
+        static string[] artist = new string[44];
         public static string[] Artist
         {
             get { return artist; }
             set { artist = value; }
         }
 
-        static string[] album = new string[33];
+        static string[] album = new string[44];
 
         public static string[] Album
         {
@@ -34,7 +36,7 @@ namespace LaborationerGP
             set { album = value; }
         }
 
-        static string[] year = new string[33];
+        static string[] year = new string[44];
 
         public static string[] Year
         {
@@ -42,7 +44,15 @@ namespace LaborationerGP
             set { year = value; }
         }
 
-        static string[] combined = new string[99];
+        static string[] name = new string[44];
+
+        public static string[] Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        static string[] combined = new string[176];
 
         public static string[] Combined
         {
@@ -52,11 +62,12 @@ namespace LaborationerGP
 
         public static void ArrayDiscombiner()
         {
-            for (int i = 0; i < FileHandler.ListLength / 3; i++)
+            for (int i = 0; i < FileHandler.ListLength / 4; i++)
             {
-                Artist[i] = Combined[i * 3];
-                Album[i] = Combined[i * 3 + 1];
-                Year[i] = Combined[i * 3 + 2];
+                Name[i] = Combined[i * 4];
+                Artist[i] = Combined[i * 4 + 1];
+                Album[i] = Combined[i * 4 + 2];
+                Year[i] = Combined[i * 4 + 3];
             }
         }
 
@@ -67,7 +78,7 @@ namespace LaborationerGP
             Console.WriteLine("You currently have {0} songs in your list: ", EmptyPosition);
             Console.WriteLine("---");
 
-            for (int i = 0; i < artist.Length / 3; i++)
+            for (int i = 0; i < artist.Length / 4; i++)
             {
                 if (string.IsNullOrEmpty(artist[0]))
                 {
@@ -78,7 +89,7 @@ namespace LaborationerGP
                 }
                 else if (!string.IsNullOrEmpty(artist[i]))
                 {
-                    Console.WriteLine((i + 1) + ". " + Artist[i] + " - " + Album[i] + " - " + Year[i]);
+                    Console.WriteLine((i + 1) + ". " + Name[i] + " - " + Artist[i] + " - " + Album[i] + " - " + Year[i]);
                 }
                 else
                     break;
@@ -108,6 +119,18 @@ namespace LaborationerGP
             Console.WriteLine("since that is empty.");
             Console.ReadLine();
 
+            bool nameInputController = true;
+            while (nameInputController)
+            {
+                Console.Write("The Name you would like to add: ");
+                nameInput = Console.ReadLine();
+                if (nameInput.Length < 3)
+                {
+                    Console.WriteLine("Name needs to be at least 3 letters. Try again.");
+                }
+                else
+                    nameInputController = false;
+            }
 
             bool artistInputController = true;
             while (artistInputController)
@@ -147,10 +170,11 @@ namespace LaborationerGP
                 else
                     yearInputController = false;
             }
-            Console.WriteLine("Saving {0} - {1} - {2} to position {3}", artistInput, albumInput, yearInput, emptyPosition + 1);
-            combined[emptyPosition * 3] = artistInput;
-            combined[emptyPosition * 3 + 1] = albumInput;
-            combined[emptyPosition * 3 + 2] = yearInput;
+            Console.WriteLine("Saving {0} - {1} - {2} - {3} to position {4}", nameInput, artistInput, albumInput, yearInput, emptyPosition + 1);
+            combined[emptyPosition * 4] = nameInput;
+            combined[emptyPosition * 4 + 1] = artistInput;
+            combined[emptyPosition * 4 + 2] = albumInput;
+            combined[emptyPosition * 4 + 3] = yearInput;
             FileHandler.ListLength = Combined.Length;
             ArrayDiscombiner();
             EmptyChecker();
@@ -177,23 +201,24 @@ namespace LaborationerGP
                 }
             }
             arrayRemoveChoice--;
-            Combined[arrayRemoveChoice * 3] = string.Empty;
-            Combined[arrayRemoveChoice * 3 + 1] = string.Empty;
-            Combined[arrayRemoveChoice * 3 + 2] = string.Empty;
+            Combined[arrayRemoveChoice * 4] = string.Empty;
+            Combined[arrayRemoveChoice * 4 + 1] = string.Empty;
+            Combined[arrayRemoveChoice * 4 + 2] = string.Empty;
+            Combined[arrayRemoveChoice * 4 + 3] = string.Empty;
 
-            int arraySorter = arrayRemoveChoice * 3;
+            int arraySorter = arrayRemoveChoice * 4;
 
             for (int i = arraySorter; i < Combined.Length - 1; i++)
             {
-                if (string.IsNullOrEmpty(Combined[i + 3]))
+                if (string.IsNullOrEmpty(Combined[i + 4]))
                 {
                     break;
                 }
                 else
                 {
-                    string tempCombine = Combined[i + 3];
+                    string tempCombine = Combined[i + 4];
                     Combined[i] = tempCombine;
-                    Combined[i + 3] = string.Empty;
+                    Combined[i + 4] = string.Empty;
                 }
             }
             ArrayDiscombiner();
@@ -201,42 +226,47 @@ namespace LaborationerGP
             Console.ReadLine();
         }
 
-        public static void ArrayEditor()
-        {
-            throw new NotImplementedException(); // Inte ännu implementerat.
-        }
-
         public static void ArrayDetailEditor()
         {
+            ArrayDiscombiner();
             try
             {
                 Menus.EditDetailChoice = int.Parse(Console.ReadLine());
             }
             catch (Exception)
             {
-                Console.WriteLine("Please only use numbers between (1-3)");
+                Console.WriteLine("Please only use numbers between (1-4)");
             }
 
-            if (Menus.EditDetailChoice < 1 || Menus.EditDetailChoice > 3)
+            if (Menus.EditDetailChoice < 1 || Menus.EditDetailChoice > 4)
             {
-                Console.WriteLine("Please only use numbers between (1-3)");
+                Console.WriteLine("Please only use numbers between (1-4)");
             }
             else
             {
                 Menus.EditDetailChoiceController = false;
             }
 
-            string chosenEdit = "";
+
             if (Menus.EditDetailChoice == 1)
             {
-                chosenEdit = Arrays.Artist[Menus.EditChoice - 1];
+                chosenEdit = Arrays.Name[Menus.EditChoice - 1];
             }
             else if (Menus.EditDetailChoice == 2)
             {
+                chosenEdit = Arrays.Artist[Menus.EditChoice - 1];
+            }
+            else if (Menus.EditDetailChoice == 3)
+            {
                 chosenEdit = Arrays.Album[Menus.EditChoice - 1];
             }
-            else
+            else if (Menus.EditDetailChoice == 4)
+            {
                 chosenEdit = Arrays.Year[Menus.EditChoice - 1];
+            }
+            else
+                Console.WriteLine("FEL!");
+
 
             string chosenEditTemporary = chosenEdit;
             Console.WriteLine("You have chosen to edit: {0}", chosenEdit);
@@ -246,16 +276,28 @@ namespace LaborationerGP
 
             if (Menus.EditDetailChoice == 1)
             {
-                Arrays.Artist[Menus.EditChoice - 1] = chosenEdit;
+                Arrays.Name[Menus.EditChoice - 1] = chosenEdit;
+                Combined[(Menus.EditChoice - 1) * 4] = Name[Menus.EditChoice - 1];
             }
             else if (Menus.EditDetailChoice == 2)
             {
+                Arrays.Artist[Menus.EditChoice - 1] = chosenEdit;
+                Combined[(Menus.EditChoice - 1) * 4 + 1] = Artist[Menus.EditChoice - 1];
+            }
+            else if (Menus.EditDetailChoice == 3)
+            {
                 Arrays.Album[Menus.EditChoice - 1] = chosenEdit;
+                Combined[(Menus.EditChoice - 1) * 4 + 2] = Album[Menus.EditChoice - 1];
             }
             else
+            {
                 Arrays.Year[Menus.EditChoice - 1] = chosenEdit;
+                Combined[(Menus.EditChoice - 1) * 4 + 3] = Year[Menus.EditChoice - 1];
+            }
+
             Console.WriteLine("Okay. Exchanging {0} to {1}", chosenEditTemporary, chosenEdit);
             Console.ReadLine();
+            ArrayDiscombiner();
             Menus.EditDetailChoiceController = false;
             return;
         }

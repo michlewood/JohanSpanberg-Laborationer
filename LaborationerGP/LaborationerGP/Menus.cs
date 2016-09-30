@@ -139,12 +139,13 @@ namespace LaborationerGP
         public static void EditorFileEditMenu()
         {
             Arrays.CombinedArrayShower();
+            Arrays.ArrayDiscombiner();
             Arrays.EmptyChecker(); // Ser till så att emptyPosition är uppdaterad innan metoden körs.
             Console.WriteLine(" ");
             bool editChoiceController = true;
             while (editChoiceController)
             {
-                if (string.IsNullOrEmpty(Arrays.Combined[3]))
+                if (string.IsNullOrEmpty(Arrays.Combined[4]))
                 {
                     Console.Write("Which entry would you like to edit(1): ");
                 }
@@ -163,12 +164,12 @@ namespace LaborationerGP
                 }
 
 
-                if (editChoice < 1 && string.IsNullOrEmpty(Arrays.Combined[3]) || string.IsNullOrEmpty(Arrays.Combined[3]) && editChoice > Arrays.EmptyPosition) // Om användaren försöker gå utanför möjligheterna.
+                if (editChoice < 1 && string.IsNullOrEmpty(Arrays.Combined[4]) || string.IsNullOrEmpty(Arrays.Combined[4]) && editChoice > Arrays.EmptyPosition) // Om användaren försöker gå utanför möjligheterna.
                 {
                     Console.WriteLine("You have to chose a number (1)", Arrays.EmptyPosition);
                     Console.WriteLine();
                 }
-                else if (editChoice < 1 && !string.IsNullOrEmpty(Arrays.Combined[3]) || !string.IsNullOrEmpty(Arrays.Combined[3]) && editChoice > Arrays.EmptyPosition)
+                else if (editChoice < 1 && !string.IsNullOrEmpty(Arrays.Combined[4]) || !string.IsNullOrEmpty(Arrays.Combined[4]) && editChoice > Arrays.EmptyPosition)
                 {
                     Console.WriteLine("You have to chose a number between (1-{0})", Arrays.EmptyPosition);
                     Console.WriteLine();
@@ -184,9 +185,10 @@ namespace LaborationerGP
             while (EditDetailChoiceController)
             {
                 Console.WriteLine("What would you like to edit:");
-                Console.WriteLine("1. Artist ({0})", Arrays.Artist[editChoice - 1]);
-                Console.WriteLine("2. Album ({0})", Arrays.Album[editChoice - 1]);
-                Console.WriteLine("3. Year ({0})", Arrays.Year[editChoice - 1]);
+                Console.WriteLine("1. Name ({0})", Arrays.Name[editChoice - 1]);
+                Console.WriteLine("2. Artist ({0})", Arrays.Artist[editChoice - 1]);
+                Console.WriteLine("3. Album ({0})", Arrays.Album[editChoice - 1]);
+                Console.WriteLine("4. Year ({0})", Arrays.Year[editChoice - 1]);
                 Console.WriteLine("---");
                 Console.Write("Enter choice: ");
                 Arrays.ArrayDetailEditor();
