@@ -53,7 +53,7 @@ namespace LaborationerGP
                 try // Kollar så att användaren inte försöker förstöra programmet.
                 {
                     mainMenuSwitch = int.Parse(Console.ReadLine());
-                    
+
                 }
                 catch (Exception) // Om användaren försöker förstöra programmet.
                 {
@@ -87,11 +87,22 @@ namespace LaborationerGP
                 Console.Clear();
                 Arrays.CombinedArrayShower();
                 Console.WriteLine("What would you like to edit?");
-                Console.WriteLine("1. Add to the SongArchive.");
-                Console.WriteLine("2. Remove from the SongArchive.");
-                Console.WriteLine("3. Edit an entry in the SongArchive.");
-                Console.WriteLine("4. Return to main menu.");
-                Console.WriteLine("---");
+
+                if (!string.IsNullOrEmpty(Arrays.Combined[0]))
+                {
+                    Console.WriteLine("1. Add to the SongArchive.");
+                    Console.WriteLine("2. Remove from the SongArchive.");
+                    Console.WriteLine("3. Edit an entry in the SongArchive.");
+                    Console.WriteLine("4. Return to main menu.");
+                    Console.WriteLine("---");
+                }
+                else
+                {
+                    Console.WriteLine("1. Add to the SongArchive.");
+                    Console.WriteLine("2. Return to main menu.");
+                    Console.WriteLine("---");
+                }
+
                 Console.Write("Enter choice: ");
                 try
                 {
@@ -101,16 +112,30 @@ namespace LaborationerGP
                 {
                     Console.WriteLine("You need to select 1, 2, 3 or 4.");
                 }
-                switch (editorMenu)
+                if (!string.IsNullOrEmpty(Arrays.Combined[0]))
                 {
-                    case 1: Arrays.ArrayAdder(); break;
-                    case 2: Arrays.ArrayRemover(); break;
-                    case 3: EditorFileEditMenu(); break;
-                    case 4: return;
-                    default: break;
+                    switch (editorMenu)
+                    {
+                        case 1: Arrays.ArrayAdder(); break;
+                        case 2: Arrays.ArrayRemover(); break;
+                        case 3: EditorFileEditMenu(); break;
+                        case 4: return;
+                        default: break;
+                    }
+
                 }
+                else
+                {
+                    switch (editorMenu)
+                    {
+                        case 1: Arrays.ArrayAdder(); break;
+                        case 2: return;
+                        default: break;
+                    }
+                }
+
             }
-           
+
         }
         public static void EditorFileEditMenu()
         {
@@ -120,27 +145,43 @@ namespace LaborationerGP
             bool editChoiceController = true;
             while (editChoiceController)
             {
-                Console.Write("Which entry would you like to edit (1-{0}): ", Arrays.EmptyPosition);
+                if (string.IsNullOrEmpty(Arrays.Combined[3]))
+                {
+                    Console.Write("Which entry would you like to edit(1): ");
+                }
+                else
+                {
+                    Console.Write("Which entry would you like to edit (1-{0}): ", Arrays.EmptyPosition);
+                }
+
                 try
                 {
                     editChoice = int.Parse(Console.ReadLine());
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Please only use numbers between (1-{0})", Arrays.EmptyPosition);
+                    Console.WriteLine("Please only use numbers.");
                 }
 
-                if (editChoice < 1 || editChoice > Arrays.EmptyPosition) // Om användaren försöker gå utanför möjligheterna.
+
+                if (editChoice < 1 && string.IsNullOrEmpty(Arrays.Combined[3]) || string.IsNullOrEmpty(Arrays.Combined[3]) && editChoice > Arrays.EmptyPosition) // Om användaren försöker gå utanför möjligheterna.
+                {
+                    Console.WriteLine("You have to chose a number (1)", Arrays.EmptyPosition);
+                    Console.WriteLine();
+                }
+                else if (editChoice < 1 && !string.IsNullOrEmpty(Arrays.Combined[3]) || !string.IsNullOrEmpty(Arrays.Combined[3]) && editChoice > Arrays.EmptyPosition)
                 {
                     Console.WriteLine("You have to chose a number between (1-{0})", Arrays.EmptyPosition);
+                    Console.WriteLine();
                 }
+
                 else
                 {
                     editChoiceController = false;
                 }
             }
 
-            
+
             EditDetailChoiceController = true;
             while (EditDetailChoiceController)
             {
@@ -152,7 +193,7 @@ namespace LaborationerGP
                 Console.Write("Enter choice: ");
                 Arrays.ArrayDetailEditor();
             }
-                
+
         }
     }
 }
