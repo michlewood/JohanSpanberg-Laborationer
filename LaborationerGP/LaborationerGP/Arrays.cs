@@ -13,7 +13,7 @@ namespace LaborationerGP
         public static int EmptyPosition
         {
             get { return emptyPosition; }
-            set { emptyPosition = value; }
+            private set { emptyPosition = value; }
         }
 
         static string artistInput;
@@ -25,7 +25,7 @@ namespace LaborationerGP
         public static string[] Artist
         {
             get { return artist; }
-            set { artist = value; }
+            private set { artist = value; }
         }
 
         static string[] album = new string[44];
@@ -33,7 +33,7 @@ namespace LaborationerGP
         public static string[] Album
         {
             get { return album; }
-            set { album = value; }
+            private set { album = value; }
         }
 
         static string[] year = new string[44];
@@ -41,7 +41,7 @@ namespace LaborationerGP
         public static string[] Year
         {
             get { return year; }
-            set { year = value; }
+            private set { year = value; }
         }
 
         static string[] name = new string[44];
@@ -49,7 +49,7 @@ namespace LaborationerGP
         public static string[] Name
         {
             get { return name; }
-            set { name = value; }
+            private set { name = value; }
         }
 
         static string[] combined = new string[176];

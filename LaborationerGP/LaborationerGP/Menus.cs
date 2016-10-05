@@ -75,12 +75,12 @@ namespace LaborationerGP
 
         }
 
-        public static void FileSelector()
+        public static void FileSelector() // Filvalsprompt 
         {
             Console.Write("Enter filename (not .txt): "); // Ber användaren välja filnamn.
         }
 
-        public static void Editor()
+        public static void Editor() // Redigeringsmenyn
         {
             int editorMenu = 0; // Gör en val-int.
             bool editorControllerLoop = true; // För kontroll av menyn.
@@ -136,7 +136,7 @@ namespace LaborationerGP
             }
         }
 
-        public static void EditorFileEditMenu()
+        public static void EditorFileEditMenu() // Undermeny till redigeringsmenyn
         {
             Arrays.CombinedArrayShower(); // För att visa innehållet i albumlistan
             Arrays.ArrayDiscombiner(); // För att dela upp huvudarrayen till fyra arrays,
