@@ -148,7 +148,7 @@ namespace LaborationerGP
             {
                 if (string.IsNullOrEmpty(Arrays.Combined[4])) // Om det bara finns ett entry i albumlistan
                 {
-                    Console.Write("Which entry would you like to edit(1): ");
+                    Console.Write("Which entry would you like to edit (1): ");
                 }
                 else // Om det finns mer än ett entry i albumlistan.
                 {
@@ -161,7 +161,7 @@ namespace LaborationerGP
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("Please only use numbers.");
+                    
                 }
 
 
