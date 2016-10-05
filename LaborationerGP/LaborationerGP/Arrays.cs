@@ -191,16 +191,42 @@ namespace LaborationerGP
             bool removalController = true;
             while (removalController)
             {
-                Console.Write("The entry you want to remove (1-{0}): ", EmptyPosition);
-                try
-                { // Kontrollerar så att användaren använder siffror.
-                    arrayRemoveChoice = int.Parse(Console.ReadLine());
-                    removalController = false;
-                }
-                catch (Exception)
+                if (string.IsNullOrEmpty(Arrays.Combined[4]))
                 {
-                    Console.WriteLine("You need to use numbers.");
+                    Console.Write("The entry you want to remove (1): ", EmptyPosition);
+                    try
+                    { // Kontrollerar så att användaren använder siffror.
+                        arrayRemoveChoice = int.Parse(Console.ReadLine());
+                        removalController = false;
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("You need to use numbers.");
+                    }
                 }
+                else
+                {
+                    Console.Write("The entry you want to remove (1-{0}): ", EmptyPosition);
+                    try
+                    { // Kontrollerar så att användaren använder siffror.
+                        arrayRemoveChoice = int.Parse(Console.ReadLine());
+                        removalController = false;
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("You need to use numbers.");
+                    }
+                }
+                if (arrayRemoveChoice > emptyPosition)
+                {
+                    Console.WriteLine("Out of range. Choose a valid position");
+                    removalController = true;
+                }
+                else
+                {
+                    break;
+                }
+
             }
             arrayRemoveChoice--; // För att översätta användarens input till indexposition
             Combined[arrayRemoveChoice * 4] = string.Empty;
@@ -218,9 +244,9 @@ namespace LaborationerGP
                 }
                 else
                 { // Flyttar upp varje inlägg en position.
-                    string tempCombine = Combined[i + 4];
-                    Combined[i] = tempCombine;
-                    Combined[i + 4] = string.Empty;
+                    string tempCombine = Combined[i + 4]; // Lagrar index + 4 i en temporär string
+                    Combined[i] = tempCombine; // Sätter index till temporär
+                    Combined[i + 4] = string.Empty; // Rensar index + 4
                 }
             }
             ArrayDiscombiner(); // Uppdaterar enskilda arrays.
