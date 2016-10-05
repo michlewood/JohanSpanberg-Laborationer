@@ -39,14 +39,17 @@ namespace LaborationerGP
                         Console.WriteLine("Filename length needs to be at least 3 letters. Try again.");
                     }
 
-                    try
-                    { // Kontrollerar om filen faktiskt finns. Om den finns så hämtas filens innehåll och lagras i Arrays.Combined.
-                        Arrays.Combined = File.ReadAllLines(folderPath + @"\" + fileName + ".txt");
-                        fileNameController = false;
-                    }
-                    catch (FileNotFoundException)
-                    { // Om filen inte finns.
-                        Console.WriteLine("The file you specified could not be found. Try again.");
+                    else
+                    {
+                        try
+                        { // Kontrollerar om filen faktiskt finns. Om den finns så hämtas filens innehåll och lagras i Arrays.Combined.
+                            Arrays.Combined = File.ReadAllLines(folderPath + @"\" + fileName + ".txt");
+                            fileNameController = false;
+                        }
+                        catch (FileNotFoundException)
+                        { // Om filen inte finns.
+                            Console.WriteLine("The file you specified could not be found. Try again.");
+                        }
                     }
                 }
 
@@ -62,25 +65,38 @@ namespace LaborationerGP
                 Console.ReadLine();
                 break;
             }
-
         }
-
+       
         public static void FileSaver() // För att spara till fil.
         {
             bool fileNameController = true;
             while (fileNameController)
             {
                 Menus.FileSelector(); // Visar prompt för filnamnsval
-
+                
                 saveFileName = Console.ReadLine();
                 if (saveFileName.Length < 3) // Om användaren anger ett filnamn med mindre än tre bokstäver.
                 {
                     Console.WriteLine("Filename length needs to be at least 3 letters. Try again.");
                 }
                 else
-                    break;
-            } // Sparar ned filen.
-            File.WriteAllLines(folderPath + @"\" + saveFileName + ".txt", Arrays.Combined);
+                {
+                    try
+                    { // Sparar ned filen.
+                        File.WriteAllLines(folderPath + @"\" + saveFileName + ".txt", Arrays.Combined);
+                        fileNameController = false;
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("File already exists. Use another name.");
+                    }
+                }
+            } 
+
+            Console.WriteLine("The file {0}.txt was saved to disk.", saveFileName);
+            Console.WriteLine("Press enter to return to Main Menu.");
+            Console.ReadLine();
+
         }
     }
 }

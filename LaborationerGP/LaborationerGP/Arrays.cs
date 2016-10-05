@@ -172,8 +172,9 @@ namespace LaborationerGP
                 else
                     yearInputController = false;
             } // Visar en sammanfattning av vad användaren skrivit in.
+
             Console.WriteLine("Saving {0} - {1} - {2} - {3} to position {4}", nameInput, artistInput, albumInput, yearInput, emptyPosition + 1);
-            combined[emptyPosition * 4] = nameInput; // Lagrar input på första tomma position
+            combined[emptyPosition * 4] = nameInput; // Lagrar input på första tomma positionen
             combined[emptyPosition * 4 + 1] = artistInput;
             combined[emptyPosition * 4 + 2] = albumInput;
             combined[emptyPosition * 4 + 3] = yearInput;
@@ -195,30 +196,23 @@ namespace LaborationerGP
             {
                 if (string.IsNullOrEmpty(Arrays.Combined[4]))
                 {
-                    Console.Write("The entry you want to remove (1): ", EmptyPosition);
-                    try
-                    { // Kontrollerar så att användaren använder siffror.
-                        arrayRemoveChoice = int.Parse(Console.ReadLine());
-                        removalController = false;
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("You need to use numbers.");
-                    }
+                    Console.Write("The entry you want to remove (1): ");
                 }
                 else
                 {
                     Console.Write("The entry you want to remove (1-{0}): ", EmptyPosition);
-                    try
-                    { // Kontrollerar så att användaren använder siffror.
-                        arrayRemoveChoice = int.Parse(Console.ReadLine());
-                        removalController = false;
-                    }
-                    catch (Exception)
-                    {
-                        Console.WriteLine("You need to use numbers.");
-                    }
                 }
+
+                try
+                { // Kontrollerar så att användaren använder siffror.
+                    arrayRemoveChoice = int.Parse(Console.ReadLine());
+                    removalController = false;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("You need to use numbers.");
+                }
+
                 if (arrayRemoveChoice > emptyPosition)
                 {
                     Console.WriteLine("Out of range. Choose a valid position");
@@ -228,8 +222,8 @@ namespace LaborationerGP
                 {
                     break;
                 }
-
             }
+
             arrayRemoveChoice--; // För att översätta användarens input till indexposition
             Combined[arrayRemoveChoice * 4] = string.Empty;
             Combined[arrayRemoveChoice * 4 + 1] = string.Empty;
@@ -254,49 +248,32 @@ namespace LaborationerGP
             ArrayDiscombiner(); // Uppdaterar enskilda arrays.
             Console.WriteLine("Done. Removed {0}.", arrayRemoveChoice + 1); // Visar bekräftelse på vad som gjorts.
             Console.ReadLine();
-        } 
+        }
 
         public static void ArrayDetailEditor() // För att redigera saker i albumlistan
         {
-            ArrayDiscombiner(); // Uppdaterar arrays
-            try
-            { // Kontrollerar så att användaren använder siffror
-                Menus.EditDetailChoice = int.Parse(Console.ReadLine());
-            }
-            catch (Exception)
+            bool editChoiceController = true;
+            while (editChoiceController)
             {
-                Console.WriteLine("Please only use numbers between (1-4)");
-            }
+                ArrayDiscombiner(); // Uppdaterar arrays
+                try
+                { // Kontrollerar så att användaren använder siffror
+                    Menus.EditDetailChoice = int.Parse(Console.ReadLine());
+                }
+                catch (Exception)
+                {
+                    
+                }
 
-            if (Menus.EditDetailChoice < 1 || Menus.EditDetailChoice > 4)
-            {
-                Console.WriteLine("Please only use numbers between (1-4)");
+                switch (Menus.EditDetailChoice)
+                {
+                    case 1: chosenEdit = Arrays.Name[Menus.EditChoice - 1]; editChoiceController = false; break;
+                    case 2: chosenEdit = Arrays.Artist[Menus.EditChoice - 1]; editChoiceController = false; break;
+                    case 3: chosenEdit = Arrays.Album[Menus.EditChoice - 1]; editChoiceController = false; break;
+                    case 4: chosenEdit = Arrays.Year[Menus.EditChoice - 1]; editChoiceController = false; break;
+                    default: Console.WriteLine("Please only use numbers between (1-4)"); Console.Write("Enter choice: "); editChoiceController = true; break;
+                }
             }
-            else
-            {
-                Menus.EditDetailChoiceController = false;
-            }
-
-
-            if (Menus.EditDetailChoice == 1)
-            { // Om användaren väljer att redigera namn
-                chosenEdit = Arrays.Name[Menus.EditChoice - 1];
-            }
-            else if (Menus.EditDetailChoice == 2)
-            { // Om användaren väljer att redigera artist
-                chosenEdit = Arrays.Artist[Menus.EditChoice - 1];
-            } 
-            else if (Menus.EditDetailChoice == 3)
-            {// Om användaren väljer att redigera Album
-                chosenEdit = Arrays.Album[Menus.EditChoice - 1];
-            }
-            else if (Menus.EditDetailChoice == 4)
-            { // Om användaren väljer att redigera årtal
-                chosenEdit = Arrays.Year[Menus.EditChoice - 1];
-            }
-            else
-                Console.WriteLine("FEL!");
-
 
             string chosenEditTemporary = chosenEdit;
             Console.WriteLine("You have chosen to edit: {0}", chosenEdit);
@@ -304,26 +281,28 @@ namespace LaborationerGP
             Console.Write("What would you like it to say instead: ");
             chosenEdit = Console.ReadLine();
 
-            if (Menus.EditDetailChoice == 1)
-            { // Väljer att ändra rätt position i rätt array
-                Arrays.Name[Menus.EditChoice - 1] = chosenEdit;
-                Combined[(Menus.EditChoice - 1) * 4] = Name[Menus.EditChoice - 1];
-            }
-            else if (Menus.EditDetailChoice == 2)
+            switch (Menus.EditDetailChoice)
             {
-                Arrays.Artist[Menus.EditChoice - 1] = chosenEdit;
-                Combined[(Menus.EditChoice - 1) * 4 + 1] = Artist[Menus.EditChoice - 1];
+                case 1:
+                    Arrays.Name[Menus.EditChoice - 1] = chosenEdit;
+                    Combined[(Menus.EditChoice - 1) * 4] = Name[Menus.EditChoice - 1];
+                    break;
+
+                case 2:
+                    Arrays.Artist[Menus.EditChoice - 1] = chosenEdit;
+                    Combined[(Menus.EditChoice - 1) * 4 + 1] = Artist[Menus.EditChoice - 1];
+                    break;
+                case 3:
+                    Arrays.Album[Menus.EditChoice - 1] = chosenEdit;
+                    Combined[(Menus.EditChoice - 1) * 4 + 2] = Album[Menus.EditChoice - 1];
+                    break;
+                case 4:
+                    Arrays.Year[Menus.EditChoice - 1] = chosenEdit;
+                    Combined[(Menus.EditChoice - 1) * 4 + 3] = Year[Menus.EditChoice - 1];
+                    break;
+                default: Console.WriteLine("Please only use numbers between (1-4)"); break;
             }
-            else if (Menus.EditDetailChoice == 3)
-            {
-                Arrays.Album[Menus.EditChoice - 1] = chosenEdit;
-                Combined[(Menus.EditChoice - 1) * 4 + 2] = Album[Menus.EditChoice - 1];
-            }
-            else
-            {
-                Arrays.Year[Menus.EditChoice - 1] = chosenEdit;
-                Combined[(Menus.EditChoice - 1) * 4 + 3] = Year[Menus.EditChoice - 1];
-            }
+
 
             Console.WriteLine("Okay. Exchanging {0} to {1}", chosenEditTemporary, chosenEdit);
             Console.ReadLine();
