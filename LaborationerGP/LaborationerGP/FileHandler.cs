@@ -9,7 +9,9 @@ namespace LaborationerGP
 {
     class FileHandler
     {
+            #region Variabler
         static string folderPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        // För att ta reda på Mina Dokument och lagra denna i en string.
 
         static int listLength;
         static string fileName;
@@ -20,6 +22,7 @@ namespace LaborationerGP
             get { return listLength; }
             set { listLength = value; }
         }
+            #endregion
 
         public static void FileFetcher() // För att ladda en fil
         {

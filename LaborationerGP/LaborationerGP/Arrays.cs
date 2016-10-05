@@ -8,6 +8,7 @@ namespace LaborationerGP
 {
     class Arrays
     {
+            #region Variabler
         static int emptyPosition;
         static string chosenEdit;
         public static int EmptyPosition
@@ -59,6 +60,7 @@ namespace LaborationerGP
             get { return combined; }
             set { combined = value; }
         }
+            #endregion
 
         public static void ArrayDiscombiner() // För att spränga upp till individuella arrays
         {

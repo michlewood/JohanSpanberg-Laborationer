@@ -8,6 +8,7 @@ namespace LaborationerGP
 {
     class Menus
     {
+            #region Variabler
         private static int editDetailChoice;
 
         public static int EditDetailChoice
@@ -31,6 +32,7 @@ namespace LaborationerGP
             get { return editDetailChoiceController; }
             set { editDetailChoiceController = value; }
         }
+            #endregion
 
         public static bool MainMenu() // Huvudmenyn.
         {
