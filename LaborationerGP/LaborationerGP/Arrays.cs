@@ -60,27 +60,27 @@ namespace LaborationerGP
             set { combined = value; }
         }
 
-        public static void ArrayDiscombiner()
+        public static void ArrayDiscombiner() // För att spränga upp till individuella arrays
         {
             for (int i = 0; i < FileHandler.ListLength / 4; i++)
-            {
+            { // En for-loop för att gå igenom hela den kombinerade listan och lagrar respektive värde i respektive array.
                 Name[i] = Combined[i * 4];
-                Artist[i] = Combined[i * 4 + 1];
+                Artist[i] = Combined[i * 4 + 1]; // På plats i * 4 + 1
                 Album[i] = Combined[i * 4 + 2];
                 Year[i] = Combined[i * 4 + 3];
             }
-        }
+        } 
 
-        public static void CombinedArrayShower()
+        public static void CombinedArrayShower() // För att visa innehållet i albumlistan
         {
-            Console.Clear();
-            EmptyChecker();
+            Console.Clear(); // Rensa konsollen
+            EmptyChecker(); // Uppdatera lediga platser i albumlistan
             Console.WriteLine("You currently have {0} songs in your list: ", EmptyPosition);
             Console.WriteLine("---");
 
             for (int i = 0; i < artist.Length / 4; i++)
-            {
-                if (string.IsNullOrEmpty(artist[0]))
+            { // En for-loop som snurrar så länge i är mindre än Artist-längd delat på fyra
+                if (string.IsNullOrEmpty(artist[0])) // Om index 0 är tom visas detta
                 {
                     Console.WriteLine("Your list is empty. Import a list to populate it.");
                     Console.WriteLine("Or add items through the itemadder.");
@@ -88,7 +88,7 @@ namespace LaborationerGP
                     break;
                 }
                 else if (!string.IsNullOrEmpty(artist[i]))
-                {
+                { // Om index i innehåller någonting skrivs följande ut
                     Console.WriteLine((i + 1) + ". " + Name[i] + " - " + Artist[i] + " - " + Album[i] + " - " + Year[i]);
                 }
                 else
@@ -97,23 +97,23 @@ namespace LaborationerGP
             }
             Console.WriteLine();
             return;
-        }
+        } 
 
-        public static void EmptyChecker()
+        public static void EmptyChecker() // För att kontrollera var det finns plats för nytt inlägg
         {
             for (int i = 0; i < artist.Length; i++)
-            {
+            { // Snurrar så länge vi inte går utanför artist-längd.
                 if (string.IsNullOrEmpty(artist[i]))
-                {
+                { // Om indexpositionen är tom så sätts emptyposition till indexpositionen.
                     emptyPosition = i;
                     break;
                 }
             }
-        }
+        } 
 
-        public static void ArrayAdder()
+        public static void ArrayAdder() // För att lägga till i albumlistan
         {
-            EmptyChecker();
+            EmptyChecker(); // Uppdaterar var det finns utrymme
 
             Console.WriteLine("We will store your data at position {0}.", emptyPosition + 1);
             Console.WriteLine("since that is empty.");
@@ -125,7 +125,7 @@ namespace LaborationerGP
                 Console.Write("The Name you would like to add: ");
                 nameInput = Console.ReadLine();
                 if (nameInput.Length < 3)
-                {
+                { // Om valt namn är kortare än tre tecken
                     Console.WriteLine("Name needs to be at least 3 letters. Try again.");
                 }
                 else
@@ -134,11 +134,11 @@ namespace LaborationerGP
 
             bool artistInputController = true;
             while (artistInputController)
-            {
+            { 
                 Console.Write("The Artist you would like to add: ");
                 artistInput = Console.ReadLine();
                 if (artistInput.Length < 3)
-                {
+                { // Om artistens namn är kortare än tre tecken
                     Console.WriteLine("Artist name needs to be at least 3 letters. Try again.");
                 }
                 else
@@ -151,7 +151,7 @@ namespace LaborationerGP
                 Console.Write("The Album you would like to add: ");
                 albumInput = Console.ReadLine();
                 if (albumInput.Length < 3)
-                {
+                { // Om albumnamnet är mindre än tre tecken
                     Console.WriteLine("Album name needs to be at least 3 letters. Try again.");
                 }
                 else
@@ -164,34 +164,36 @@ namespace LaborationerGP
                 Console.Write("The year it was released: ");
                 yearInput = Console.ReadLine();
                 if (yearInput.Length < 2)
-                {
+                { // Om årtalet för albumet är kortare än två tecken.
                     Console.WriteLine("You need to enter year with two or four numbers.");
                 }
                 else
                     yearInputController = false;
-            }
+            } // Visar en sammanfattning av vad användaren skrivit in.
             Console.WriteLine("Saving {0} - {1} - {2} - {3} to position {4}", nameInput, artistInput, albumInput, yearInput, emptyPosition + 1);
-            combined[emptyPosition * 4] = nameInput;
+            combined[emptyPosition * 4] = nameInput; // Lagrar input på första tomma position
             combined[emptyPosition * 4 + 1] = artistInput;
             combined[emptyPosition * 4 + 2] = albumInput;
             combined[emptyPosition * 4 + 3] = yearInput;
-            FileHandler.ListLength = Combined.Length;
-            ArrayDiscombiner();
-            EmptyChecker();
-            Console.ReadLine();
-        }
+            FileHandler.ListLength = Combined.Length; // Uppdaterar längden på albumlistan
 
-        public static void ArrayRemover()
+            ArrayDiscombiner(); // Uppdaterar samtliga arrays.
+            EmptyChecker(); // Uppdaterar tom position.
+
+            Console.ReadLine();
+        } 
+
+        public static void ArrayRemover() // För att ta bort ur albumlistan
         {
-            CombinedArrayShower();
-            EmptyChecker();
+            CombinedArrayShower(); // Visar albumlistan
+            EmptyChecker(); // Uppdaterar tom position
             int arrayRemoveChoice = 0;
             bool removalController = true;
             while (removalController)
             {
                 Console.Write("The entry you want to remove (1-{0}): ", EmptyPosition);
                 try
-                {
+                { // Kontrollerar så att användaren använder siffror.
                     arrayRemoveChoice = int.Parse(Console.ReadLine());
                     removalController = false;
                 }
@@ -200,37 +202,37 @@ namespace LaborationerGP
                     Console.WriteLine("You need to use numbers.");
                 }
             }
-            arrayRemoveChoice--;
+            arrayRemoveChoice--; // För att översätta användarens input till indexposition
             Combined[arrayRemoveChoice * 4] = string.Empty;
             Combined[arrayRemoveChoice * 4 + 1] = string.Empty;
             Combined[arrayRemoveChoice * 4 + 2] = string.Empty;
             Combined[arrayRemoveChoice * 4 + 3] = string.Empty;
 
-            int arraySorter = arrayRemoveChoice * 4;
+            int arraySorter = arrayRemoveChoice * 4; // För att göra om användarens input till indexposition
 
             for (int i = arraySorter; i < Combined.Length - 1; i++)
-            {
+            { // Loop som snurrar så länge användarens input är mindre än längden på albumlistan
                 if (string.IsNullOrEmpty(Combined[i + 4]))
-                {
+                { // Om vi når slutet på filen
                     break;
                 }
                 else
-                {
+                { // Flyttar upp varje inlägg en position.
                     string tempCombine = Combined[i + 4];
                     Combined[i] = tempCombine;
                     Combined[i + 4] = string.Empty;
                 }
             }
-            ArrayDiscombiner();
-            Console.WriteLine("Done. Removed {0}.", arrayRemoveChoice + 1);
+            ArrayDiscombiner(); // Uppdaterar enskilda arrays.
+            Console.WriteLine("Done. Removed {0}.", arrayRemoveChoice + 1); // Visar bekräftelse på vad som gjorts.
             Console.ReadLine();
-        }
+        } 
 
-        public static void ArrayDetailEditor()
+        public static void ArrayDetailEditor() // För att redigera saker i albumlistan
         {
-            ArrayDiscombiner();
+            ArrayDiscombiner(); // Uppdaterar arrays
             try
-            {
+            { // Kontrollerar så att användaren använder siffror
                 Menus.EditDetailChoice = int.Parse(Console.ReadLine());
             }
             catch (Exception)
@@ -249,19 +251,19 @@ namespace LaborationerGP
 
 
             if (Menus.EditDetailChoice == 1)
-            {
+            { // Om användaren väljer att redigera namn
                 chosenEdit = Arrays.Name[Menus.EditChoice - 1];
             }
             else if (Menus.EditDetailChoice == 2)
-            {
+            { // Om användaren väljer att redigera artist
                 chosenEdit = Arrays.Artist[Menus.EditChoice - 1];
-            }
+            } 
             else if (Menus.EditDetailChoice == 3)
-            {
+            {// Om användaren väljer att redigera Album
                 chosenEdit = Arrays.Album[Menus.EditChoice - 1];
             }
             else if (Menus.EditDetailChoice == 4)
-            {
+            { // Om användaren väljer att redigera årtal
                 chosenEdit = Arrays.Year[Menus.EditChoice - 1];
             }
             else
@@ -275,7 +277,7 @@ namespace LaborationerGP
             chosenEdit = Console.ReadLine();
 
             if (Menus.EditDetailChoice == 1)
-            {
+            { // Väljer att ändra rätt position i rätt array
                 Arrays.Name[Menus.EditChoice - 1] = chosenEdit;
                 Combined[(Menus.EditChoice - 1) * 4] = Name[Menus.EditChoice - 1];
             }
@@ -300,6 +302,6 @@ namespace LaborationerGP
             ArrayDiscombiner();
             Menus.EditDetailChoiceController = false;
             return;
-        }
+        } 
     }
 }
