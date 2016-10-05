@@ -26,7 +26,6 @@ namespace LaborationerGP
 
         public static void FileFetcher() // För att ladda en fil
         {
-            bool filenameExceptionHandler = true;
             while (true)
             {
                 bool fileNameController = true;
@@ -57,8 +56,6 @@ namespace LaborationerGP
 
                 Arrays.EmptyChecker(); // Metod för att kontrollera var första tomma plats är.
                 Arrays.ArrayDiscombiner(); // Delar upp och uppdaterar de individuella arrayerna.
-
-                filenameExceptionHandler = false; // Loopar om ett fel uppstår vid inhämtning av filnamn.
 
                 Console.WriteLine("File {0}.txt loaded. It was last changed {1}", fileName, File.GetLastWriteTime(folderPath + @"\" + fileName + ".txt")); // Visar bekräftelse på att filen hämtats.
                 Console.WriteLine("Press enter to return to main menu.");

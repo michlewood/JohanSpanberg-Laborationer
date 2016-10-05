@@ -37,7 +37,6 @@ namespace LaborationerGP
         public static bool MainMenu() // Huvudmenyn.
         {
             int mainMenuSwitch = 0;
-            bool mainMenuExceptionHandler = true;
             while (true)
             {
                 Console.Clear();
