@@ -208,6 +208,7 @@ namespace LaborationerGP
                     arrayRemoveChoice = int.Parse(Console.ReadLine());
                     removalController = false;
                 }
+
                 catch (Exception)
                 {
                     Console.WriteLine("You need to use numbers.");
@@ -216,11 +217,6 @@ namespace LaborationerGP
                 if (arrayRemoveChoice > emptyPosition)
                 {
                     Console.WriteLine("Out of range. Choose a valid position");
-                    removalController = true;
-                }
-                else
-                {
-                    break;
                 }
             }
 
