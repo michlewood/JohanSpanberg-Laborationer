@@ -38,17 +38,16 @@ namespace LaborationerGP
                     { // Om användaren skriver mindre än tre tecken i filnamnet.
                         Console.WriteLine("Filename length needs to be at least 3 letters. Try again.");
                     }
-                    else
-                        break;
-                }
 
-                try
-                { // Kontrollerar om filen faktiskt finns. Om den finns så hämtas filens innehåll och lagras i Arrays.Combined.
-                    Arrays.Combined = File.ReadAllLines(folderPath + @"\" + fileName + ".txt");
-                }
-                catch (FileNotFoundException)
-                { // Om filen inte finns.
-                    Console.WriteLine("The file you specified could not be found. Try again.");
+                    try
+                    { // Kontrollerar om filen faktiskt finns. Om den finns så hämtas filens innehåll och lagras i Arrays.Combined.
+                        Arrays.Combined = File.ReadAllLines(folderPath + @"\" + fileName + ".txt");
+                        fileNameController = false;
+                    }
+                    catch (FileNotFoundException)
+                    { // Om filen inte finns.
+                        Console.WriteLine("The file you specified could not be found. Try again.");
+                    }
                 }
 
                 ListLength = Arrays.Combined.Length; // Lagrar längden på den kombinerade arrayen i en int.
@@ -58,7 +57,7 @@ namespace LaborationerGP
 
                 filenameExceptionHandler = false; // Loopar om ett fel uppstår vid inhämtning av filnamn.
 
-                Console.WriteLine("File {0}.txt loaded.", fileName); // Visar bekräftelse på att filen hämtats.
+                Console.WriteLine("File {0}.txt loaded. It was last changed {1}", fileName, File.GetLastWriteTime(folderPath + @"\" + fileName + ".txt")); // Visar bekräftelse på att filen hämtats.
                 Console.WriteLine("Press enter to return to main menu.");
                 Console.ReadLine();
                 break;
