@@ -167,7 +167,7 @@ namespace LaborationerGP
 
                 if (editChoice < 1 && string.IsNullOrEmpty(Arrays.Combined[4]) || string.IsNullOrEmpty(Arrays.Combined[4]) && editChoice > Arrays.EmptyPosition) // Om användaren försöker gå utanför möjligheterna.
                 { // Om editchoice är mindre än 1 och huvudarrayen bara innehåller ett entry, eller om huvudarrayen bara innehåller ett entry och användarvalet är större än albumsamlingens sista entry.
-                    Console.WriteLine("You have to chose a number (1)", Arrays.EmptyPosition);
+                    Console.WriteLine("You have to chose a number (1)");
                     Console.WriteLine();
                 }
                 else if (editChoice < 1 && !string.IsNullOrEmpty(Arrays.Combined[4]) || !string.IsNullOrEmpty(Arrays.Combined[4]) && editChoice > Arrays.EmptyPosition)

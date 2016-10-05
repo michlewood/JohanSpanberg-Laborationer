@@ -13,6 +13,8 @@ namespace LaborationerGP
         {
             while (true)
             {
+                //Console.TreatControlCAsInput = true;
+                Console.Title = "SongArchive 1.0";
                 Menus.MainMenu(); // Kör startmenyn.
             }
         }
