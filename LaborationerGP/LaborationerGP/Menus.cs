@@ -204,7 +204,8 @@ namespace LaborationerGP
                     editChoiceController = false;
                 }
             }
-
+            GUI.CleanUp(); GUI.FileEditorMenu();
+            /*
             EditDetailChoiceController = true;
             while (EditDetailChoiceController)
             { // Visar redigeringsmenyn.
@@ -216,7 +217,7 @@ namespace LaborationerGP
                 Console.WriteLine("---");
                 Console.Write("Enter choice: ");
                 Arrays.ArrayDetailEditor();
-            }
+            }*/
         }
     }
 }

@@ -11,6 +11,13 @@ namespace LaborationerGP
             #region Variabler
         static int emptyPosition;
         static string chosenEdit;
+
+        public static string ChosenEdit
+        {
+            get { return chosenEdit; }
+            set { chosenEdit = value; }
+        }
+
         public static int EmptyPosition
         {
             get { return emptyPosition; }
@@ -249,29 +256,22 @@ namespace LaborationerGP
 
         public static void ArrayDetailEditor() // För att redigera saker i albumlistan
         {
+            
             bool editChoiceController = true;
             while (editChoiceController)
             {
                 ArrayDiscombiner(); // Uppdaterar arrays
-                try
-                { // Kontrollerar så att användaren använder siffror
-                    Menus.EditDetailChoice = int.Parse(Console.ReadLine());
-                }
-                catch (Exception)
-                {
-                    
-                }
 
                 switch (Menus.EditDetailChoice)
                 {
-                    case 1: chosenEdit = Arrays.Name[Menus.EditChoice - 1]; editChoiceController = false; break;
-                    case 2: chosenEdit = Arrays.Artist[Menus.EditChoice - 1]; editChoiceController = false; break;
-                    case 3: chosenEdit = Arrays.Album[Menus.EditChoice - 1]; editChoiceController = false; break;
-                    case 4: chosenEdit = Arrays.Year[Menus.EditChoice - 1]; editChoiceController = false; break;
-                    default: Console.WriteLine("Please only use numbers between (1-4)"); Console.Write("Enter choice: "); editChoiceController = true; break;
+                    case 1: chosenEdit = Name[Menus.EditChoice - 1]; editChoiceController = false; break;
+                    case 2: chosenEdit = Artist[Menus.EditChoice - 1]; editChoiceController = false; break;
+                    case 3: chosenEdit = Album[Menus.EditChoice - 1]; editChoiceController = false; break;
+                    case 4: chosenEdit = Year[Menus.EditChoice - 1]; editChoiceController = false; break;
                 }
             }
 
+            Console.Clear();
             string chosenEditTemporary = chosenEdit;
             Console.WriteLine("You have chosen to edit: {0}", chosenEdit);
             Console.WriteLine(" ");

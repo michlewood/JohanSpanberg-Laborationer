@@ -4,6 +4,62 @@ namespace LaborationerGP
 {
     class GUI
     {
+        public static void FileEditorMenu()
+        {
+            bool fileEditorMenuGuiLoop = true;
+            while (fileEditorMenuGuiLoop)
+            {
+                CleanUp(); // Rensar formateringar
+                Console.TreatControlCAsInput = false; // För att göra en exitmetod som rensar upp istället för att bara stänga.
+                Console.CancelKeyPress += new ConsoleCancelEventHandler(BreakHandler); // Används tillsammans med ovanstående.
+                Console.CursorVisible = false; // Döljer användarens input på tangentbordet.*/
+                Console.Clear(); // Rensar gränssnittet.
+
+
+                string[] fileEditorMenuChoice = { "", "", "", "", }; // Skapar en string för menyn
+
+                fileEditorMenuChoice[0] = "Name(" + Arrays.Name[Menus.EditChoice - 1] + ")";
+                fileEditorMenuChoice[1] = "Artist(" + Arrays.Artist[Menus.EditChoice - 1] + ")";
+                fileEditorMenuChoice[2] = "Album(" + Arrays.Album[Menus.EditChoice - 1] + ")";
+                fileEditorMenuChoice[3] = "Year(" + Arrays.Year[Menus.EditChoice - 1] + ")";
+
+
+                WriteColorString("Choose with ↑/↓ and enter", 34, 10, ConsoleColor.Black, ConsoleColor.White); // Förklaring för användaren
+                int choice = ChooseListBoxItem(fileEditorMenuChoice, 34, 3, ConsoleColor.Blue, ConsoleColor.White); // Lagrar vilket val användaren gör
+
+                if (fileEditorMenuChoice[choice - 1] == "Name(" + Arrays.Name[Menus.EditChoice - 1] + ")")
+                { // Om användaren väljer valet som matchar ovanstående
+                    Menus.EditDetailChoice = 1;
+                    Arrays.ChosenEdit = Arrays.Name[Menus.EditChoice - 1];
+                    fileEditorMenuGuiLoop = false;
+                    Arrays.ArrayDetailEditor();
+                }
+                else if (fileEditorMenuChoice[choice - 1] == "Artist(" + Arrays.Artist[Menus.EditChoice - 1] + ")")
+                {
+                    Menus.EditDetailChoice = 2;
+                    Arrays.ChosenEdit = Arrays.Artist[Menus.EditChoice - 1];
+                    fileEditorMenuGuiLoop = false;
+                    Arrays.ArrayDetailEditor();
+                }
+                else if (fileEditorMenuChoice[choice - 1] == "Album(" + Arrays.Album[Menus.EditChoice - 1] + ")")
+                {
+                    Menus.EditDetailChoice = 3;
+                    Arrays.ChosenEdit = Arrays.Album[Menus.EditChoice - 1];
+                    fileEditorMenuGuiLoop = false;
+                    Arrays.ArrayDetailEditor();
+                }
+                else if (fileEditorMenuChoice[choice - 1] == "Year(" + Arrays.Year[Menus.EditChoice - 1] + ")")
+                {
+                    Menus.EditDetailChoice = 4;
+                    Arrays.ChosenEdit = Arrays.Year[Menus.EditChoice - 1];
+                    fileEditorMenuGuiLoop = false;
+                    Arrays.ArrayDetailEditor();
+                }
+
+            }
+
+        }
+
         static void EditorMenuGUI()
         {
             bool editorMenuGuiLoop = true;
@@ -14,13 +70,13 @@ namespace LaborationerGP
                 Console.CancelKeyPress += new ConsoleCancelEventHandler(BreakHandler); // Används tillsammans med ovanstående.
                 Console.CursorVisible = false; // Döljer användarens input på tangentbordet.*/
                 Console.Clear(); // Rensar gränssnittet.
-                
+
 
                 string[] editorMenuChoice = { "Add to the SongArchive", "", "", "Return to main menu", }; // Skapar en string för menyn
 
                 if (!string.IsNullOrEmpty(Arrays.Combined[0])) // Om albumlistan har ett innehåll.
                 {
-                    editorMenuChoice[0] = "Add to the SongArchive"; 
+                    editorMenuChoice[0] = "Add to the SongArchive";
                     editorMenuChoice[1] = "Remove from the SongArchive";
                     editorMenuChoice[2] = "Edit an entry in the SongArchive";
                     editorMenuChoice[3] = "Return to main menu";
@@ -39,6 +95,7 @@ namespace LaborationerGP
                 }
                 else if (editorMenuChoice[choice - 1] == "Edit an entry in the SongArchive")
                 {
+                    //CleanUp(); FileEditorMenu();
                     CleanUp(); Menus.EditorFileEditMenu();
                 }
                 else if (editorMenuChoice[choice - 1] == "Return to main menu")
@@ -50,7 +107,7 @@ namespace LaborationerGP
 
                 //CleanUp(); // Rensar all formatering
             }
-            
+
         }
         public static void MainMenuGUI()
         {
@@ -133,7 +190,7 @@ namespace LaborationerGP
                     }
                     else
                     { // Annars återgår vi till toppen av listan
-                        choice = 1; 
+                        choice = 1;
                     }
                     WriteColorString(" " + stringItems[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, fore, back);
                 }
@@ -163,15 +220,15 @@ namespace LaborationerGP
             const char LowerRightCorner = '\u2518';
             string fillLine = fill ? new string(' ', lcol - ucol - 1) : ""; // Bakgrundsutfyllnad
             SetColors(back, fore); // Vilka färger som ska användas
-             
+
             Console.SetCursorPosition(ucol, urow); // Ritar toppen av rutan
             Console.Write(UpperLeftCorner);
             for (int i = ucol + 1; i < lcol; i++) // För att bestämma bredd på rutan
             {
                 Console.Write(Horizontal); // Använder tecknet i horizontal
             }
-            Console.Write(UpperRightCorner); 
-            
+            Console.Write(UpperRightCorner);
+
             for (int i = urow + 1; i < lrow; i++) // Ritar sidorna av rutan
             {
                 Console.SetCursorPosition(ucol, i);
@@ -203,7 +260,7 @@ namespace LaborationerGP
             Console.ForegroundColor = fore;
         }
 
-        private static void CleanUp()
+        public static void CleanUp()
         { // Rensar upp efter menyerna
             Console.ResetColor();
             Console.CursorVisible = true;

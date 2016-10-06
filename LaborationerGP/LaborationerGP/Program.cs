@@ -15,7 +15,7 @@ namespace LaborationerGP
             {
                 Console.Title = "SongArchive 1.0";
                 Console.OutputEncoding = Encoding.UTF8;
-                Menus.MenuGUIChoice();
+                GUI.MainMenuGUI();
             }
         }
     }
