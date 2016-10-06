@@ -9,43 +9,46 @@ namespace LaborationerGP
             bool editorMenuGuiLoop = true;
             while (editorMenuGuiLoop)
             {
-                Console.TreatControlCAsInput = false;
-                Console.CancelKeyPress += new ConsoleCancelEventHandler(BreakHandler);
-                Console.Clear();
-                Console.CursorVisible = false;
+                CleanUp(); // Rensar formateringar
+                Console.TreatControlCAsInput = false; // För att göra en exitmetod som rensar upp istället för att bara stänga.
+                Console.CancelKeyPress += new ConsoleCancelEventHandler(BreakHandler); // Används tillsammans med ovanstående.
+                Console.CursorVisible = false; // Döljer användarens input på tangentbordet.*/
+                Console.Clear(); // Rensar gränssnittet.
+                
 
-                string[] editorMenuChoice = { "Add to the SongArchive", "", "", "Return to main menu", };
+                string[] editorMenuChoice = { "Add to the SongArchive", "", "", "Return to main menu", }; // Skapar en string för menyn
 
                 if (!string.IsNullOrEmpty(Arrays.Combined[0])) // Om albumlistan har ett innehåll.
                 {
-                    editorMenuChoice[0] = "Add to the SongArchive";
+                    editorMenuChoice[0] = "Add to the SongArchive"; 
                     editorMenuChoice[1] = "Remove from the SongArchive";
                     editorMenuChoice[2] = "Edit an entry in the SongArchive";
                     editorMenuChoice[3] = "Return to main menu";
                 }
 
-                WriteColorString("Choose with ↑/↓ and enter", 34, 10, ConsoleColor.Black, ConsoleColor.White);
-                int choice = ChooseListBoxItem(editorMenuChoice, 34, 3, ConsoleColor.Blue, ConsoleColor.White);
+                WriteColorString("Choose with ↑/↓ and enter", 34, 10, ConsoleColor.Black, ConsoleColor.White); // Förklaring för användaren
+                int choice = ChooseListBoxItem(editorMenuChoice, 34, 3, ConsoleColor.Blue, ConsoleColor.White); // Lagrar vilket val användaren gör
 
                 if (editorMenuChoice[choice - 1] == "Add to the SongArchive")
-                {
-                    Arrays.ArrayAdder();
+                { // Om användaren väljer valet som matchar ovanstående
+                    CleanUp(); Arrays.ArrayAdder();
                 }
                 else if (editorMenuChoice[choice - 1] == "Remove from the SongArchive")
                 {
-                    Arrays.ArrayRemover();
+                    CleanUp(); Arrays.ArrayRemover();
                 }
                 else if (editorMenuChoice[choice - 1] == "Edit an entry in the SongArchive")
                 {
-                    Menus.EditorFileEditMenu();
+                    CleanUp(); Menus.EditorFileEditMenu();
                 }
                 else if (editorMenuChoice[choice - 1] == "Return to main menu")
                 {
+                    CleanUp();
                     editorMenuGuiLoop = false;
                     return;
                 }
 
-                CleanUp();
+                //CleanUp(); // Rensar all formatering
             }
             
         }
@@ -63,151 +66,154 @@ namespace LaborationerGP
 
             if (mainMenuChoice[choice - 1] == "Quit SongArchive")
             {
-                Environment.Exit(0);
+                CleanUp(); Environment.Exit(0);
             }
             else if (mainMenuChoice[choice - 1] == "Import from a text-file")
             {
-                FileHandler.FileFetcher();
+                CleanUp(); FileHandler.FileFetcher();
             }
             else if (mainMenuChoice[choice - 1] == "Save list to a text-file")
             {
-                FileHandler.FileSaver();
+                CleanUp(); FileHandler.FileSaver();
             }
             else if (mainMenuChoice[choice - 1] == "Show SongArchive")
             {
-                Arrays.CombinedArrayShower(); Console.WriteLine("Press enter to return to the main menu."); Console.ReadLine();
+                CleanUp(); Arrays.CombinedArrayShower(); Console.WriteLine("Press enter to return to the main menu."); Console.ReadLine();
             }
             else if (mainMenuChoice[choice - 1] == "Edit SongArchive")
             {
-                EditorMenuGUI();
+                CleanUp(); EditorMenuGUI();
             }
 
-            CleanUp();
+
         }
 
-        private static int ChooseListBoxItem(string[] items, int ucol, int urow, ConsoleColor back, ConsoleColor fore)
+        private static int ChooseListBoxItem(string[] stringItems, int ucol, int urow, ConsoleColor back, ConsoleColor fore)
         {
-            int numItems = items.Length;
-            int maxLength = items[0].Length;
-            for (int i = 1; i < numItems; i++)
+            int numberOfItemsInString = stringItems.Length; // Kollar och lagrar hur många items som finns i strängen
+            int maxLength = stringItems[0].Length; // Kollar och lagrar längden på strängen
+            for (int i = 1; i < numberOfItemsInString; i++) // For-loop för att formatera storleken på bredden på listboxen
             {
-                if (items[i].Length > maxLength)
+                if (stringItems[i].Length > maxLength)
                 {
-                    maxLength = items[i].Length;
+                    maxLength = stringItems[i].Length;
                 }
             }
-            int[] rightSpaces = new int[numItems];
-            for (int i = 0; i < numItems; i++)
+            int[] rightSpaces = new int[numberOfItemsInString]; // Hur mycket utrymme som behövs till höger
+            for (int i = 0; i < numberOfItemsInString; i++)
             {
-                rightSpaces[i] = maxLength - items[i].Length + 1;
+                rightSpaces[i] = maxLength - stringItems[i].Length + 1; // For-loop för att formatera längden på listboxen
             }
-            int lcol = ucol + maxLength + 3;
-            int lrow = urow + numItems + 1;
-            DrawBox(ucol, urow, lcol, lrow, back, fore, true);
-            WriteColorString(" " + items[0] + new string(' ', rightSpaces[0]), ucol + 1, urow + 1, fore, back);
-            for (int i = 2; i <= numItems; i++)
-            {
-                WriteColorString(items[i - 1], ucol + 2, urow + i, back, fore);
+            int lcol = ucol + maxLength + 3; // För att färglägga rätt antal kolumner
+            int lrow = urow + numberOfItemsInString + 1; // För att färglägga rätt antal rader
+            DrawMenuBox(ucol, urow, lcol, lrow, back, fore, true); // Ritar upp rutan.
+            WriteColorString(" " + stringItems[0] + new string(' ', rightSpaces[0]), ucol + 1, urow + 1, fore, back);
+            for (int i = 2; i <= numberOfItemsInString; i++)
+            { // Formaterar text i textrutan
+                WriteColorString(stringItems[i - 1], ucol + 2, urow + i, back, fore);
             }
-            ConsoleKeyInfo cki;
-            char key;
-            int choice = 1;
+            ConsoleKeyInfo cki; // För att ta emot knapptryck istället för text
+            char key; // För att lagra vilken knapp som tryckts
+            int choice = 1; // Integern för att lagra användarens namn.
 
             while (true)
             {
-                cki = Console.ReadKey(true);
-                key = cki.KeyChar;
-                if (key == '\r') // enter 
+                cki = Console.ReadKey(true); // Läser av vilken knapp som tryckts av användaren
+                key = cki.KeyChar; // Lagrar vilken knapp som tryckts enligt en charmap
+                if (key == '\r') // För att se om användaren väljer menyvalet 
                 {
                     return choice;
                 }
-                else if (cki.Key == ConsoleKey.DownArrow)
-                {
-                    WriteColorString(" " + items[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, back, fore);
-                    if (choice < numItems)
+                else if (cki.Key == ConsoleKey.DownArrow) // Om användaren trycker på nedåtknappen
+                { // Färglägger den nya strängen och återställer den föregående strängen
+                    WriteColorString(" " + stringItems[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, back, fore);
+                    if (choice < numberOfItemsInString) // Om valet är mindre än listans längd
                     {
-                        choice++;
+                        choice++; // Lägger till på choice-integern
                     }
                     else
-                    {
-                        choice = 1;
+                    { // Annars återgår vi till toppen av listan
+                        choice = 1; 
                     }
-                    WriteColorString(" " + items[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, fore, back);
+                    WriteColorString(" " + stringItems[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, fore, back);
                 }
-                else if (cki.Key == ConsoleKey.UpArrow)
+                else if (cki.Key == ConsoleKey.UpArrow) // Gör samma som ovan fast om användaren trycker uppåt på knapparna
                 {
-                    WriteColorString(" " + items[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, back, fore);
+                    WriteColorString(" " + stringItems[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, back, fore);
                     if (choice > 1)
                     {
                         choice--;
                     }
                     else
                     {
-                        choice = numItems;
+                        choice = numberOfItemsInString;
                     }
-                    WriteColorString(" " + items[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, fore, back);
+                    WriteColorString(" " + stringItems[choice - 1] + new string(' ', rightSpaces[choice - 1]), ucol + 1, urow + choice, fore, back);
                 }
             }
         }
-        private static void DrawBox(int ucol, int urow, int lcol, int lrow, ConsoleColor back, ConsoleColor fore, bool fill)
-        {
-            const char Horizontal = '\u2500';
+
+        private static void DrawMenuBox(int ucol, int urow, int lcol, int lrow, ConsoleColor back, ConsoleColor fore, bool fill)
+        { // Metod för att rita ut menyrutan
+            const char Horizontal = '\u2500'; // De tecken som alltid ska användas på denna position i rutan
             const char Vertical = '\u2502';
             const char UpperLeftCorner = '\u250c';
             const char UpperRightCorner = '\u2510';
             const char LowerLeftCorner = '\u2514';
             const char LowerRightCorner = '\u2518';
-            string fillLine = fill ? new string(' ', lcol - ucol - 1) : "";
-            SetColors(back, fore);
-            // draw top edge 
-            Console.SetCursorPosition(ucol, urow);
+            string fillLine = fill ? new string(' ', lcol - ucol - 1) : ""; // Bakgrundsutfyllnad
+            SetColors(back, fore); // Vilka färger som ska användas
+             
+            Console.SetCursorPosition(ucol, urow); // Ritar toppen av rutan
             Console.Write(UpperLeftCorner);
-            for (int i = ucol + 1; i < lcol; i++)
+            for (int i = ucol + 1; i < lcol; i++) // För att bestämma bredd på rutan
             {
-                Console.Write(Horizontal);
+                Console.Write(Horizontal); // Använder tecknet i horizontal
             }
-            Console.Write(UpperRightCorner);
-            // draw sides 
-            for (int i = urow + 1; i < lrow; i++)
+            Console.Write(UpperRightCorner); 
+            
+            for (int i = urow + 1; i < lrow; i++) // Ritar sidorna av rutan
             {
                 Console.SetCursorPosition(ucol, i);
-                Console.Write(Vertical);
-                if (fill) Console.Write(fillLine);
-                Console.SetCursorPosition(lcol, i);
-                Console.Write(Vertical);
+                Console.Write(Vertical); // Använder tecknet i vertical
+                if (fill) Console.Write(fillLine); // Använder utfyllnadstecknet
+                Console.SetCursorPosition(lcol, i); // Flyttar markören
+                Console.Write(Vertical); // Använder vertical
             }
-            // draw bottom edge 
+
             Console.SetCursorPosition(ucol, lrow);
             Console.Write(LowerLeftCorner);
-            for (int i = ucol + 1; i < lcol; i++)
+            for (int i = ucol + 1; i < lcol; i++) // Ritar botten av rutan
             {
                 Console.Write(Horizontal);
             }
             Console.Write(LowerRightCorner);
         }
-        private static void WriteColorString(string s, int col, int row, ConsoleColor back, ConsoleColor fore)
-        {
-            SetColors(back, fore);
-            // write string 
-            Console.SetCursorPosition(col, row);
+
+        private static void WriteColorString(string s, int column, int row, ConsoleColor backGround, ConsoleColor foreGround)
+        { // Metod för att visa nuvarande val i menyn
+            SetColors(backGround, foreGround);
+            Console.SetCursorPosition(column, row);
             Console.Write(s);
         }
+
         private static void SetColors(ConsoleColor back, ConsoleColor fore)
-        {
+        { // För att ställa in färg på konsollen
             Console.BackgroundColor = back;
             Console.ForegroundColor = fore;
         }
+
         private static void CleanUp()
-        {
+        { // Rensar upp efter menyerna
             Console.ResetColor();
             Console.CursorVisible = true;
             Console.Clear();
         }
+
         private static void BreakHandler(object sender, ConsoleCancelEventArgs args)
         {
-            // exit gracefully if Control-C or Control-Break pressed 
+            // Rensar upp om användaren använder ctrl+c.
             CleanUp();
         }
-
     }
 }
