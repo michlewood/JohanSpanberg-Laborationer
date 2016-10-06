@@ -32,7 +32,30 @@ namespace LaborationerGP
             get { return editDetailChoiceController; }
             set { editDetailChoiceController = value; }
         }
-            #endregion
+        #endregion
+        public static void MenuGUIChoice()
+        {
+            int menuGUIChoice = 0;
+            Console.WriteLine("1. Old");
+            Console.WriteLine("2. Modern (default)");
+            Console.Write("Choose design: ");
+            int.TryParse(Console.ReadLine(), out menuGUIChoice);
+
+            if (menuGUIChoice == 1)
+            {
+                while (true)
+                {
+                    MainMenu();
+                }
+            }
+            else
+            {
+                while (true)
+                {
+                    GUI.MainMenuGUI();
+                }
+            }
+        }
 
         public static bool MainMenu() // Huvudmenyn.
         {

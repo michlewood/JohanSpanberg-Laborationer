@@ -13,11 +13,9 @@ namespace LaborationerGP
         {
             while (true)
             {
-                GUI.MainMenuGUI();
-                //Console.TreatControlCAsInput = true;
-                //Console.Title = "SongArchive 1.0";
-                //Menus.MainMenu(); // Kör startmenyn.
-                
+                Console.Title = "SongArchive 1.0";
+                Console.OutputEncoding = Encoding.UTF8;
+                Menus.MenuGUIChoice();
             }
         }
     }

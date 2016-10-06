@@ -6,42 +6,48 @@ namespace LaborationerGP
     {
         static void EditorMenuGUI()
         {
-            Console.TreatControlCAsInput = false;
-            Console.CancelKeyPress += new ConsoleCancelEventHandler(BreakHandler);
-            Console.Clear();
-            Console.CursorVisible = false;
-
-            string[] editorMenuChoice = { "Add to the SongArchive", "", "", "Return to main menu", };
-
-            if (!string.IsNullOrEmpty(Arrays.Combined[0])) // Om albumlistan har ett innehåll.
+            bool editorMenuGuiLoop = true;
+            while (editorMenuGuiLoop)
             {
-                editorMenuChoice[0] = "Add to the SongArchive";
-                editorMenuChoice[1] = "Remove from the SongArchive";
-                editorMenuChoice[2] = "Edit an entry in the SongArchive";
-                editorMenuChoice[3] = "Return to main menu";
-            }
+                Console.TreatControlCAsInput = false;
+                Console.CancelKeyPress += new ConsoleCancelEventHandler(BreakHandler);
+                Console.Clear();
+                Console.CursorVisible = false;
 
-            WriteColorString("Choose from the menu", 34, 10, ConsoleColor.Black, ConsoleColor.White);
-            int choice = ChooseListBoxItem(editorMenuChoice, 34, 3, ConsoleColor.Blue, ConsoleColor.White);
+                string[] editorMenuChoice = { "Add to the SongArchive", "", "", "Return to main menu", };
 
-            if (editorMenuChoice[choice - 1] == "Add to the SongArchive")
-            {
-                Arrays.ArrayAdder();
-            }
-            else if (editorMenuChoice[choice - 1] == "Remove from the SongArchive")
-            {
-                Arrays.ArrayRemover();
-            }
-            else if (editorMenuChoice[choice - 1] == "Edit an entry in the SongArchive")
-            {
-                Menus.EditorFileEditMenu();
-            }
-            else if (editorMenuChoice[choice - 1] == "Return to main menu")
-            {
-                return;
-            }
+                if (!string.IsNullOrEmpty(Arrays.Combined[0])) // Om albumlistan har ett innehåll.
+                {
+                    editorMenuChoice[0] = "Add to the SongArchive";
+                    editorMenuChoice[1] = "Remove from the SongArchive";
+                    editorMenuChoice[2] = "Edit an entry in the SongArchive";
+                    editorMenuChoice[3] = "Return to main menu";
+                }
 
-            CleanUp();
+                WriteColorString("Choose with ↑/↓ and enter", 34, 10, ConsoleColor.Black, ConsoleColor.White);
+                int choice = ChooseListBoxItem(editorMenuChoice, 34, 3, ConsoleColor.Blue, ConsoleColor.White);
+
+                if (editorMenuChoice[choice - 1] == "Add to the SongArchive")
+                {
+                    Arrays.ArrayAdder();
+                }
+                else if (editorMenuChoice[choice - 1] == "Remove from the SongArchive")
+                {
+                    Arrays.ArrayRemover();
+                }
+                else if (editorMenuChoice[choice - 1] == "Edit an entry in the SongArchive")
+                {
+                    Menus.EditorFileEditMenu();
+                }
+                else if (editorMenuChoice[choice - 1] == "Return to main menu")
+                {
+                    editorMenuGuiLoop = false;
+                    return;
+                }
+
+                CleanUp();
+            }
+            
         }
         public static void MainMenuGUI()
         {
@@ -52,7 +58,7 @@ namespace LaborationerGP
 
             string[] mainMenuChoice = { "Import from a text-file", "Save list to a text-file", "Show SongArchive", "Edit SongArchive", "Quit SongArchive" };
 
-            WriteColorString("Choose from the menu", 34, 10, ConsoleColor.Black, ConsoleColor.White);
+            WriteColorString("Choose with ↑/↓ and enter", 34, 10, ConsoleColor.Black, ConsoleColor.White);
             int choice = ChooseListBoxItem(mainMenuChoice, 34, 3, ConsoleColor.Blue, ConsoleColor.White);
 
             if (mainMenuChoice[choice - 1] == "Quit SongArchive")
@@ -79,7 +85,7 @@ namespace LaborationerGP
             CleanUp();
         }
 
-        public static int ChooseListBoxItem(string[] items, int ucol, int urow, ConsoleColor back, ConsoleColor fore)
+        private static int ChooseListBoxItem(string[] items, int ucol, int urow, ConsoleColor back, ConsoleColor fore)
         {
             int numItems = items.Length;
             int maxLength = items[0].Length;
@@ -143,7 +149,7 @@ namespace LaborationerGP
                 }
             }
         }
-        public static void DrawBox(int ucol, int urow, int lcol, int lrow, ConsoleColor back, ConsoleColor fore, bool fill)
+        private static void DrawBox(int ucol, int urow, int lcol, int lrow, ConsoleColor back, ConsoleColor fore, bool fill)
         {
             const char Horizontal = '\u2500';
             const char Vertical = '\u2502';
@@ -179,19 +185,19 @@ namespace LaborationerGP
             }
             Console.Write(LowerRightCorner);
         }
-        public static void WriteColorString(string s, int col, int row, ConsoleColor back, ConsoleColor fore)
+        private static void WriteColorString(string s, int col, int row, ConsoleColor back, ConsoleColor fore)
         {
             SetColors(back, fore);
             // write string 
             Console.SetCursorPosition(col, row);
             Console.Write(s);
         }
-        public static void SetColors(ConsoleColor back, ConsoleColor fore)
+        private static void SetColors(ConsoleColor back, ConsoleColor fore)
         {
             Console.BackgroundColor = back;
             Console.ForegroundColor = fore;
         }
-        public static void CleanUp()
+        private static void CleanUp()
         {
             Console.ResetColor();
             Console.CursorVisible = true;
