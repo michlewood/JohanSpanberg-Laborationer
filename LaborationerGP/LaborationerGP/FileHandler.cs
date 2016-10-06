@@ -28,6 +28,7 @@ namespace LaborationerGP
         {
             while (true)
             {
+                Console.Clear();
                 bool fileNameController = true;
                 while (fileNameController)
                 {
@@ -69,6 +70,7 @@ namespace LaborationerGP
             bool fileNameController = true;
             while (fileNameController)
             {
+                Console.Clear();
                 Menus.FileSelector(); // Visar prompt för filnamnsval
                 
                 saveFileName = Console.ReadLine();

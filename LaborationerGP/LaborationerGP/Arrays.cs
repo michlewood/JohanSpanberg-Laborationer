@@ -115,6 +115,7 @@ namespace LaborationerGP
 
         public static void ArrayAdder() // För att lägga till i albumlistan
         {
+            Console.Clear();
             EmptyChecker(); // Uppdaterar var det finns utrymme
 
             Console.WriteLine("We will store your data at position {0}.", emptyPosition + 1);
