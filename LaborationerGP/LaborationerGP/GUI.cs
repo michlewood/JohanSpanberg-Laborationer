@@ -109,6 +109,7 @@ namespace LaborationerGP
             }
 
         }
+
         public static void MainMenuGUI()
         {
             Console.TreatControlCAsInput = false;

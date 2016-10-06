@@ -13,7 +13,7 @@ namespace LaborationerGP
         {
             while (true)
             {
-                Console.Title = "SongArchive 1.0";
+                Console.Title = "SongArchive 2.0";
                 Console.OutputEncoding = Encoding.UTF8;
                 GUI.MainMenuGUI();
             }
