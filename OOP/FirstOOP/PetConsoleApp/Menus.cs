@@ -16,15 +16,15 @@ namespace PetConsoleApp
             do
             {
 
-                Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
-                Console.WriteLine("┃                Vad vill du göra?                ┃");
-                Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
-                Console.WriteLine("┃      (L)ägg till hund                           ┃");
-                Console.WriteLine("┃      (T)a bort hund                             ┃");
-                Console.WriteLine("┃      (V)isa hundar                              ┃");
-                Console.WriteLine("┃      (S)täng programmet.                        ┃");
-                Console.WriteLine("┃      (Välj genom att använda L, T, V och S)     ┃");
-                Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+                Console.WriteLine("\t\t┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                Console.WriteLine("\t\t┃                Vad vill du göra?                ┃");
+                Console.WriteLine("\t\t┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
+                Console.WriteLine("\t\t┃      (L)ägg till hund                           ┃");
+                Console.WriteLine("\t\t┃      (T)a bort hund                             ┃");
+                Console.WriteLine("\t\t┃      (V)isa hundar                              ┃");
+                Console.WriteLine("\t\t┃      (S)täng programmet.                        ┃");
+                Console.WriteLine("\t\t┃      (Välj genom att använda L, T, V och S)     ┃");
+                Console.WriteLine("\t\t┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
 
                 var input = Console.ReadKey(true).Key;
                 switch (input)
