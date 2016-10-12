@@ -10,9 +10,8 @@ namespace PetConsoleApp
     {
         static void Main(string[] args)
         {
-            var runtime = new Runtime();
-            Menus.MainMenu();
-
+            var menus = new Menus();
+            menus.MainMenu();
         }
     }
 }

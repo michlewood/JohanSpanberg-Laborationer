@@ -19,9 +19,9 @@ namespace PetConsoleApp
 
         public Dog(string name, int age, string breed)
         {
-            name = Name;
-            age = Age;
-            breed = Breed;
+            Name = name;
+            Age = age;
+            Breed = breed;
         }
 
         public string DogIntroduction()

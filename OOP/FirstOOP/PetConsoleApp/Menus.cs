@@ -8,8 +8,9 @@ namespace PetConsoleApp
 {
     class Menus
     {
-        public static void MainMenu()
+        public void MainMenu()
         {
+            Runtime runtime = new Runtime();
             bool loop = false;
             Console.Clear();
             do
@@ -24,12 +25,11 @@ namespace PetConsoleApp
                 var input = Console.ReadKey(true).Key;
                 switch (input)
                 {
-                    case ConsoleKey.L: Runtime.DogAdder(); loop = true; break;
-                    case ConsoleKey.T: Runtime.DogRemover(); loop = true; break;
-                    case ConsoleKey.V: Runtime.DogShower(); loop = true; break;
+                    case ConsoleKey.L: runtime.DogAdder(); loop = true; break;
+                    case ConsoleKey.T: runtime.DogRemover(); loop = true; break;
+                    case ConsoleKey.V: runtime.DogShower(); Console.Clear(); loop = true; break;
                     case ConsoleKey.S: Environment.Exit(0); break;
                     default: Console.WriteLine("Använd bara L, T, V eller S."); loop = true; break;
-
                 }
             } while (loop);
         }
