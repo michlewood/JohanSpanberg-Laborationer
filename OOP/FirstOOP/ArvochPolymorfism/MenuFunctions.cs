@@ -16,7 +16,7 @@ namespace ArvochPolymorfism
             
             };
 
-        public void DogShower()
+        public void AnimalShower()
 
         {
             int i = 0;
@@ -30,7 +30,7 @@ namespace ArvochPolymorfism
         }
 
 
-        public void DogAdder()
+        public void AnimalAdder()
 
         {
 
@@ -56,11 +56,11 @@ namespace ArvochPolymorfism
 
 
 
-        public void DogRemover()
+        public void AnimalRemover()
 
         {
 
-            DogShower();
+            AnimalShower();
 
             Console.WriteLine("Vilken hund vill du ta bort?");
             int input = int.Parse(Console.ReadLine());
