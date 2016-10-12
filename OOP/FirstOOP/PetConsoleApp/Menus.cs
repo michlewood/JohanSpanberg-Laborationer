@@ -21,6 +21,7 @@ namespace PetConsoleApp
                 Console.WriteLine("(T)a bort hund");
                 Console.WriteLine("(V)isa hundar");
                 Console.WriteLine("(S)täng programmet.");
+                Console.WriteLine("(Välj genom att använda L, T, V och S)");
 
                 var input = Console.ReadKey(true).Key;
                 switch (input)
