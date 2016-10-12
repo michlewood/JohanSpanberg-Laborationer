@@ -12,7 +12,10 @@ namespace ArvochPolymorfism
         {
             Console.WriteLine("Hejsan!");
             var dog = new Dog();
+            var snake = new Snake();
+
             Console.WriteLine(dog.Move());
+            Console.WriteLine(snake.Sound());
             Console.ReadLine();
         }
     }
