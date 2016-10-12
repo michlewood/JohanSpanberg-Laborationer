@@ -8,44 +8,30 @@ namespace PetConsoleApp
 {
     class Menus
     {
-        static void MainMenu()
+        public static void MainMenu()
         {
             bool loop = false;
+            Console.Clear();
             do
             {
+                
                 Console.WriteLine("Vad vill du göra?");
-                Console.WriteLine("1. Lägg till hund");
-                Console.WriteLine("2. Ta bort hund");
-                Console.WriteLine("3. Visa hundar");
-                Console.WriteLine("4. Stäng programmet.");
+                Console.WriteLine("(L)ägg till hund");
+                Console.WriteLine("(T)a bort hund");
+                Console.WriteLine("(V)isa hundar");
+                Console.WriteLine("(S)täng programmet.");
 
                 var input = Console.ReadKey(true).Key;
                 switch (input)
                 {
-                    case ConsoleKey.L: break;
-                    case ConsoleKey.T: break;
-                    case ConsoleKey.V: break;
-                    case ConsoleKey.S: break;
-                    default: Console.WriteLine("Använd bara L, T, V eller S."); break;
+                    case ConsoleKey.L: Runtime.DogAdder(); loop = true; break;
+                    case ConsoleKey.T: Runtime.DogRemover(); loop = true; break;
+                    case ConsoleKey.V: Runtime.DogShower(); loop = true; break;
+                    case ConsoleKey.S: Environment.Exit(0); break;
+                    default: Console.WriteLine("Använd bara L, T, V eller S."); loop = true; break;
 
                 }
             } while (loop);
-
-
-
-        }
-
-        static void DogAdder()
-        {
-
-        }
-        static void DogRemover()
-        {
-
-        }
-        static void DogShower()
-        {
-
         }
     }
 }

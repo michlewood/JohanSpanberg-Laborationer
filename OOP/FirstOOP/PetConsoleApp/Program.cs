@@ -11,7 +11,8 @@ namespace PetConsoleApp
         static void Main(string[] args)
         {
             var runtime = new Runtime();
-            runtime.Start();
+            Menus.MainMenu();
+
         }
     }
 }

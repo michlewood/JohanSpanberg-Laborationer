@@ -8,9 +8,7 @@ namespace PetConsoleApp
 {
     class Runtime
     {
-        public void Start()
-        {
-            List<Dog> dogs = new List<Dog>()
+        static List<Dog> dogs = new List<Dog>()
 
             {
                 new Dog { Name = "Per", Age = 14, Breed = "Dobermann" },
@@ -19,12 +17,34 @@ namespace PetConsoleApp
                 new Dog { Name = "Lisa", Age = 7, Breed = "Tax" },
                 new Dog { Name = "Jacko", Age = 12, Breed = "Bichon Frisé" },
             };
+
+        public static void DogShower()
+        {
+            int i = 0;
             foreach (var dog in dogs)
             {
-                Console.WriteLine(dog.DogIntroduction());
+                i++;
+                Console.WriteLine(i + ". " + dog.DogIntroduction());
             }
             Console.ReadLine();
         }
 
+        public static void DogAdder()
+        {
+            Console.WriteLine("Hundens namn: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Hundens ålder: ");
+            int age = int.Parse(Console.ReadLine());
+            Console.WriteLine("Hundens ras: ");
+            string breed = Console.ReadLine();
+
+            dogs.Add(new Dog(name, age, breed));
+            Console.WriteLine("Lägger till {0}, {1} och {2}", name, age, breed);
+
+        }
+        public static void DogRemover()
+        {
+
+        }
     }
 }
