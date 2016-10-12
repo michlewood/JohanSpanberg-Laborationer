@@ -32,8 +32,8 @@ namespace KlasserOchObjekt
             //Console.WriteLine(personOne.Name);
             //Console.WriteLine(personTwo.Name);
             //Console.WriteLine(personThree.Name);
-            #endregion
 
+            /*
             Random random = new Random();
 
             List<Person> people = new List<Person>()
@@ -55,8 +55,40 @@ namespace KlasserOchObjekt
                 Console.WriteLine(person.Introduction());
             }
 
+            */
+            #endregion
 
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
 
+            Console.Write("Age: ");
+            int age = int.Parse(Console.ReadLine());
+
+            Console.Write("City: ");
+            string city = Console.ReadLine();
+
+            Person newPerson = new Person
+            {
+                Name = name,
+                Age = age,
+                City = city
+            };
+
+            bool loop = false;
+            do
+            {
+                loop = false;
+                Console.WriteLine("Would you like to introduce yourself? (y/n)");
+
+                var input = Console.ReadKey(true).Key;
+
+                switch (input)
+                {
+                    case ConsoleKey.Y: Console.WriteLine(newPerson.Introduction()); break;
+                    case ConsoleKey.N: Console.WriteLine("Okay. Bye!"); break;
+                    default: loop = true; break;
+                }
+            } while (loop);
             Console.ReadLine();
         }
     }
