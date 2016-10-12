@@ -26,9 +26,7 @@ namespace PetConsoleApp
                 i++;
                 Console.WriteLine(i + ". " + dog.DogIntroduction());
             }
-            Console.WriteLine("Tryck enter för att gå vidare.");
-            Console.WriteLine("");
-            Console.ReadLine();
+            AfterInfo();
         }
 
         public void DogAdder()
@@ -42,26 +40,31 @@ namespace PetConsoleApp
             string breed = Console.ReadLine();
 
             dogs.Add(new Dog(name, age, breed));
-            Console.WriteLine("Lägger till {0}, {1} och {2}", name, age, breed);
-            Console.WriteLine("Tryck enter för att gå vidare.");
-            Console.WriteLine("");
-            Console.ReadLine();
+            Console.WriteLine("Lägger till {0}, {1}, {2}", name, age, breed);
+            AfterInfo();
             Console.Clear();
-
         }
 
         public void DogRemover()
         {
             DogShower();
+
             Console.WriteLine("Vilken hund vill du ta bort?");
             int input = int.Parse(Console.ReadLine());
             Console.WriteLine("Tar bort {0}", input);
+
             input--;
             dogs.RemoveAt(input);
+
+            AfterInfo();
+
+            Console.Clear();
+        }
+        public void AfterInfo()
+        {
             Console.WriteLine("Tryck enter för att gå vidare.");
             Console.WriteLine("");
             Console.ReadLine();
-            Console.Clear();
         }
     }
 }

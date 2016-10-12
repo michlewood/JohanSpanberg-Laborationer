@@ -10,6 +10,7 @@ namespace PetConsoleApp
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = Encoding.UTF8;
             var menus = new Menus();
             menus.MainMenu();
         }

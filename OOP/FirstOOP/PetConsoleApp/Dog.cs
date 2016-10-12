@@ -26,7 +26,7 @@ namespace PetConsoleApp
 
         public string DogIntroduction()
         {
-            return String.Format("Mitt namn är {0}. Jag är en {1} år gammal {2}", Name, Age, Breed);
+            return String.Format("{0}. En {1} år gammal {2}", Name, Age, Breed);
         }
 
     }
