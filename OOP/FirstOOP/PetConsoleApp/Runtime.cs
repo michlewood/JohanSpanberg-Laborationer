@@ -32,15 +32,16 @@ namespace PetConsoleApp
         public void DogAdder()
         {
             Console.Clear();
+            Dog newDog = new Dog();
             Console.WriteLine("Hundens namn: ");
-            string name = Console.ReadLine();
+            newDog.Name = Console.ReadLine();
             Console.WriteLine("Hundens ålder: ");
-            int age = int.Parse(Console.ReadLine());
+            newDog.Age = int.Parse(Console.ReadLine());
             Console.WriteLine("Hundens ras: ");
-            string breed = Console.ReadLine();
+            newDog.Breed = Console.ReadLine();
 
-            dogs.Add(new Dog(name, age, breed));
-            Console.WriteLine("Lägger till {0}, {1}, {2}", name, age, breed);
+            dogs.Add(newDog);
+            Console.WriteLine("Lägger till {0}, {1}, {2}", newDog.Name, newDog.Age, newDog.Breed);
             AfterInfo();
             Console.Clear();
         }
@@ -53,8 +54,7 @@ namespace PetConsoleApp
             int input = int.Parse(Console.ReadLine());
             Console.WriteLine("Tar bort {0}", input);
 
-            input--;
-            dogs.RemoveAt(input);
+            dogs.RemoveAt(input -1);
 
             AfterInfo();
 

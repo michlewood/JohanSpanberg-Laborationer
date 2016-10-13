@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArvochPolymorfism
+namespace ArvochPolymorfism2
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.OutputEncoding = Encoding.UTF8;
-            var runtime = new Runtime();
+            Runtime runtime = new Runtime();
             runtime.Start();
         }
     }
