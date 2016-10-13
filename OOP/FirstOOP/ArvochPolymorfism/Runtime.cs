@@ -33,7 +33,6 @@ namespace ArvochPolymorfism
         {
             Menus.optionalChoice = "\t\t┃                                                  ┃";
             bool loop = false;
-            Console.Clear();
             do
             {
                 Menus.EditMenuGUI();
@@ -67,7 +66,6 @@ namespace ArvochPolymorfism
                             Console.WriteLine("Använd bara D, R, F eller G.");
                             loop = true;
                             Console.ReadLine();
-                            Console.Clear();
                             break;
                         }
                 }
@@ -164,7 +162,6 @@ namespace ArvochPolymorfism
             AnimalUpdater();
             Menus.optionalChoice = "\t\t┃      (V)isa alla dina djur.                      ┃";
             bool loop = false;
-            Console.Clear();
             do
             {
                 Menus.EditMenuGUI();
@@ -222,7 +219,13 @@ namespace ArvochPolymorfism
                         }
                         loop = true; break;
                     case ConsoleKey.G: loop = false; break;
-                    default: Console.WriteLine("Använd bara D, R, F, V eller G."); loop = true; Console.ReadLine(); Console.Clear(); break;
+                    default:
+                        {
+                            Console.WriteLine("Använd bara D, R, F, V eller G.");
+                            loop = true;
+                            Console.ReadLine();
+                            break;
+                        }
                 }
 
             } while (loop);
@@ -256,7 +259,8 @@ namespace ArvochPolymorfism
                             mammals.RemoveAt(removalChoice - 1);
                             Console.WriteLine("Klart. Tog bort position {0}.", removalChoice);
                         }
-                        loop = true; break;
+                        loop = true;
+                        break;
                     case ConsoleKey.R:
                         {
                             int i = 0;
@@ -271,7 +275,8 @@ namespace ArvochPolymorfism
                             reptiles.RemoveAt(removalChoice - 1);
                             Console.WriteLine("Klart. Tog bort position {0}.", removalChoice);
                         }
-                        loop = true; break;
+                        loop = true;
+                        break;
                     case ConsoleKey.F:
                         {
                             int i = 0;
@@ -286,9 +291,16 @@ namespace ArvochPolymorfism
                             birds.RemoveAt(removalChoice - 1);
                             Console.WriteLine("Klart. Tog bort position {0}.", removalChoice);
                         }
-                        loop = true; break;
+                        loop = true;
+                        break;
                     case ConsoleKey.G: loop = false; break;
-                    default: Console.WriteLine("Använd bara D, R, F eller G."); loop = true; Console.ReadLine(); Console.Clear(); break;
+                    default:
+                        {
+                            Console.WriteLine("Använd bara D, R, F eller G.");
+                            loop = true;
+                            Console.ReadLine();
+                            break;
+                        }
                 }
 
             } while (loop);

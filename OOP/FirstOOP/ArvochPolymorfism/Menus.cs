@@ -15,7 +15,6 @@ namespace ArvochPolymorfism
         {
 
             bool loop = false;
-            Console.Clear();
             do
             {
                 Console.Clear();
@@ -50,7 +49,6 @@ namespace ArvochPolymorfism
                         {
                             Runtime.variableMenuShower = "Visa dina ";
                             Runtime.AnimalShower();
-                            Console.Clear();
                             loop = true; break;
                         }
                     case ConsoleKey.S: Environment.Exit(0); break;
@@ -59,17 +57,15 @@ namespace ArvochPolymorfism
                             Console.WriteLine("Använd bara L, T, V eller S.");
                             loop = true;
                             Console.ReadLine();
-                            Console.Clear();
                             break;
                         }
                 }
-
             } while (loop);
 
         }
         public static void EditMenuGUI()
         {
-
+            Console.Clear();
             Console.WriteLine("\t\t┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
             Console.WriteLine("\t\t┃                Vad vill du göra?                 ┃");
             Console.WriteLine("\t\t┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
