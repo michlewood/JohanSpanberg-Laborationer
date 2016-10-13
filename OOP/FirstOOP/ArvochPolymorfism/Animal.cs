@@ -11,17 +11,21 @@ namespace ArvochPolymorfism
         public string AnimalType { get; set; }
         public string AnimalName { get; set; }
         public int Age { get; set; }
-        public int Weight { get; set; }
         public int Height { get; set; }
         public int NumberOfLegs { get; set; }
-        public int CanSwim { get; set; }
-        public int Looks { get; set; }
         public int Move { get; set; }
         public string Sound { get; set; }
 
         public virtual string Presentation()
         {
-            return String.Format("Jag är en {0} som heter {1} och är {2} år gammal. Jag är {3} cm lång och har {4} ben. Jag kan {5}", AnimalType, AnimalName, Age, Height, NumberOfLegs, Sound);
+            return String.Format("{0} vid namn {1}. {2} år. {3} cm lång med {4} ben. Jag låter '{5}' ", 
+                                    AnimalType, 
+                                    AnimalName, 
+                                    Age, 
+                                    Height, 
+                                    NumberOfLegs, 
+                                    Sound
+                                    );
         }
     }
 
@@ -32,7 +36,10 @@ namespace ArvochPolymorfism
 
         public override string Presentation()
         {
-            return String.Format("{0}. Jag har dessutom {1} cm lång päls.", base.Presentation(), FurLength);
+            return String.Format("{0}. {1} cm lång päls.", 
+                                    base.Presentation(), 
+                                    FurLength
+                                    );
         }
     }
     public class Reptile : Animal
@@ -41,7 +48,10 @@ namespace ArvochPolymorfism
 
         public override string Presentation()
         {
-            return String.Format("{0}. Jag ömsar dessutom mitt skinn {1} gånger per år.", base.Presentation(), SkinShredding);
+            return String.Format("{0}. Ömsar skinn {1} gånger per år.", 
+                                    base.Presentation(), 
+                                    SkinShredding
+                                    );
         }
 
     }
@@ -53,7 +63,10 @@ namespace ArvochPolymorfism
 
         public override string Presentation()
         {
-            return String.Format("{0}. Min näbb dessutom är {1} cm lång.", base.Presentation(), BeakSize);
+            return String.Format("{0}. Näbblängd: {1} cm.", 
+                                    base.Presentation(), 
+                                    BeakSize
+                                    );
         }
     }
 }

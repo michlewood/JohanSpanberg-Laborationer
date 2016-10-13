@@ -42,11 +42,34 @@ namespace ArvochPolymorfism
 
                 switch (input)
                 {
-                    case ConsoleKey.D: AnimalAdder(input); loop = true; break;
-                    case ConsoleKey.R: AnimalAdder(input); loop = true; break;
-                    case ConsoleKey.F: AnimalAdder(input); loop = true; break;
+                    case ConsoleKey.D:
+                        {
+                            AnimalAdder(input);
+                            loop = true;
+                            break;
+                        }
+
+                    case ConsoleKey.R:
+                        {
+                            AnimalAdder(input);
+                            loop = true;
+                            break;
+                        }
+                    case ConsoleKey.F:
+                        {
+                            AnimalAdder(input);
+                            loop = true;
+                            break;
+                        }
                     case ConsoleKey.G: loop = false; break;
-                    default: Console.WriteLine("Använd bara D, R, F eller G."); loop = true; Console.ReadLine(); Console.Clear(); break;
+                    default:
+                        {
+                            Console.WriteLine("Använd bara D, R, F eller G.");
+                            loop = true;
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+                        }
                 }
 
             } while (loop);
@@ -56,16 +79,22 @@ namespace ArvochPolymorfism
         {
             Console.Write("Ange djurras: ");
             typeWhenAddingNewAnimal = Console.ReadLine();
+
             Console.Write("Djurets namn: ");
             nameWhenAddingNewAnimal = Console.ReadLine();
+
             Console.Write("Beskriv djurets läte med ett ord: ");
             soundWhenAddingNewAnimal = Console.ReadLine();
+
             Console.Write("Ange åldern: ");
             ageWhenAddingNewAnimal = int.Parse(Console.ReadLine());
+
             Console.Write("Ange antal ben: ");
             numberOfLegsWhenAddingNewAnimal = int.Parse(Console.ReadLine());
+
             Console.Write("Ange vikt: ");
             weightWhenAddingNewAnimal = int.Parse(Console.ReadLine());
+
             Console.Write("Ange höjd/längd: ");
             heightWhenAddingNewAnimal = int.Parse(Console.ReadLine());
         }
@@ -80,7 +109,17 @@ namespace ArvochPolymorfism
                 int furLength = int.Parse(Console.ReadLine());
                 Console.Write("Ange springhastighet: ");
                 int runSpeed = int.Parse(Console.ReadLine());
-                mammals.Add(new Mammal { AnimalType = typeWhenAddingNewAnimal, AnimalName = nameWhenAddingNewAnimal, Age = ageWhenAddingNewAnimal, NumberOfLegs = numberOfLegsWhenAddingNewAnimal, Weight = weightWhenAddingNewAnimal, Height = heightWhenAddingNewAnimal, FurLength = furLength, CanRun = runSpeed, Sound = soundWhenAddingNewAnimal });
+                mammals.Add(new Mammal
+                {
+                    AnimalType = typeWhenAddingNewAnimal,
+                    AnimalName = nameWhenAddingNewAnimal,
+                    Age = ageWhenAddingNewAnimal,
+                    NumberOfLegs = numberOfLegsWhenAddingNewAnimal,
+                    Height = heightWhenAddingNewAnimal,
+                    FurLength = furLength,
+                    CanRun = runSpeed,
+                    Sound = soundWhenAddingNewAnimal
+                });
 
             }
             else if (input == ConsoleKey.R)
@@ -89,7 +128,16 @@ namespace ArvochPolymorfism
                 AnimalAddingQuestions();
                 Console.Write("Skinömsningsfrekvens per år: ");
                 int skinShredding = int.Parse(Console.ReadLine());
-                reptiles.Add(new Reptile { AnimalType = typeWhenAddingNewAnimal, AnimalName = nameWhenAddingNewAnimal, Age = ageWhenAddingNewAnimal, NumberOfLegs = numberOfLegsWhenAddingNewAnimal, Weight = weightWhenAddingNewAnimal, Height = heightWhenAddingNewAnimal, SkinShredding = skinShredding, Sound = soundWhenAddingNewAnimal });
+                reptiles.Add(new Reptile
+                {
+                    AnimalType = typeWhenAddingNewAnimal,
+                    AnimalName = nameWhenAddingNewAnimal,
+                    Age = ageWhenAddingNewAnimal,
+                    NumberOfLegs = numberOfLegsWhenAddingNewAnimal,
+                    Height = heightWhenAddingNewAnimal,
+                    SkinShredding = skinShredding,
+                    Sound = soundWhenAddingNewAnimal
+                });
 
             }
             else if (input == ConsoleKey.F)
@@ -98,7 +146,16 @@ namespace ArvochPolymorfism
                 AnimalAddingQuestions();
                 Console.Write("Näbblängd i cm: ");
                 int beakLength = int.Parse(Console.ReadLine());
-                birds.Add(new Bird { AnimalType = typeWhenAddingNewAnimal, AnimalName = nameWhenAddingNewAnimal, Age = ageWhenAddingNewAnimal, NumberOfLegs = numberOfLegsWhenAddingNewAnimal, Weight = weightWhenAddingNewAnimal, Height = heightWhenAddingNewAnimal, BeakSize = beakLength, Sound = soundWhenAddingNewAnimal });
+                birds.Add(new Bird
+                {
+                    AnimalType = typeWhenAddingNewAnimal,
+                    AnimalName = nameWhenAddingNewAnimal,
+                    Age = ageWhenAddingNewAnimal,
+                    NumberOfLegs = numberOfLegsWhenAddingNewAnimal,
+                    Height = heightWhenAddingNewAnimal,
+                    BeakSize = beakLength,
+                    Sound = soundWhenAddingNewAnimal
+                });
 
             }
         }
@@ -231,7 +288,7 @@ namespace ArvochPolymorfism
                         }
                         loop = true; break;
                     case ConsoleKey.G: loop = false; break;
-                    default: Console.WriteLine("Använd bara L, T, V eller S."); loop = true; Console.ReadLine(); Console.Clear(); break;
+                    default: Console.WriteLine("Använd bara D, R, F eller G."); loop = true; Console.ReadLine(); Console.Clear(); break;
                 }
 
             } while (loop);

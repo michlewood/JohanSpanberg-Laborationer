@@ -32,11 +32,36 @@ namespace ArvochPolymorfism
                 var input = Console.ReadKey(true).Key;
                 switch (input)
                 {
-                    case ConsoleKey.L: Runtime.variableMenuShower = "Lägg till "; Runtime.EditMenu(); loop = true; break;
-                    case ConsoleKey.T: Runtime.variableMenuShower = "Radera ett"; Runtime.AnimalRemover(); loop = true; break;
-                    case ConsoleKey.V: Runtime.variableMenuShower = "Visa dina "; Runtime.AnimalShower(); Console.Clear(); loop = true; break;
+                    case ConsoleKey.L:
+                        {
+                            Runtime.variableMenuShower = "Lägg till ";
+                            Runtime.EditMenu();
+                            loop = true;
+                            break;
+                        }
+                    case ConsoleKey.T:
+                        {
+                            Runtime.variableMenuShower = "Radera ett";
+                            Runtime.AnimalRemover();
+                            loop = true;
+                            break;
+                        }
+                    case ConsoleKey.V:
+                        {
+                            Runtime.variableMenuShower = "Visa dina ";
+                            Runtime.AnimalShower();
+                            Console.Clear();
+                            loop = true; break;
+                        }
                     case ConsoleKey.S: Environment.Exit(0); break;
-                    default: Console.WriteLine("Använd bara L, T, V eller S."); loop = true; Console.ReadLine(); Console.Clear(); break;
+                    default:
+                        {
+                            Console.WriteLine("Använd bara L, T, V eller S.");
+                            loop = true;
+                            Console.ReadLine();
+                            Console.Clear();
+                            break;
+                        }
                 }
 
             } while (loop);
