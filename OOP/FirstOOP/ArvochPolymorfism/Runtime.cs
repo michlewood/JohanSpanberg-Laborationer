@@ -18,10 +18,15 @@ namespace ArvochPolymorfism
 
         public static string variableMenuShower { get; set; }
 
+        static List<Animal> allAnimals = new List<Animal>();
+
         static List<Mammal> mammals = new List<Mammal>();
         static List<Reptile> reptiles = new List<Reptile>();
         static List<Bird> birds = new List<Bird>();
-        static List<Animal> allAnimals = new List<Animal>();
+
+        static List<Dog> dogs = new List<Dog>();
+        static List<Snake> snakes = new List<Snake>();
+        static List<Eagle> eagles = new List<Eagle>();
 
 
         public void Start()

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="ArvochPolymorfism.Runtime" Collapsed="true">
-    <Position X="12.5" Y="2.25" Width="1.5" />
+    <Position X="15.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAoAAASAIEAACBAICAAAAgAAAEQAAAIAAAAAIAgQ=</HashCode>
+      <HashCode>AAAAAoAAASAYkAACBAICAAAAgAAAEQAACIAAAAAIAgQ=</HashCode>
       <FileName>Runtime.cs</FileName>
       <NewMemberFileName>Animal.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -34,6 +34,27 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAABAAAACAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArvochPolymorfism.Dog">
+    <Position X="10" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mammals.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArvochPolymorfism.Snake">
+    <Position X="5.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Reptiles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ArvochPolymorfism.Eagle">
+    <Position X="7.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Birds.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
