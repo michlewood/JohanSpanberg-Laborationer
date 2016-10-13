@@ -3,54 +3,55 @@
   <Class Name="ArvochPolymorfism.Runtime" Collapsed="true">
     <Position X="12.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Animal.cs</FileName>
+      <HashCode>AAAAAIAAASAIEAACBAICAAAAgAAAEQAAAIAAAAAIAgQ=</HashCode>
+      <FileName>Runtime.cs</FileName>
+      <NewMemberFileName>Animal.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ArvochPolymorfism.Animal">
     <Position X="7.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AACAAAAABIIAAAAAAEAAAAAAACAAAAAABAAAAAIAAAA=</HashCode>
+      <HashCode>AACAAgAABIAAAIAAAEAAAAAAACCAAAAABAAAAgIAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ArvochPolymorfism.Mammal">
     <Position X="10" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAgAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ArvochPolymorfism.Reptile">
     <Position X="5.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ArvochPolymorfism.Bird">
     <Position X="7.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAABAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAABAAAACAAQAAAAAAAAAAAAA=</HashCode>
       <FileName>Animal.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ArvochPolymorfism.Dog">
-    <Position X="10" Y="6" Width="1.5" />
+    <Position X="10" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Mammals.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ArvochPolymorfism.Snake">
-    <Position X="5.5" Y="6" Width="1.5" />
+    <Position X="5.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
       <FileName>Reptiles.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ArvochPolymorfism.Eagle">
-    <Position X="7.75" Y="6" Width="1.5" />
+    <Position X="7.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Birds.cs</FileName>

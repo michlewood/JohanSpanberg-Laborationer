@@ -9,7 +9,7 @@ namespace ArvochPolymorfism
     class Menus
     {
 
-        
+        public static string optionalChoice = "\t\t┃                                                  ┃";
 
         public static void MainMenu()
         {
@@ -44,18 +44,17 @@ namespace ArvochPolymorfism
         }
         public static void EditMenuGUI()
         {
+
             Console.WriteLine("\t\t┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
             Console.WriteLine("\t\t┃                Vad vill du göra?                 ┃");
             Console.WriteLine("\t\t┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
             Console.WriteLine("\t\t┃      {0} (D)äggdjur                       ┃", Runtime.variableMenuShower);
             Console.WriteLine("\t\t┃      {0} (R)eptil                         ┃", Runtime.variableMenuShower);
             Console.WriteLine("\t\t┃      {0} (F)ågel                          ┃", Runtime.variableMenuShower);
+            Console.WriteLine(optionalChoice);
             Console.WriteLine("\t\t┃      (G)å tillbaka till huvudmenyn.              ┃");
             Console.WriteLine("\t\t┃      (Välj genom att använda D, R, F och G)      ┃");
             Console.WriteLine("\t\t┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
         }
-
-
-
     }
 }
