@@ -10,10 +10,7 @@ namespace Labb3___Biljettbokning
     {
         public static string UserName { get; set; }
 
-        public static List<Event> events = new List<Event>()
-        {
-
-        };
+        public static List<Event> events = new List<Event>(){};
 
         public static List<AvailableConcerts> concert = new List<AvailableConcerts>()
         {

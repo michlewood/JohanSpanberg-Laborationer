@@ -21,7 +21,7 @@ namespace Labb3___Biljettbokning
 
         public virtual string Presentation()
         {
-            return String.Format("Ingen information");
+            return String.Format("");
         }
     }
 }
