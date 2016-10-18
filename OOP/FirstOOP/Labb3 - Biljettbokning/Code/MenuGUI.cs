@@ -78,6 +78,8 @@ namespace Labb3___Biljettbokning
 
                     default:
                         Console.WriteLine("Du måste använda J eller N.");
+                        Console.WriteLine("Tryck på enter för att försöka igen.");
+                        Console.ReadLine();
                         break;
                 }
             }
@@ -108,6 +110,8 @@ namespace Labb3___Biljettbokning
 
                     default:
                         Console.WriteLine("Du måste använda J eller N.");
+                        Console.WriteLine("Tryck på enter för att försöka igen.");
+                        Console.ReadLine();
                         break;
                 }
             }

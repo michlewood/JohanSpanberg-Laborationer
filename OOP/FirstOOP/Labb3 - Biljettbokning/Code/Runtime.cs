@@ -14,20 +14,83 @@ namespace Labb3___Biljettbokning
 
         public static List<AvailableConcerts> concert = new List<AvailableConcerts>()
         {
-            new AvailableConcerts { Artist = "Roxette", Alcohole = false, Date = 3, Location = "Globen", Name = "Farewell", Price = 299, Type = "Koncert", IsBooked = false },
-            new AvailableConcerts { Artist = "Abba", Alcohole = true, Date = 6, Location = "Tele2 Arena", Name = "Status", Price = 849, Type = "Koncert", IsBooked = false }
+            new AvailableConcerts
+            {
+                Artist = "Roxette",
+                Alcohole = false,
+                Date = 3,
+                Location = "Globen",
+                Name = "Farewell",
+                Price = 299,
+                Type = "Koncert",
+                IsBooked = false
+            },
+
+            new AvailableConcerts
+            {
+                Artist = "Abba",
+                Alcohole = true,
+                Date = 6,
+                Location = "Tele2 Arena",
+                Name = "Status",
+                Price = 849,
+                Type = "Koncert",
+                IsBooked = false
+            }
         };
 
         public static List<AvailableFestivals> festivals = new List<AvailableFestivals>()
         {
-            new AvailableFestivals { Alcohole = true, Date = 11, Location = "Globen", Name = "Mixed Temple", Price = 1699, Bands = "Farrell, Status Quo, Eva Longoria, Justin Bieber", Type = "Festival", IsBooked = false },
-            new AvailableFestivals { Alcohole = true, Date = 28, Location = "Tele2 Arena", Name = "Modded Psytrance", Price = 849, Bands = "Techno Kings, Knife Party, Infected Mushrooms, Nitro Fun", Type = "Festival", IsBooked = false }
+            new AvailableFestivals
+            {
+                Alcohole = true,
+                Date = 11,
+                Location = "Globen",
+                Name = "Mixed Temple",
+                Price = 1699,
+                Bands = "Farrell, Status Quo, Eva Longoria, Justin Bieber",
+                Type = "Festival",
+                IsBooked = false
+            },
+
+            new AvailableFestivals
+            {
+                Alcohole = true,
+                Date = 28,
+                Location = "Tele2 Arena",
+                Name = "Modded Psytrance",
+                Price = 849,
+                Bands = "Techno Kings, Knife Party, Infected Mushrooms, Nitro Fun",
+                Type = "Festival",
+                IsBooked = false
+            }
         };
 
         public static List<AvailableMovies> movies = new List<AvailableMovies>()
         {
-            new AvailableMovies { Date = 4, Location = "Filmstaden, Kista", Name = "Die Hard 5", Price = 129, RRated = true, Stars = "Bruce Willis, Keanue Reeves, Reese Witherspoon", Type = "Film", IsBooked = false },
-            new AvailableMovies { Date = 14, Location = "Saga Biografen, Härnösand", Name = "Up 2", Price = 79, RRated = false, Stars = "Jim Carrey, Arnold Schwarzenegger", Type = "Film", IsBooked = false }
+            new AvailableMovies
+            {
+                Date = 4,
+                Location = "Filmstaden, Kista",
+                Name = "Die Hard 5",
+                Price = 129,
+                RRated = true,
+                Stars = "Bruce Willis, Keanue Reeves, Reese Witherspoon",
+                Type = "Film",
+                IsBooked = false
+            },
+
+            new AvailableMovies
+            {
+                Date = 14,
+                Location = "Saga Biografen, Härnösand",
+                Name = "Up 2",
+                Price = 79,
+                RRated = false,
+                Stars = "Jim Carrey, Arnold Schwarzenegger",
+                Type = "Film",
+                IsBooked = false
+            }
         };
 
 
@@ -38,6 +101,7 @@ namespace Labb3___Biljettbokning
 
             Console.WriteLine("Ditt namn: ");
             UserName = Console.ReadLine();
+
             var menu = new MenuGUI();
             menu.MainMenu();
         }
@@ -50,7 +114,9 @@ namespace Labb3___Biljettbokning
             int index = 1;
             foreach (var entry in events)
             {
-                Console.WriteLine("{0}. {1}", index, entry.Presentation());
+                Console.WriteLine("{0}. {1}", 
+                                    index, 
+                                    entry.Presentation());
                 index++;
             }
         }

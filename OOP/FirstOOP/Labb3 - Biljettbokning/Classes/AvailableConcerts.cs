@@ -14,7 +14,14 @@ namespace Labb3___Biljettbokning
         public override string Presentation()
         {
             string baseContents = base.Presentation();
-            return String.Format("{0}. {1} - {2}, {3}. {4} kronor om {5} dagar. {6}", Type, Artist, Name, Location, Price, Date, Alcohole != false ? "Alkohol får förtäras." : "Alkoholfritt!");
+            return String.Format("{0}. {1} - {2}, {3}. {4} kronor om {5} dagar. {6}", 
+                                    Type, 
+                                    Artist, 
+                                    Name, 
+                                    Location, 
+                                    Price, 
+                                    Date, 
+                                    Alcohole != false ? "Alkohol får förtäras." : "Alkoholfritt!");
         }
     }
 }
