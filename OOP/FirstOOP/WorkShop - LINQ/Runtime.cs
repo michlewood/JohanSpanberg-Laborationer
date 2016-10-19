@@ -50,10 +50,10 @@ namespace WorkShop___LINQ
 
             // Svarskod:
             //
-            //foreach (var person in subset)
-            //{
-            //    Console.WriteLine("Where: {0} ", person.ToString());
-            //}
+            foreach (var person in subset)
+            {
+                Console.WriteLine("Where: {0} ", person.ToString());
+            }
             #endregion
 
             #region Select

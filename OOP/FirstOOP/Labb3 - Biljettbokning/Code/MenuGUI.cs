@@ -35,7 +35,7 @@ namespace Labb3___Biljettbokning
                 {
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
-                        ShowAvailableEvents();
+                        AvailableEventsSorted();
                         break;
 
                     case ConsoleKey.D2:
@@ -50,14 +50,63 @@ namespace Labb3___Biljettbokning
                 }
             }
         }
-        public void ShowAvailableEvents()
+        public void AvailableEventsSorted()
         {
             var manager = new TicketManager();
             bool menuLoop = true;
             while (menuLoop)
             {
                 Console.Clear();
-                Runtime.ListAvailableEvents();
+                Console.WriteLine("Välkommen till TicketLocker {0}.", Runtime.UserName);
+                Console.WriteLine("1. Visa Filmer");
+                Console.WriteLine("2. Visa Konserter");
+                Console.WriteLine("3. Visa Festival");
+                Console.WriteLine("4. Visa Alla");
+                Console.WriteLine("5. Gå tillbaka till huvudmenyn");
+
+                var input = Console.ReadKey(true).Key;
+
+                switch (input)
+                {
+                    case ConsoleKey.D1:
+                    case ConsoleKey.NumPad1:
+                        Runtime.ShowTypeChooser = "Film";
+                        Runtime.ListAvailableSorter();
+                        break;
+
+                    case ConsoleKey.D2:
+                    case ConsoleKey.NumPad2:
+                        Runtime.ShowTypeChooser = "Konsert";
+                        Runtime.ListAvailableSorter();
+                        break;
+
+                    case ConsoleKey.D3:
+                    case ConsoleKey.NumPad3:
+                        Runtime.ShowTypeChooser = "Festival";
+                        Runtime.ListAvailableSorter();
+                        break;
+
+                    case ConsoleKey.D4:
+                    case ConsoleKey.NumPad4:
+                        Runtime.ShowTypeChooser = "Else";
+                        Runtime.ListAvailableSorter();
+                        break;
+
+                    case ConsoleKey.D5:
+                    case ConsoleKey.NumPad5:
+                        menuLoop = false;
+                        break;
+                }
+            }
+        }
+
+        public static void BookingQuestioneer()
+        {
+            var manager = new TicketManager();
+            bool menuLoop = true;
+            while (menuLoop)
+            {
+
                 Console.WriteLine();
                 Console.WriteLine("---");
                 Console.WriteLine("Skulle du vilja boka ett event {0}? (j/n)", Runtime.UserName);
@@ -84,6 +133,7 @@ namespace Labb3___Biljettbokning
                 }
             }
         }
+
         public static void RemoveBookedEvent()
         {
             var manager = new TicketManager();

@@ -8,18 +8,18 @@ namespace Labb3___Biljettbokning
 {
     class TicketManager
     {
-        public static Event[] subset;
+        public static Event[] bookedSubset;
 
         public void ShowBookings()
         {
             ListCombiner();
             Console.Clear();
 
-            subset = Runtime.events
+            bookedSubset = Code.Lists.events
                 .Where(tickets => tickets.IsBooked.Equals(true))
                 .ToArray();
 
-            if (subset.Length == 0)
+            if (bookedSubset.Length == 0)
             {
                 
                 Console.WriteLine("Inga bokningar funna. Du bokar genom att först visa tillgängliga events.");
@@ -29,11 +29,10 @@ namespace Labb3___Biljettbokning
                 return;
             }
 
-
             else
             {
                 int index = 0;
-                foreach (var entry in subset)
+                foreach (var entry in bookedSubset)
                 {
                     index++;
                     Console.WriteLine("{0}. Bokad av {1}: {2} ", index, Runtime.UserName, entry.Presentation());
@@ -49,8 +48,8 @@ namespace Labb3___Biljettbokning
             Console.WriteLine("Vilket event skulle du vilja boka: ");
             int input = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Bokat: {0}", Runtime.events[input - 1].Presentation());
-            Runtime.events[input - 1].IsBooked = true;
+            Console.WriteLine("Bokat: {0}", Runtime.availableSubset[input - 1].Presentation());
+            Runtime.availableSubset[input - 1].IsBooked = true;
 
             Console.WriteLine("(Tryck på enter för att återgå till huvudmenyn.)");
             Console.ReadLine();
@@ -62,21 +61,19 @@ namespace Labb3___Biljettbokning
             Console.WriteLine("Vilket event skulle du vilja avboka: ");
             int input = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Avbokat: {0}", subset[input - 1].Presentation());
-            subset[input - 1].IsBooked = false;
+            Console.WriteLine("Avbokat: {0}", bookedSubset[input - 1].Presentation());
+            bookedSubset[input - 1].IsBooked = false;
 
             Console.WriteLine("(Tryck på enter för att återgå till huvudmenyn.)");
             Console.ReadLine();
         }
 
-
-
         public static void ListCombiner()
         {
-            Runtime.events.Clear();
-            Runtime.events.AddRange(Runtime.concert);
-            Runtime.events.AddRange(Runtime.movies);
-            Runtime.events.AddRange(Runtime.festivals);
+            Code.Lists.events.Clear();
+            Code.Lists.events.AddRange(Code.Lists.concert);
+            Code.Lists.events.AddRange(Code.Lists.movies);
+            Code.Lists.events.AddRange(Code.Lists.festivals);
         }
     }
 }

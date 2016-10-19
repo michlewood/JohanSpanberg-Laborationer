@@ -46,6 +46,7 @@
     <Compile Include="Classes\AvailableConcerts.cs" />
     <Compile Include="Classes\AvailableFestivals.cs" />
     <Compile Include="Classes\AvailableMovies.cs" />
+    <Compile Include="Code\Lists.cs" />
     <Compile Include="Code\MenuGUI.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
