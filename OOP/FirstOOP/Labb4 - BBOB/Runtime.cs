@@ -8,9 +8,9 @@ namespace Labb4___BBOB
 {
     class Runtime
     {
-        public static int TotalInStock { get; set; }
-        public static int UsedStock { get; set; }
-        public static int NewStock { get; set; }
+        //public static int TotalInStock { get; set; }
+        //public static int UsedStock { get; set; }
+        //public static int NewStock { get; set; }
 
         public void Start()
         {

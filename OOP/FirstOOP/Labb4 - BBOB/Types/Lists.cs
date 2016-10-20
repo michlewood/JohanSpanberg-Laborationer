@@ -210,6 +210,71 @@ namespace Labb4___BBOB
             ListUpdater();
         }
 
+        public void ListRemoveExistingVehicle()
+        {
+            Console.WriteLine("Vilket fordon vill du ta bort av?");
+            int userInputInRemoveFromExistingVehicle = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Hur många vill du ta bort ur lagret?");
+            int stockToRemoveFromExistingVehicle = int.Parse(Console.ReadLine());
+
+            if (TotalStock[userInputInRemoveFromExistingVehicle - 1]
+                                .GetType()
+                                .BaseType
+                                .ToString() == "Labb4___BBOB.StockUsed")
+            {
+                if (stockToRemoveFromExistingVehicle >= (UsedVehicle[userInputInRemoveFromExistingVehicle - NewVehicle.Count() - 1].Amount))
+                {
+                    Console.WriteLine("Vill du ta bort {0} {1}? (J/N)", (UsedVehicle[userInputInRemoveFromExistingVehicle - NewVehicle.Count() - 1].Manufacturer), (UsedVehicle[userInputInRemoveFromExistingVehicle - NewVehicle.Count() - 1].Model));
+                    var input = Console.ReadKey(true).Key;
+
+                    switch (input)
+                    {
+                        case ConsoleKey.J:
+                            UsedVehicle.RemoveAt(userInputInRemoveFromExistingVehicle - NewVehicle.Count() - 1);
+                            break;
+
+                        case ConsoleKey.N:
+                            Console.WriteLine("Okej. Nollställer lagret för {0} {1}.", (UsedVehicle[userInputInRemoveFromExistingVehicle - NewVehicle.Count() - 1].Manufacturer), (UsedVehicle[userInputInRemoveFromExistingVehicle - NewVehicle.Count() - 1].Model));
+                            UsedVehicle[userInputInRemoveFromExistingVehicle - NewVehicle.Count() - 1].Amount = 0;
+                            break;
+                        default: Console.WriteLine("Använd enbart J eller N."); break;
+                    }
+                }
+                else
+                {
+                    UsedVehicle[userInputInRemoveFromExistingVehicle - NewVehicle.Count() - 1].Amount -= stockToRemoveFromExistingVehicle;
+                }
+            }
+            else
+            {
+                if (stockToRemoveFromExistingVehicle >= (NewVehicle[userInputInRemoveFromExistingVehicle - 1].Amount))
+                {
+                    Console.WriteLine("Vill du ta bort {0} {1}? (J/N)", (NewVehicle[userInputInRemoveFromExistingVehicle - 1].Manufacturer), (UsedVehicle[userInputInRemoveFromExistingVehicle - 1].Model));
+                    var input = Console.ReadKey(true).Key;
+
+                    switch (input)
+                    {
+                        case ConsoleKey.J:
+                            NewVehicle.RemoveAt(userInputInRemoveFromExistingVehicle - 1);
+                            break;
+
+                        case ConsoleKey.N:
+                            Console.WriteLine("Okej. Nollställer lagret för {0} {1}.", (NewVehicle[userInputInRemoveFromExistingVehicle - 1].Manufacturer), (UsedVehicle[userInputInRemoveFromExistingVehicle - 1].Model));
+                            NewVehicle[userInputInRemoveFromExistingVehicle - 1].Amount = 0;
+                            break;
+                        default: Console.WriteLine("Använd enbart J eller N."); break;
+                    }
+                }
+                else
+                {
+                    NewVehicle[userInputInRemoveFromExistingVehicle - 1].Amount -= stockToRemoveFromExistingVehicle;
+                }
+            }
+
+            ListUpdater();
+        }
+
         public void ListUpdater()
         {
             TotalStock.Clear();

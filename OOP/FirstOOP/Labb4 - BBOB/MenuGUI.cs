@@ -17,9 +17,10 @@ namespace Labb4___BBOB
                 Console.WriteLine("Vad vill du göra");
                 Console.WriteLine("1. Visa lagersaldo");
                 Console.WriteLine("2. Lägg till fordon.");
-                Console.WriteLine("3. Avsluta");
+                Console.WriteLine("3. Ta bort fordon.");
+                Console.WriteLine("4. Avsluta");
                 Console.WriteLine("---");
-                Console.WriteLine("Just nu {0} fordon i lager.", Runtime.TotalInStock);
+                Console.WriteLine("Just nu {0} fordon i lager.", lists.TotalStock.Count());
 
                 var input = Console.ReadKey(true).Key;
 
@@ -37,6 +38,12 @@ namespace Labb4___BBOB
 
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
+                        lists.SimplePresentation();
+                        lists.ListRemoveExistingVehicle();
+                        break;
+
+                    case ConsoleKey.D4:
+                    case ConsoleKey.NumPad4:
                         Environment.Exit(0);
                         break;
 
@@ -48,7 +55,12 @@ namespace Labb4___BBOB
                 }
             }
         }
-        
+
+        private static void RemoveCarMenu(Lists lists)
+        {
+            
+        }
+
         private static void ShowStockMenu(Lists lists)
         {
             bool showStockMenuLoop = true;
