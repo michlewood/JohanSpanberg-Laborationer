@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Economy.cs" />
+    <Compile Include="BuyingSellingMethods.cs" />
     <Compile Include="Types\Car.cs" />
     <Compile Include="Types\Lists.cs" />
     <Compile Include="MenuGUI.cs" />
@@ -59,6 +61,9 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Economic\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,4 +16,16 @@ namespace Labb4___BBOB
             return String.Format("(MC) {0}", basePresentation);
         }
     }
+
+    public class ForSaleMotorcycle : ForSaleStockNew
+    {
+        public ForSaleMotorcycle(int price, int year, string manufacturer, string model, int warrantyPeriod, int amount) : base(price, year, manufacturer, model, warrantyPeriod, amount)
+        {
+        }
+        public override string Presentation()
+        {
+            string basePresentation = base.Presentation();
+            return String.Format("(MC) {0}", basePresentation);
+        }
+    }
 }

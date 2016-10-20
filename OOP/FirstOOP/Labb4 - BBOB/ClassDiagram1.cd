@@ -49,5 +49,54 @@
       <FileName>Stock\TotalStock.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Labb4___BBOB.ForSaleStockNew">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stock\StockNew.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labb4___BBOB.ForSaleCar">
+    <Position X="14.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labb4___BBOB.ForSaleMotorcycle">
+    <Position X="16.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\Motorcycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labb4___BBOB.ForSaleStockUsed">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stock\StockUsed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labb4___BBOB.ForSaleUsedCar">
+    <Position X="19.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\UsedCar.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labb4___BBOB.ForSaleUsedMotorCycle">
+    <Position X="21.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\UsedMotorCycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Labb4___BBOB.ForSaleTotalStock">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAABQAAAAAAAAAAAACAAACAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Stock\TotalStock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

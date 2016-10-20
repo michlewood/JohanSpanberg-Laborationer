@@ -20,4 +20,20 @@ namespace Labb4___BBOB
             return String.Format("{0} {1} tidigare ägare.", basePresentation, AmountOfPreviousOwners);
         }
     }
+
+    public abstract class ForSaleStockUsed : ForSaleTotalStock
+    {
+        public ForSaleStockUsed(int price, int year, string manufacturer, string model, int amountOfPreviousOwners, int amount) : base(price, year, manufacturer, model, amount)
+        {
+            AmountOfPreviousOwners = amountOfPreviousOwners;
+        }
+
+        public int AmountOfPreviousOwners { get; set; }
+
+        public override string Presentation()
+        {
+            string basePresentation = base.Presentation();
+            return String.Format("{0} {1} tidigare ägare.", basePresentation, AmountOfPreviousOwners);
+        }
+    }
 }

@@ -11,6 +11,11 @@ namespace Labb4___BBOB
         public List<TotalStock> TotalStock = new List<TotalStock> { };
         public List<StockNew> NewVehicle = new List<StockNew> { };
         public List<StockUsed> UsedVehicle = new List<StockUsed> { };
+
+        public List<ForSaleTotalStock> ForSaleTotalStock = new List<ForSaleTotalStock> { };
+        public List<ForSaleStockNew> ForSaleNewVehicle = new List<ForSaleStockNew> { };
+        public List<ForSaleStockUsed> ForSaleUsedVehicle = new List<ForSaleStockUsed> { };
+
         static int indexForCars;
         public bool listAddNewVehicle;
         public bool listAddAnotherVehicleLoop;
@@ -21,12 +26,16 @@ namespace Labb4___BBOB
 
         public Lists()
         {
-            NewVehicle.Add(new Car(149000, 2016, "Subaru", "Legacy", 8, 1));
-            UsedVehicle.Add(new UsedCar(149000, 1996, "Seat", "Leon", 4, 1));
-            NewVehicle.Add(new Motorcycle(55000, 2016, "Honda", "Hayabusa", 2, 1));
+            NewVehicle.Add(new Car(369000, 2016, "Subaru", "Legacy", 8, 4));
+            UsedVehicle.Add(new UsedCar(96000, 2006, "Seat", "Leon", 4, 4));
+            NewVehicle.Add(new Motorcycle(118000, 2016, "Honda", "Hayabusa", 2, 4));
+
+
+            ForSaleNewVehicle.Add(new ForSaleCar(329000, 2016, "Subaru", "Legacy", 8, 1000));
+            ForSaleUsedVehicle.Add(new ForSaleUsedCar(85000, 1996, "Seat", "Leon", 4, 1000));
+            ForSaleNewVehicle.Add(new ForSaleMotorcycle(100000, 2016, "Honda", "Hayabusa", 2, 1000));
 
             ListUpdater();
-
         }
 
         public void ListAddNewVehicle()
@@ -63,7 +72,7 @@ namespace Labb4___BBOB
             }
 
 
-            
+
         }
         public void ListAddAnotherVehicle()
         {
@@ -95,6 +104,8 @@ namespace Labb4___BBOB
                 }
             }
         }
+
+
 
         private void AddingAnotherVehicleFinalStep()
         {
@@ -131,23 +142,36 @@ namespace Labb4___BBOB
                 {
                     Console.WriteLine("Lagrar följande: {0} {1}. {2} kronor. {3} tidigare ägare från {4}. {5} stycken till lagret.", newVehicleManufacturer, newVehicleModel, newVehiclePrice, newVehiclePreviousOwners, newVehicleManufacturedYear, newVehicleAmount);
 
-                    UsedVehicle.Add(new UsedCar(newVehiclePrice, 
-                                                newVehicleManufacturedYear, 
-                                                newVehicleManufacturer, 
-                                                newVehicleModel, 
-                                                newVehiclePreviousOwners, 
+                    UsedVehicle.Add(new UsedCar(newVehiclePrice,
+                                                newVehicleManufacturedYear,
+                                                newVehicleManufacturer,
+                                                newVehicleModel,
+                                                newVehiclePreviousOwners,
                                                 newVehicleAmount));
+
+                    ForSaleUsedVehicle.Add(new ForSaleUsedCar(newVehiclePrice,
+                            newVehicleManufacturedYear,
+                            newVehicleManufacturer,
+                            newVehicleModel,
+                            newVehiclePreviousOwners,
+                            1000));
                 }
                 else if (newVehicleCarorMotorcycle == "Motorcykel")
                 {
                     Console.WriteLine("Lagrar följande: {0} {1}. {2} kronor. {3} tidigare ägare från {4}. {5} stycken till lagret.", newVehicleManufacturer, newVehicleModel, newVehiclePrice, newVehiclePreviousOwners, newVehicleManufacturedYear, newVehicleAmount);
 
-                    UsedVehicle.Add(new UsedMotorCycle(newVehiclePrice, 
+                    UsedVehicle.Add(new UsedMotorCycle(newVehiclePrice,
                                                         newVehicleManufacturedYear,
-                                                        newVehicleManufacturer, 
-                                                        newVehicleModel, 
-                                                        newVehiclePreviousOwners, 
+                                                        newVehicleManufacturer,
+                                                        newVehicleModel,
+                                                        newVehiclePreviousOwners,
                                                         newVehicleAmount));
+                    ForSaleUsedVehicle.Add(new ForSaleUsedMotorCycle(newVehiclePrice,
+                                    newVehicleManufacturedYear,
+                                    newVehicleManufacturer,
+                                    newVehicleModel,
+                                    newVehiclePreviousOwners,
+                                    1000));
                 }
             }
             else if (newVehicleUsedOrNew == "Ny")
@@ -159,24 +183,36 @@ namespace Labb4___BBOB
                 {
                     Console.WriteLine("Lagrar följande: {0} {1}. {2} kronor. {3} års garanti. Tillverkad {4}. {5} stycken till lagret.", newVehicleManufacturer, newVehicleModel, newVehiclePrice, newVehicleWarrantyPeriod, newVehicleManufacturedYear, newVehicleAmount);
 
-                    NewVehicle.Add(new Car(newVehiclePrice, 
-                                            newVehicleManufacturedYear, 
-                                            newVehicleManufacturer, 
-                                            newVehicleModel, 
-                                            newVehicleWarrantyPeriod, 
+                    NewVehicle.Add(new Car(newVehiclePrice,
+                                            newVehicleManufacturedYear,
+                                            newVehicleManufacturer,
+                                            newVehicleModel,
+                                            newVehicleWarrantyPeriod,
                                             newVehicleAmount));
+                    ForSaleNewVehicle.Add(new ForSaleCar(newVehiclePrice,
+                        newVehicleManufacturedYear,
+                        newVehicleManufacturer,
+                        newVehicleModel,
+                        newVehicleWarrantyPeriod,
+                        1000));
 
                 }
                 else if (newVehicleCarorMotorcycle == "Motorcykel")
                 {
                     Console.WriteLine("Lagrar följande: {0} {1}. {2} kronor. {3} års garanti. Tillverkad {4}. {5} stycken till lagret.", newVehicleManufacturer, newVehicleModel, newVehiclePrice, newVehicleWarrantyPeriod, newVehicleManufacturedYear, newVehicleAmount);
 
-                    NewVehicle.Add(new Motorcycle(newVehiclePrice, 
-                                                    newVehicleManufacturedYear, 
-                                                    newVehicleManufacturer, 
-                                                    newVehicleModel, 
-                                                    newVehicleWarrantyPeriod, 
+                    NewVehicle.Add(new Motorcycle(newVehiclePrice,
+                                                    newVehicleManufacturedYear,
+                                                    newVehicleManufacturer,
+                                                    newVehicleModel,
+                                                    newVehicleWarrantyPeriod,
                                                     newVehicleAmount));
+                    ForSaleNewVehicle.Add(new ForSaleMotorcycle(newVehiclePrice,
+                                newVehicleManufacturedYear,
+                                newVehicleManufacturer,
+                                newVehicleModel,
+                                newVehicleWarrantyPeriod,
+                                1000));
                 }
             }
             listAddAnotherVehicleLoop = false;
@@ -280,6 +316,11 @@ namespace Labb4___BBOB
             TotalStock.Clear();
             TotalStock.AddRange(NewVehicle);
             TotalStock.AddRange(UsedVehicle);
+
+            ForSaleTotalStock.Clear();
+            ForSaleTotalStock.AddRange(ForSaleNewVehicle);
+            ForSaleTotalStock.AddRange(ForSaleUsedVehicle);
+
         }
 
         internal void ShowNewStockMenu()
@@ -325,6 +366,16 @@ namespace Labb4___BBOB
         {
             indexForCars = 1;
             foreach (var vehicle in TotalStock)
+            {
+                Console.WriteLine("{0}. {1}", indexForCars, vehicle.Presentation());
+                indexForCars++;
+            }
+        }
+
+        internal void SimpleForSalePresentation()
+        {
+            indexForCars = 1;
+            foreach (var vehicle in ForSaleTotalStock)
             {
                 Console.WriteLine("{0}. {1}", indexForCars, vehicle.Presentation());
                 indexForCars++;

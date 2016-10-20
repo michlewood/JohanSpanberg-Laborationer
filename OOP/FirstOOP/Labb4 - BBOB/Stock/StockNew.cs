@@ -19,5 +19,23 @@ namespace Labb4___BBOB
             string basePresentation = base.Presentation();
             return String.Format("{0} {1} års garanti.", basePresentation, WarrantyPeriod);
         }
+
+    }
+
+    public abstract class ForSaleStockNew : ForSaleTotalStock
+    {
+        public ForSaleStockNew(int price, int year, string manufacturer, string model, int warrantyPeriod, int amount) : base(price, year, manufacturer, model, amount)
+        {
+            WarrantyPeriod = warrantyPeriod;
+        }
+
+        public int WarrantyPeriod { get; set; }
+
+        public override string Presentation()
+        {
+            string basePresentation = base.Presentation();
+            return String.Format("{0} {1} års garanti.", basePresentation, WarrantyPeriod);
+        }
+
     }
 }
