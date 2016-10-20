@@ -34,7 +34,7 @@ namespace Labb4___BBOB
 
     public abstract class ForSaleTotalStock
     {
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         public int Year { get; set; }
 
@@ -44,7 +44,7 @@ namespace Labb4___BBOB
 
         public int Amount { get; set; }
 
-        public ForSaleTotalStock(int price, int year, string manufacturer, string model, int amount)
+        public ForSaleTotalStock(double price, int year, string manufacturer, string model, int amount)
         {
             Price = price;
             Year = year;

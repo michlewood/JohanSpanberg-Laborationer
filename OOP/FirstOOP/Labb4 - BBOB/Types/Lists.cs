@@ -38,7 +38,7 @@ namespace Labb4___BBOB
             ListUpdater();
         }
 
-        public void ListAddNewVehicle()
+        public void ListAddNewVehicle(Lists lists, Economy economy)
         {
             listAddNewVehicle = true;
             while (listAddNewVehicle)
@@ -51,12 +51,12 @@ namespace Labb4___BBOB
                 {
                     case ConsoleKey.B:
                         newVehicleUsedOrNew = "Begagnad";
-                        ListAddAnotherVehicle();
+                        ListAddAnotherVehicle(lists, economy);
                         break;
 
                     case ConsoleKey.N:
                         newVehicleUsedOrNew = "Ny";
-                        ListAddAnotherVehicle();
+                        ListAddAnotherVehicle(lists, economy);
                         break;
 
                     case ConsoleKey.A:
@@ -74,7 +74,7 @@ namespace Labb4___BBOB
 
 
         }
-        public void ListAddAnotherVehicle()
+        public void ListAddAnotherVehicle(Lists lists, Economy economy)
         {
             listAddAnotherVehicleLoop = true;
             while (listAddAnotherVehicleLoop)
@@ -87,12 +87,12 @@ namespace Labb4___BBOB
                 {
                     case ConsoleKey.B:
                         newVehicleCarorMotorcycle = "Bile";
-                        AddingAnotherVehicleFinalStep();
+                        AddingAnotherVehicleFinalStep(lists, economy);
                         break;
 
                     case ConsoleKey.M:
                         newVehicleCarorMotorcycle = "Motorcykel";
-                        AddingAnotherVehicleFinalStep();
+                        AddingAnotherVehicleFinalStep(lists, economy);
                         break;
 
                     case ConsoleKey.A:
@@ -107,7 +107,7 @@ namespace Labb4___BBOB
 
 
 
-        private void AddingAnotherVehicleFinalStep()
+        private void AddingAnotherVehicleFinalStep(Lists lists, Economy economy)
         {
             Console.Clear();
 
@@ -142,14 +142,14 @@ namespace Labb4___BBOB
                 {
                     Console.WriteLine("Lagrar följande: {0} {1}. {2} kronor. {3} tidigare ägare från {4}. {5} stycken till lagret.", newVehicleManufacturer, newVehicleModel, newVehiclePrice, newVehiclePreviousOwners, newVehicleManufacturedYear, newVehicleAmount);
 
-                    UsedVehicle.Add(new UsedCar(newVehiclePrice,
+                    UsedVehicle.Add(new UsedCar((newVehiclePrice + economy.RandomizedCreatedCarPrice()),
                                                 newVehicleManufacturedYear,
                                                 newVehicleManufacturer,
                                                 newVehicleModel,
                                                 newVehiclePreviousOwners,
                                                 newVehicleAmount));
 
-                    ForSaleUsedVehicle.Add(new ForSaleUsedCar(newVehiclePrice,
+                    ForSaleUsedVehicle.Add(new ForSaleUsedCar((newVehiclePrice + economy.RandomizedCreatedCarPrice()),
                             newVehicleManufacturedYear,
                             newVehicleManufacturer,
                             newVehicleModel,
@@ -160,13 +160,13 @@ namespace Labb4___BBOB
                 {
                     Console.WriteLine("Lagrar följande: {0} {1}. {2} kronor. {3} tidigare ägare från {4}. {5} stycken till lagret.", newVehicleManufacturer, newVehicleModel, newVehiclePrice, newVehiclePreviousOwners, newVehicleManufacturedYear, newVehicleAmount);
 
-                    UsedVehicle.Add(new UsedMotorCycle(newVehiclePrice,
+                    UsedVehicle.Add(new UsedMotorCycle((newVehiclePrice + economy.RandomizedCreatedCarPrice()),
                                                         newVehicleManufacturedYear,
                                                         newVehicleManufacturer,
                                                         newVehicleModel,
                                                         newVehiclePreviousOwners,
                                                         newVehicleAmount));
-                    ForSaleUsedVehicle.Add(new ForSaleUsedMotorCycle(newVehiclePrice,
+                    ForSaleUsedVehicle.Add(new ForSaleUsedMotorCycle((newVehiclePrice + economy.RandomizedCreatedCarPrice()),
                                     newVehicleManufacturedYear,
                                     newVehicleManufacturer,
                                     newVehicleModel,
@@ -183,13 +183,13 @@ namespace Labb4___BBOB
                 {
                     Console.WriteLine("Lagrar följande: {0} {1}. {2} kronor. {3} års garanti. Tillverkad {4}. {5} stycken till lagret.", newVehicleManufacturer, newVehicleModel, newVehiclePrice, newVehicleWarrantyPeriod, newVehicleManufacturedYear, newVehicleAmount);
 
-                    NewVehicle.Add(new Car(newVehiclePrice,
+                    NewVehicle.Add(new Car((newVehiclePrice + economy.RandomizedCreatedCarPrice()),
                                             newVehicleManufacturedYear,
                                             newVehicleManufacturer,
                                             newVehicleModel,
                                             newVehicleWarrantyPeriod,
                                             newVehicleAmount));
-                    ForSaleNewVehicle.Add(new ForSaleCar(newVehiclePrice,
+                    ForSaleNewVehicle.Add(new ForSaleCar((newVehiclePrice + economy.RandomizedCreatedCarPrice()),
                         newVehicleManufacturedYear,
                         newVehicleManufacturer,
                         newVehicleModel,
@@ -201,13 +201,13 @@ namespace Labb4___BBOB
                 {
                     Console.WriteLine("Lagrar följande: {0} {1}. {2} kronor. {3} års garanti. Tillverkad {4}. {5} stycken till lagret.", newVehicleManufacturer, newVehicleModel, newVehiclePrice, newVehicleWarrantyPeriod, newVehicleManufacturedYear, newVehicleAmount);
 
-                    NewVehicle.Add(new Motorcycle(newVehiclePrice,
+                    NewVehicle.Add(new Motorcycle((newVehiclePrice + economy.RandomizedCreatedCarPrice()),
                                                     newVehicleManufacturedYear,
                                                     newVehicleManufacturer,
                                                     newVehicleModel,
                                                     newVehicleWarrantyPeriod,
                                                     newVehicleAmount));
-                    ForSaleNewVehicle.Add(new ForSaleMotorcycle(newVehiclePrice,
+                    ForSaleNewVehicle.Add(new ForSaleMotorcycle((newVehiclePrice + economy.RandomizedCreatedCarPrice()),
                                 newVehicleManufacturedYear,
                                 newVehicleManufacturer,
                                 newVehicleModel,
@@ -286,7 +286,7 @@ namespace Labb4___BBOB
             {
                 if (stockToRemoveFromExistingVehicle >= (NewVehicle[userInputInRemoveFromExistingVehicle - 1].Amount))
                 {
-                    Console.WriteLine("Vill du ta bort {0} {1}? (J/N)", (NewVehicle[userInputInRemoveFromExistingVehicle - 1].Manufacturer), (UsedVehicle[userInputInRemoveFromExistingVehicle - 1].Model));
+                    Console.WriteLine("Vill du ta bort {0} {1}? (J/N)", (NewVehicle[userInputInRemoveFromExistingVehicle - 1].Manufacturer), (NewVehicle[userInputInRemoveFromExistingVehicle - 1].Model));
                     var input = Console.ReadKey(true).Key;
 
                     switch (input)
@@ -297,6 +297,7 @@ namespace Labb4___BBOB
 
                         case ConsoleKey.N:
                             Console.WriteLine("Okej. Nollställer lagret för {0} {1}.", (NewVehicle[userInputInRemoveFromExistingVehicle - 1].Manufacturer), (UsedVehicle[userInputInRemoveFromExistingVehicle - 1].Model));
+                            
                             NewVehicle[userInputInRemoveFromExistingVehicle - 1].Amount = 0;
                             break;
                         default: Console.WriteLine("Använd enbart J eller N."); break;
@@ -307,8 +308,9 @@ namespace Labb4___BBOB
                     NewVehicle[userInputInRemoveFromExistingVehicle - 1].Amount -= stockToRemoveFromExistingVehicle;
                 }
             }
-
             ListUpdater();
+            Console.WriteLine("Tryck Enter för att fortsätta.");
+            Console.ReadLine();
         }
 
         public void ListUpdater()

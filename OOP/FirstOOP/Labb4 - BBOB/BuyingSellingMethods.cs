@@ -10,7 +10,8 @@ namespace Labb4___BBOB.Economic
     {
 
         internal void CarBuyer(Economy economy, Lists lists)
-        {
+        { // Denna kod är enkel och har grundläggande funktion bara för att visa funktionaliteten i programmet.
+          // Det måste till mycket mer kod för att fungera med egentillagda bilar.
             int userInputInCarBuyer = 0;
             int amountToBuy = 0;
 
@@ -205,7 +206,6 @@ namespace Labb4___BBOB.Economic
                         else
                         {
                             stockLeft = true;
-
                         }
                     }
                     else
@@ -250,10 +250,13 @@ namespace Labb4___BBOB.Economic
                     currentBid = currentBid / 100;
                     int numberOfOffers = economy.RandomizedNumberOfOffers(1, amountForSale);
                     int buyPriceTotal = vehicleForSalePrice * numberOfOffers;
+                    decimal korv = (decimal) currentBid;
+
+                    //Console.WriteLine("Earnings this week: " + string.Format("{0:0.00}", answer));
 
                     Console.Clear();
                     Console.WriteLine("Du har fått ett bud!");
-                    Console.WriteLine("Köparen vill köpa {3} stycken {0} {1} för {2} kronor.", vehicleForSaleManufacturer, vehicleForSaleModel, currentBid * amountForSale, numberOfOffers);
+                    Console.WriteLine("Köparen vill köpa {3} stycken {0} {1} för {2} kronor.", vehicleForSaleManufacturer, vehicleForSaleModel, korv * numberOfOffers, numberOfOffers);
                     Console.WriteLine("Inköpspriset var {0} kronor.", buyPriceTotal);
                     if (vehicleForSalePrice >= currentBid)
                     {
@@ -323,19 +326,23 @@ namespace Labb4___BBOB.Economic
                             Console.WriteLine("Grattis. Du har nu {0} kronor att röra dig med.",
                                                 economy.TotalAmountOfCash);
                             carSellerTotalLoop = false;
+                            lists.ListUpdater();
+                            Console.WriteLine("Tryck på Enter för att fortsätta.");
+                            Console.ReadLine();
                             return;
 
                         case ConsoleKey.N:
                             Console.WriteLine("Nekar erbjudandet och återgår till försäljningsmenyn.");
                             Console.ReadLine();
                             carSellerTotalLoop = false;
+                            lists.ListUpdater();
+                            Console.WriteLine("Tryck på Enter för att fortsätta.");
+                            Console.ReadLine();
                             return;
                         default: break;
                     }
+                    
 
-
-
-                    lists.ListUpdater();
                 }
             }
         }

@@ -32,7 +32,15 @@ namespace Labb4___BBOB
         {
             Random numberOfOffersGenerator = new Random();
 
-            return numberOfOffersGenerator.Next(minimum, maximum);
+            return numberOfOffersGenerator.Next(minimum, maximum +1);
+        }
+
+        public int RandomizedCreatedCarPrice()
+        {
+            Random priceRandomizer = new Random();
+
+            return priceRandomizer.Next(-5000, 39999);
+
         }
 
     }

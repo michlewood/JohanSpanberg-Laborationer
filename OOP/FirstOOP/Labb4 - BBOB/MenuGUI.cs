@@ -39,7 +39,7 @@ namespace Labb4___BBOB
 
                     case ConsoleKey.D2:
                     case ConsoleKey.NumPad2:
-                        AddCarMenu(lists);
+                        AddCarMenu(lists, economy);
                         break;
 
                     case ConsoleKey.D3:
@@ -158,7 +158,7 @@ namespace Labb4___BBOB
             }
         }
 
-        private static void AddCarMenu(Lists lists)
+        private static void AddCarMenu(Lists lists, Economy economy)
         {
             
             bool addCarMenuLoop = true;
@@ -182,7 +182,7 @@ namespace Labb4___BBOB
                         break;
 
                     case ConsoleKey.N:
-                        lists.ListAddNewVehicle();
+                        lists.ListAddNewVehicle(lists, economy);
                         break;
 
                     case ConsoleKey.A:
