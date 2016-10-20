@@ -43,18 +43,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Car.cs" />
-    <Compile Include="Lists.cs" />
+    <Compile Include="Types\Car.cs" />
+    <Compile Include="Types\Lists.cs" />
     <Compile Include="MenuGUI.cs" />
-    <Compile Include="Motorcycle.cs" />
+    <Compile Include="Types\Motorcycle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime.cs" />
-    <Compile Include="StockNew.cs" />
-    <Compile Include="StockUsed.cs" />
-    <Compile Include="TotalStock.cs" />
-    <Compile Include="UsedCar.cs" />
-    <Compile Include="UsedMotorCycle.cs" />
+    <Compile Include="Stock\StockNew.cs" />
+    <Compile Include="Stock\StockUsed.cs" />
+    <Compile Include="Stock\TotalStock.cs" />
+    <Compile Include="Types\UsedCar.cs" />
+    <Compile Include="Types\UsedMotorCycle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

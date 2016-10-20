@@ -3,50 +3,50 @@
   <Class Name="Labb4___BBOB.StockNew">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>StockNew.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stock\StockNew.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Labb4___BBOB.Car">
     <Position X="3.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Car.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Labb4___BBOB.Motorcycle">
     <Position X="5.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Motorcycle.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\Motorcycle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Labb4___BBOB.StockUsed">
     <Position X="9.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
-      <FileName>StockUsed.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Stock\StockUsed.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Labb4___BBOB.UsedCar">
     <Position X="8.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>UsedCar.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\UsedCar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Labb4___BBOB.UsedMotorCycle">
     <Position X="10.5" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>UsedMotorCycle.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Types\UsedMotorCycle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Labb4___BBOB.TotalStock">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAABQAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
-      <FileName>TotalStock.cs</FileName>
+      <HashCode>AAgAAAAABQAAAAAAAAAAAACAAACAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Stock\TotalStock.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
