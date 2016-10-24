@@ -107,7 +107,7 @@ namespace Labb4___BBOB.Economic
         }
 
         internal void CarSeller(Economy economy, Lists lists)
-        {
+        { 
             bool keepInStock = false;
             bool newVehicle = false;
             bool stockLeft = false;
