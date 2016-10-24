@@ -34,7 +34,7 @@ namespace Labb_5___My_Repository.Controllers
         internal void EditShow()
         {
             var shows = showRepository.GetShows();
-            UI.PrintShowList(shows);
+            //UI.PrintShowList(shows);
             int index = UI.SelectShow(shows);
 
             UI.EditShow(shows[index]);

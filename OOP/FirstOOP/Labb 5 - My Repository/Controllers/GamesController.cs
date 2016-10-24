@@ -34,7 +34,7 @@ namespace Labb_5___My_Repository.Controllers
         internal void EditGame()
         {
             var games = gameRepository.GetGames();
-            UI.PrintGameList(games);
+            //UI.PrintGameList(games);
             int index = UI.SelectGame(games);
 
             UI.EditGame(games[index]);

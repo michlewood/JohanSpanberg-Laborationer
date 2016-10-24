@@ -15,10 +15,12 @@ namespace Labb_5___My_Repository
             Console.WriteLine("1. Add game");
             Console.WriteLine("2. Remove game");
             Console.WriteLine("3. Show all games");
-            Console.WriteLine("4. Add show");
-            Console.WriteLine("5. Remove show");
-            Console.WriteLine("6. Show all show");
-            Console.WriteLine("7. Exit");
+            Console.WriteLine("4. Edit game");
+            Console.WriteLine("5. Add show");
+            Console.WriteLine("6. Remove show");
+            Console.WriteLine("7. Show all shows");
+            Console.WriteLine("8. Edit show");
+            Console.WriteLine("9. Exit");
         }
 
         public static Show CreateShow()
@@ -115,7 +117,7 @@ namespace Labb_5___My_Repository
         {
             PrintShowList(shows);
             Console.Write("Select Show: ");
-            return int.Parse(Console.ReadLine());
+            return int.Parse(Console.ReadLine()) - 1;
         }
 
         public static Game CreateGame()
@@ -139,7 +141,7 @@ namespace Labb_5___My_Repository
         {
             PrintGameList(games);
             Console.Write("Select Game: ");
-            return int.Parse(Console.ReadLine());
+            return int.Parse(Console.ReadLine()) - 1;
 
         }
 
