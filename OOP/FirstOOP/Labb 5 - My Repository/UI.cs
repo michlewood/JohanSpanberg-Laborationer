@@ -16,10 +16,12 @@ namespace Labb_5___My_Repository
             Console.WriteLine("2. Remove game");
             Console.WriteLine("3. Show all games");
             Console.WriteLine("4. Edit game");
+            Console.WriteLine("---");
             Console.WriteLine("5. Add show");
             Console.WriteLine("6. Remove show");
             Console.WriteLine("7. Show all shows");
             Console.WriteLine("8. Edit show");
+            Console.WriteLine("---");
             Console.WriteLine("9. Exit");
         }
 
