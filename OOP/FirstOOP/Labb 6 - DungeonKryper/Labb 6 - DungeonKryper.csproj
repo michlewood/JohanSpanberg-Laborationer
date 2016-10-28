@@ -43,12 +43,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Lists\MyLists.cs" />
     <Compile Include="Classes\Objects\Animal.cs" />
     <Compile Include="Classes\Objects\Human.cs" />
     <Compile Include="Classes\Environment\Room.cs" />
     <Compile Include="Classes\Environment\Yard.cs" />
+    <Compile Include="Classes\Objects\Player.cs" />
+    <Compile Include="Classes\Objects\Questor.cs" />
     <Compile Include="Interfaces\IEnvironment.cs" />
     <Compile Include="Interfaces\INonPlayerCharacter.cs" />
+    <Compile Include="Other Classes\Location.cs" />
+    <Compile Include="Other Classes\Map.cs" />
+    <Compile Include="Other Classes\NewGameReset.cs" />
+    <Compile Include="Other Classes\PlayerControls.cs" />
+    <Compile Include="Other Classes\QuestSystem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Runtime.cs" />
