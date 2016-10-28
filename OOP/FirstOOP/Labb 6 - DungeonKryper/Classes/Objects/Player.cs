@@ -32,6 +32,7 @@ namespace Labb_6___DungeonKryper.Classes.Objects
                         Console.WriteLine("You have reached remort once again.");
                         Console.WriteLine("You have a total of {0} experience left to reach remort again.", MaxExperience - Experience);
                     }
+
                     else
                     {
                         Level++;
@@ -39,6 +40,7 @@ namespace Labb_6___DungeonKryper.Classes.Objects
                         Console.WriteLine("You have a total of {0} experience left to reach level {1}.", MaxExperience - Experience, Level + 1);
                         LevelUpSystem();
                     }
+
                     return;
                 }
                 else

@@ -13,7 +13,14 @@ namespace Labb_6___DungeonKryper.Other_Classes
         {
             string input = Console.ReadLine().ToLower();
 
-            if (Player.Moves == 0 && input == "n" || Player.Moves == 0 && input == "s" || Player.Moves == 0 && input == "w" || Player.Moves == 0 && input == "e")
+            if (Player.Moves == 0 
+                && input == "n" 
+                || Player.Moves == 0 
+                && input == "s" 
+                || Player.Moves == 0 
+                && input == "w" 
+                || Player.Moves == 0 
+                && input == "e")
             {
                 Console.WriteLine("You are too fatigued too move. Sleep or examine things to gain your moves back.");
                 Console.WriteLine("Press <enter> and try again.");
@@ -22,31 +29,36 @@ namespace Labb_6___DungeonKryper.Other_Classes
 
             else
             {
-                if (input == "n" && currentLocation.PossibleExitNorth > 0)
+                if (input == "n" 
+                    && currentLocation.PossibleExitNorth > 0)
                 {
                     currentLocation.CurrentRoomNumber = currentLocation.PossibleExitNorth;
                     Player.Moves--;
                     currentLocation.CurrentRoomX++;
                 }
-                else if (input == "s" && currentLocation.PossibleExitSouth > 0)
+                else if (input == "s" 
+                    && currentLocation.PossibleExitSouth > 0)
                 {
                     currentLocation.CurrentRoomNumber = currentLocation.PossibleExitSouth;
                     Player.Moves--;
                     currentLocation.CurrentRoomX--;
                 }
-                else if (input == "w" && currentLocation.PossibleExitWest > 0)
+                else if (input == "w" 
+                    && currentLocation.PossibleExitWest > 0)
                 {
                     currentLocation.CurrentRoomNumber = currentLocation.PossibleExitWest;
                     Player.Moves--;
                     currentLocation.CurrentRoomY--;
                 }
-                else if (input == "e" && currentLocation.PossibleExitEast > 0)
+                else if (input == "e" 
+                    && currentLocation.PossibleExitEast > 0)
                 {
                     currentLocation.CurrentRoomNumber = currentLocation.PossibleExitEast;
                     Player.Moves--;
                     currentLocation.CurrentRoomY++;
                 }
-                else if (input == "listen" || input == "lis")
+                else if (input == "listen" 
+                    || input == "lis")
                 {
                     runtime.MobListener(currentLocation, runtime, userInterface);
                     if (Player.Moves > Player.FullMoves)
@@ -54,7 +66,8 @@ namespace Labb_6___DungeonKryper.Other_Classes
                         Player.Moves++;
                     }
                 }
-                else if (input == "examine" || input == "ex")
+                else if (input == "examine" 
+                    || input == "ex")
                 {
                     runtime.RoomExaminer(currentLocation, runtime, userInterface);
                     if (Player.Moves > Player.FullMoves)
@@ -62,9 +75,13 @@ namespace Labb_6___DungeonKryper.Other_Classes
                         Player.Moves++;
                     }
                 }
-                else if (input == "quest accept" || input == "qa" || input == "q a")
+                else if (input == "quest accept" 
+                    || input == "qa" 
+                    || input == "q a")
                 {
-                    QuestSystem.Questgetter(currentLocation, userInterface, runtime);
+                    QuestSystem.Questgetter(currentLocation, 
+                                            userInterface, 
+                                            runtime);
                 }
                 else if (input == "cheat")
                 {
@@ -95,7 +112,8 @@ namespace Labb_6___DungeonKryper.Other_Classes
                     }
                     Console.ReadLine();
                 }
-                else if (input == "sleep" || input == "sl")
+                else if (input == "sleep" 
+                        || input == "sl")
                 {
                     Console.WriteLine("You quickly fall asleep");
                     Console.WriteLine("Type wake to wake up.");
@@ -116,7 +134,10 @@ namespace Labb_6___DungeonKryper.Other_Classes
                     }
                 }
 
-                else if (input == "n" || input == "s" || input == "w" || input == "e")
+                else if (input == "n" 
+                        || input == "s" 
+                        || input == "w" 
+                        || input == "e")
                 {
                     Console.WriteLine("You don't see an exit that way.");
                     Console.WriteLine("Press <enter> and try again");

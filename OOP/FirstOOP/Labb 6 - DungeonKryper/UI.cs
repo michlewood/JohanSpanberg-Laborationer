@@ -16,14 +16,32 @@ namespace Labb_6___DungeonKryper
             while (gameLoop)
             {
                 runtime.UpdateList(currentLocation.CurrentRoomNumber);
-                map.ShowMap();
+                map.ShowMap(); // Not implemented yet.
+
                 Console.WriteLine("---");
-                Console.WriteLine(runtime.RoomDescription(map, currentLocation, currentLocation.CurrentRoomX, currentLocation.CurrentRoomY, currentLocation.CurrentRoomNumber, runtime, userInterface));
-                Console.Write("{0} HP - {1} Stamina. TNL: {2} Exits: {3}. ", Player.Health, Player.Moves, (Player.MaxExperience - Player.Experience), currentLocation.AvailableExits);
-                Console.WriteLine("X: {0} Y: {1}", currentLocation.CurrentRoomX, currentLocation.CurrentRoomY);
+                Console.WriteLine(runtime.RoomDescription(map, 
+                                                            currentLocation, 
+                                                            currentLocation.CurrentRoomX, 
+                                                            currentLocation.CurrentRoomY, 
+                                                            currentLocation.CurrentRoomNumber, 
+                                                            runtime, 
+                                                            userInterface));
+
+                Console.Write("{0} HP - {1} Stamina. TNL: {2} Exits: {3}. ", Player.Health, 
+                                                                                Player.Moves, 
+                                                                                (Player.MaxExperience - Player.Experience), 
+                                                                                currentLocation.AvailableExits);
+
+                Console.WriteLine("X: {0} Y: {1}", currentLocation.CurrentRoomX, 
+                                                    currentLocation.CurrentRoomY);
+
                 Console.WriteLine("---");
                 Console.Write("Command: ");
-                playerControls.UserInput(userInterface, runtime, currentLocation);
+
+                playerControls.UserInput(userInterface, 
+                                            runtime, 
+                                            currentLocation);
+
                 Console.Clear();
             }
         }

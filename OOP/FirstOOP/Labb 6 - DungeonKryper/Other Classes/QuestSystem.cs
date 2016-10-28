@@ -13,7 +13,10 @@ namespace Labb_6___DungeonKryper.Other_Classes
 
         internal static void Questgetter(Location currentLocation, UI userInterface, Runtime runtime)
         {
-            if (currentLocation.CurrentRoomX == 6 && currentLocation.CurrentRoomY == 0 && Questor.QuestStarted == false)
+            if (currentLocation.CurrentRoomX == 6 
+                && currentLocation.CurrentRoomY == 0 
+                && Questor.QuestStarted == false)
+
             {
                 Console.WriteLine("You have to find out what my brother has to say. You can find him in the small cabin just outside the palace.");
                 Console.WriteLine("If you do this I will reward you plenty. Do you wish to accept? (Y/N)");
@@ -33,7 +36,10 @@ namespace Labb_6___DungeonKryper.Other_Classes
                     Console.ReadLine();
                 }
             }
-            else if (currentLocation.CurrentRoomX == 1 && currentLocation.CurrentRoomY == -1 && Questor.QuestStarted == true)
+
+            else if (currentLocation.CurrentRoomX == 1 
+                    && currentLocation.CurrentRoomY == -1 
+                    && Questor.QuestStarted == true)
             {
                 Console.WriteLine("Hello my friend! So my brother sent you, did he?");
                 Console.WriteLine("Well I'm sorry he dragged you in to this but you can tell him that");
@@ -42,14 +48,22 @@ namespace Labb_6___DungeonKryper.Other_Classes
                 Questor.QuestHalfway = true;
                 Console.ReadLine();
             }
-            else if (currentLocation.CurrentRoomX == 6 && currentLocation.CurrentRoomY == 0 && Questor.QuestStarted == true && Questor.QuestHalfway == true)
+            else if (currentLocation.CurrentRoomX == 6 
+                    && currentLocation.CurrentRoomY == 0 
+                    && Questor.QuestStarted == true 
+                    && Questor.QuestHalfway == true)
             {
                 Console.WriteLine("Oh, he wont come home? Okay. Thanks for letting me know.");
+
                 Random random = new Random();
                 ExperienceGain = random.Next(100, 501);
+
                 Console.WriteLine("Thank you for your work. Here. Have {0} experience.", ExperienceGain);
+
                 Player.LevelSystem(ExperienceGain);
+
                 Console.WriteLine("Press <enter> to continue");
+
                 Questor.QuestStarted = false;
                 Questor.QuestHalfway = false;
                 Console.ReadLine();
