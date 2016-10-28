@@ -128,9 +128,10 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             Environment[4].RoomContent.Add(new Human
             {
                 Name = "regular man",
-                Description = "A tall man",
+                Description = "Alre Wildoak",
+                LongDescription = "Pink, sleek hair neatly coiffured to reveal a bony, warm face. Small green eyes, set lightly within their sockets, watch thoughtfully over the mountains they've cared for for so long. A beard handsomely compliments his nose and mouth and leaves a pleasant memory of his upbringing. The is the face of Alre Wildoak, a true romanticist among wood elves. He stands short among others, despite his skinny frame. There's something obscure about him, perhaps it's his unfortunate past or perhaps it's simply a feeling of sadness. But nonetheless, people tend to lie about knowing him to brag, while secretly admiring him.",
                 Speak = "Come here for a while, and listen.",
-                ObjectLocationX = 0,
+                ObjectLocationX = 3,
                 ObjectLocationY = 0,
                 ObjectNumber = 1001,
                 Health = 3,
@@ -154,8 +155,9 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Name = "rat",
                 Description = "A small rat",
+                LongDescription = "Not much to say about this furry animal",
                 Speak = "The rat covers in fear.",
-                ObjectLocationX = 0,
+                ObjectLocationX = 4,
                 ObjectLocationY = 0,
                 ObjectNumber = 1002,
                 Health = 2,
@@ -165,8 +167,9 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Name = "rat",
                 Description = "A small rat",
+                LongDescription = "This rat carries worms",
                 Speak = "The rat covers in fear.",
-                ObjectLocationX = 0,
+                ObjectLocationX = 4,
                 ObjectLocationY = 0,
                 ObjectNumber = 1002,
                 Health = 3,
