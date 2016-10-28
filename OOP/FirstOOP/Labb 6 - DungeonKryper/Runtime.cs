@@ -14,6 +14,7 @@ namespace Labb_6___DungeonKryper
     class Runtime
     {
         MyLists myLists = new MyLists();
+        public string Exits { get; set; }
 
         public void Start(Runtime runtime, PlayerControls playerControls)
         {
@@ -30,6 +31,34 @@ namespace Labb_6___DungeonKryper
                 currentLocation, 
                 playerControls
                 );
+        }
+
+        internal void ExitUpdater(Location currentLocation, Runtime runtime, int currentRoomNumber)
+        {
+            foreach (var location in myLists.Environment)
+            {
+                if (currentRoomNumber == location.RoomNumber)
+                {
+                    LocationUpdater(currentLocation, location);
+                }
+            }
+
+            if (currentLocation.PossibleExitNorth > 0)
+            {
+                Exits = Exits + "North ";
+            }
+            if (currentLocation.PossibleExitSouth > 0)
+            {
+                Exits = Exits + "South ";
+            }
+            if (currentLocation.PossibleExitWest > 0)
+            {
+                Exits = Exits + "West ";
+            }
+            if (currentLocation.PossibleExitEast > 0)
+            {
+                Exits = Exits + "East ";
+            }
         }
 
         internal void UpdateList(int currentRoomNumber)
@@ -58,7 +87,7 @@ namespace Labb_6___DungeonKryper
             return "You can't see an exit that way. Try again.";
         }
 
-        private void LocationUpdater(Location currentLocation, IEnvironment location)
+        public void LocationUpdater(Location currentLocation, IEnvironment location)
         {
             currentLocation.CurrentRoomNumber = location.RoomNumber;
             currentLocation.AvailableExits = location.Exits;

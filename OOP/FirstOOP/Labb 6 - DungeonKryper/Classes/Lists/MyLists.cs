@@ -29,12 +29,11 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Description = "a dark forest.",
                 LongDescription = "You see a path. Its twisted and barely lit trail leads past rocks and fallen timber. You can feel all kinds of unknown animals and trolls watch you. Nobody has maintained this path in years.",
-                Exits = "North",
                 EnvironmentLocationX = 0,
                 EnvironmentLocationY = 0,
                 RoomNumber = 1000,
                 ExitNorth = 1001,
-                ExitEast = 0,
+                ExitEast = 1010,
                 ExitSouth = 0,
                 ExitWest = 0,
                 Contains = 1000,
@@ -53,12 +52,66 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 Health = 50,
                 Level = 11
             });
+            Environment.Add(new Yard
+            {
+                Description = "a dark forest path.",
+                LongDescription = "You see a path. Its twisted and barely lit trail leads past rocks and fallen timber. You can feel all kinds of unknown animals and trolls watch you. Nobody has maintained this path in years.",
+                EnvironmentLocationX = 0,
+                EnvironmentLocationY = 1,
+                RoomNumber = 1010,
+                ExitNorth = 0,
+                ExitEast = 0,
+                ExitSouth = 1011,
+                ExitWest = 1000,
+                Contains = 0,
 
+            });
+            Environment.Add(new Yard
+            {
+                Description = "a dark small village.",
+                LongDescription = "A small abandoned village with huts to the east and west stands before you. You can't help wondering what happened to this place.",
+                EnvironmentLocationX = -1,
+                EnvironmentLocationY = 1,
+                RoomNumber = 1011,
+                ExitNorth = 1010,
+                ExitEast = 1012,
+                ExitSouth = 0,
+                ExitWest = 1013,
+                Contains = 0,
+
+            });
+            Environment.Add(new Yard
+            {
+                Description = "a dark small village hut.",
+                LongDescription = "This hut is barely standing and the smell of rot stenches your nose.",
+                EnvironmentLocationX = -1,
+                EnvironmentLocationY = 2,
+                RoomNumber = 1012,
+                ExitNorth = 0,
+                ExitEast = 0,
+                ExitSouth = 0,
+                ExitWest = 1011,
+                Contains = 0,
+
+            });
+            Environment.Add(new Yard
+            {
+                Description = "a dark small village hut.",
+                LongDescription = "The kitchen fire has not been used in ages. It feels desolate and abandoned.",
+                EnvironmentLocationX = -1,
+                EnvironmentLocationY = 0,
+                RoomNumber = 1013,
+                ExitNorth = 0,
+                ExitEast = 1011,
+                ExitSouth = 0,
+                ExitWest = 0,
+                Contains = 0,
+
+            });
             Environment.Add(new Yard
             {
                 Description = "a dark forest.",
                 LongDescription = "You can see a small cabin to the west and nothing but dark forest to the north.",
-                Exits = "North, South, West",
                 EnvironmentLocationX = 1,
                 EnvironmentLocationY = 0,
                 RoomNumber = 1001,
@@ -71,9 +124,8 @@ namespace Labb_6___DungeonKryper.Classes.Lists
 
             Environment.Add(new Room
             {
-                Description = "a light cabin.",
+                Description = "a light cabin 6.",
                 LongDescription = "The house is equipped with an old-fashioned kitchen and two bathrooms, it also has a warm living room, four bedrooms, a small dining room, a sun room and a spacious storage room. The building is square shaped.The house is fully surrounded by cloth sunscreens.",
-                Exits = "East",
                 EnvironmentLocationX = 1,
                 EnvironmentLocationY = -1,
                 RoomNumber = 1002,
@@ -101,7 +153,6 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Description = "a dimly lit yard.",
                 LongDescription = "The forest clears and you can see some cut grass. To the north it looks more well maintained and to the south there is nothing but forests.",
-                Exits = "North, South",
                 EnvironmentLocationX = 2,
                 EnvironmentLocationY = 0,
                 RoomNumber = 1003,
@@ -115,7 +166,6 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Description = "a bright yard.",
                 LongDescription = "The grass is well cut and you can see a freshly renovated pathway leading north. To the south it looks darker.",
-                Exits = "North, South",
                 EnvironmentLocationX = 3,
                 EnvironmentLocationY = 0,
                 RoomNumber = 1004,
@@ -141,7 +191,6 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Description = "a palace entrance.",
                 LongDescription = "A big marble building stands before you to the north. To the south you can see the yard.",
-                Exits = "North, South",
                 EnvironmentLocationX = 4,
                 EnvironmentLocationY = 0,
                 RoomNumber = 1005,
@@ -179,7 +228,6 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Description = "a palace hallway.",
                 LongDescription = "The walls are plastered with beautiful paintings, the floor is reflective and the roof looks entirely new. The building draws you in further north, but you can exit in all directions.",
-                Exits = "North, South, East, West",
                 EnvironmentLocationX = 5,
                 EnvironmentLocationY = 0,
                 RoomNumber = 1006,
@@ -193,7 +241,6 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Description = "a throne room.",
                 LongDescription = "The most gold filled room you have ever seen. In the middle there is a man looking fierce. You may exit to the south.",
-                Exits = "South",
                 EnvironmentLocationX = 6,
                 EnvironmentLocationY = 0,
                 RoomNumber = 1007,
@@ -221,7 +268,6 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Description = "a palace room.",
                 LongDescription = "Another big room.",
-                Exits = "West",
                 EnvironmentLocationX = 5,
                 EnvironmentLocationY = 1,
                 RoomNumber = 1008,
@@ -235,7 +281,6 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             {
                 Description = "a palace room.",
                 LongDescription = "Another big room.",
-                Exits = "East",
                 EnvironmentLocationX = 5,
                 EnvironmentLocationY = -1,
                 RoomNumber = 1009,

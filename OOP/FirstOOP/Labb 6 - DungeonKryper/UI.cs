@@ -15,6 +15,7 @@ namespace Labb_6___DungeonKryper
             bool gameLoop = true;
             while (gameLoop)
             {
+                runtime.ExitUpdater(currentLocation, runtime, currentLocation.CurrentRoomNumber);
                 runtime.UpdateList(currentLocation.CurrentRoomNumber);
                 map.ShowMap(); // Not implemented yet.
 
@@ -27,17 +28,17 @@ namespace Labb_6___DungeonKryper
                                                             runtime, 
                                                             userInterface));
 
-                Console.Write("{0} HP - {1} Stamina. TNL: {2} Exits: {3}. ", Player.Health, 
+                Console.WriteLine("{0} HP - {1} Stamina. TNL: {2} Exits: {3}", Player.Health, 
                                                                                 Player.Moves, 
                                                                                 (Player.MaxExperience - Player.Experience), 
-                                                                                currentLocation.AvailableExits);
+                                                                                runtime.Exits);
 
                 Console.WriteLine("X: {0} Y: {1}", currentLocation.CurrentRoomX, 
                                                     currentLocation.CurrentRoomY);
-
                 Console.WriteLine("---");
                 Console.Write("Command: ");
 
+                runtime.Exits = "";
                 playerControls.UserInput(userInterface, 
                                             runtime, 
                                             currentLocation);
