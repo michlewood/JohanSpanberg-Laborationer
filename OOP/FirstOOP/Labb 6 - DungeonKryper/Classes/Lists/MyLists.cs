@@ -28,7 +28,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             Environment.Add(new Yard
             {
                 Description = "a dark forest.",
-                LongDescription = "There really is nothing to see. You see a path going north.",
+                LongDescription = "You see a path. Its twisted and barely lit trail leads past rocks and fallen timber. You can feel all kinds of unknown animals and trolls watch you. Nobody has maintained this path in years.",
                 Exits = "North",
                 EnvironmentLocationX = 0,
                 EnvironmentLocationY = 0,
@@ -42,16 +42,16 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             Environment[0].RoomContent.Add(new Animal
             {
-                Name = "dog",
-                Description = "A tiny dog",
-                Speak = "Woof",
-                Type = "Dog",
+                Name = "nor'Grah",
+                Description = "nor'Grah",
+                LongDescription = "This clever and uncommon creature is a type of reptile. It's about the size of a crocodile, has no legs or arms, like a snake and a short, strong tail. They have a soft, but strong skin covered in small, coarse scales, which is usually either grey, blue or brown or a combination of these colors.",
+                Speak = "Gnarl",
+                Type = "norGrah",
                 ObjectLocationX = 0,
                 ObjectLocationY = 0,
                 ObjectNumber = 1000,
-                Health = 5,
-                Level = 1
-
+                Health = 50,
+                Level = 11
             });
 
             Environment.Add(new Yard
@@ -72,7 +72,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             Environment.Add(new Room
             {
                 Description = "a light cabin.",
-                LongDescription = "This small cabin have seen better days. The only exit is the door you came in through.",
+                LongDescription = "The house is equipped with an old-fashioned kitchen and two bathrooms, it also has a warm living room, four bedrooms, a small dining room, a sun room and a spacious storage room. The building is square shaped.The house is fully surrounded by cloth sunscreens.",
                 Exits = "East",
                 EnvironmentLocationX = 1,
                 EnvironmentLocationY = -1,
@@ -85,11 +85,12 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             Environment[2].RoomContent.Add(new Human
             {
-                Name = "regular man",
-                Description = "A tall man",
+                Name = "Alduin Nightgaze",
+                Description = "Alduin Nightgaze",
+                LongDescription = "Silver, wavy hair almost fully covers a lean, anguished face. Beady red eyes, set high within their sockets, watch lovingly over the sea they've bled for for so long. Soft skin elegantly compliments his hair and leaves a bittersweet memory of his fortunate adventures. The is the face of Alduin Nightgaze, a true winner among high elves. He stands tiny among others, despite his scraggy frame. There's something enthralling about him, perhaps it's his perseverance or perhaps it's simply his fortunate past. But nonetheless, people tend to flock towards him, while secretly training to become more like him.",
                 Speak = "Come here for a while, and listen.",
-                ObjectLocationX = 0,
-                ObjectLocationY = 0,
+                ObjectLocationX = 1,
+                ObjectLocationY = -1,
                 ObjectNumber = 1001,
                 Health = 8,
                 Level = 1,
@@ -201,10 +202,11 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             Environment[7].RoomContent.Add(new Questor
             {
-                Name = "questor",
-                Description = "A influental man giving out quests. Listen to him.",
+                Name = "Addison Lockwood",
+                Description = "Addison Lockwood",
+                LongDescription = "Gray, long hair is pulled back to reveal a bony, time-worn face. Narrow gray eyes, set seductively within their sockets, watch watchfully over the town they've defended for so long. Fair skin beautifully compliments his cheekbones and leaves a heartbreaking memory of his fortunate looks. The is the face of Addison Lockwood, a true warrior among giants. He stands seductively among others, despite his thin frame. There's something mystifying about him, perhaps it's his odd friends or perhaps it's simply his reputation. But nonetheless, people tend to shower him with gifts, while trying to avoid him.",
                 Speak = "I have a possible quest for you. Type Quest accept to start your quest",
-                ObjectLocationX = 0,
+                ObjectLocationX = 6,
                 ObjectLocationY = 0,
                 ObjectNumber = 1004,
                 Health = 99999,

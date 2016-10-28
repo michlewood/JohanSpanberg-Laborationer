@@ -10,6 +10,7 @@ namespace Labb_6___DungeonKryper.Classes.Objects
     class Human : INonPlayerCharacter
     {
         public string Description { get; set; }
+        public string LongDescription { get; set; }
         public string Name { get; set; }
         public string Speak { get; set; }
         public int ObjectLocationY { get; set; }

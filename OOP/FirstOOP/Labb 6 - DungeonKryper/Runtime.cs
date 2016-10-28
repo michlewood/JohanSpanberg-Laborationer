@@ -84,6 +84,23 @@ namespace Labb_6___DungeonKryper
             return numberOfAnimals;
         }
 
+        internal void PersonExaminer(Location currentLocation, Runtime runtime, UI userInterface)
+        {
+            foreach (var npc in myLists.NonPlayerCharacters)
+            {
+                if (currentLocation.CurrentRoomX == npc.ObjectLocationX && currentLocation.CurrentRoomY == npc.ObjectLocationY )
+                {
+                    Console.WriteLine(npc.LongDescription);
+                }
+                else 
+                {
+                    Console.WriteLine("There really is nobody to examine here.");
+                    break;
+                }
+            }
+            Console.ReadLine();
+        }
+
         public void RoomExaminer(Location currentLocation, Runtime runtime, UI userInterface)
         {
             foreach (var room in myLists.Environment)

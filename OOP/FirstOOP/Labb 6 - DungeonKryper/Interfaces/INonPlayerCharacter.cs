@@ -9,6 +9,7 @@ namespace Labb_6___DungeonKryper.Interfaces
     interface INonPlayerCharacter
     {
         string Description { get; set; }
+        string LongDescription { get; set; }
         string Name { get; set; }
         string Speak { get; set; }
         int ObjectLocationY { get; set; }

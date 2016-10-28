@@ -70,7 +70,16 @@ namespace Labb_6___DungeonKryper.Other_Classes
                     || input == "ex")
                 {
                     runtime.RoomExaminer(currentLocation, runtime, userInterface);
-                    if (Player.Moves > Player.FullMoves)
+                    if (Player.Moves < Player.FullMoves)
+                    {
+                        Player.Moves++;
+                    }
+                }
+                else if (input == "examine mob"
+                || input == "ex mob")
+                {
+                    runtime.PersonExaminer(currentLocation, runtime, userInterface);
+                    if (Player.Moves < Player.FullMoves)
                     {
                         Player.Moves++;
                     }
