@@ -125,7 +125,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
 
             Environment.Add(new Room
             {
-                Description = "a light cabin 6.",
+                Description = "a light cabin.",
                 LongDescription = "The house is equipped with an old-fashioned kitchen and two bathrooms, it also has a warm living room, four bedrooms, a small dining room, a sun room and a spacious storage room. The building is square shaped.The house is fully surrounded by cloth sunscreens.",
                 EnvironmentLocationX = 1,
                 EnvironmentLocationY = -1,
@@ -186,9 +186,9 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationX = 3,
                 ObjectLocationY = 0,
                 ObjectNumber = 1001,
-                Health = 3,
-                Level = 1,
-                Strength = 1
+                Health = 55,
+                Level = 5,
+                Strength = 3
             });
             Environment.Add(new Yard
             {
@@ -212,8 +212,8 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationX = 4,
                 ObjectLocationY = 0,
                 ObjectNumber = 1002,
-                Health = 4,
-                Level = 1,
+                Health = 31,
+                Level = 3,
                 Strength = 1
             });
             Environment[5].RoomContent.Add(new Animal
@@ -225,9 +225,9 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationX = 4,
                 ObjectLocationY = 0,
                 ObjectNumber = 1002,
-                Health = 3,
-                Level = 1,
-                Strength = 2
+                Health = 46,
+                Level = 4,
+                Strength = 1
             });
             Environment.Add(new Room
             {

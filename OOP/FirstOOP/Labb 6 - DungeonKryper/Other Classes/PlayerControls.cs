@@ -143,10 +143,15 @@ namespace Labb_6___DungeonKryper.Other_Classes
                             Console.WriteLine("You wake up fresh and rested!");
                             Console.WriteLine("Press <enter> to continue.");
                             Player.Moves = Player.FullMoves;
+                            Player.Health = Player.FullHealth;
                             Console.ReadLine();
                             asleep = false;
                         }
                     }
+                }
+                else if (input == "con" || input == "consider")
+                {
+                    AttackHandler.Consider(currentLocation, runtime, userInterface, environments, CurrentRoomNumber);
                 }
 
                 else if (input == "n" 

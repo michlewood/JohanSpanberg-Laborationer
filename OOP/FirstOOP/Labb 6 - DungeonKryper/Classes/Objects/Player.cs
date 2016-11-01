@@ -21,6 +21,7 @@ namespace Labb_6___DungeonKryper.Classes.Objects
         public static int Strength { get; set; }
         public static bool noExperience { get; set; }
         public static int attackRatio { get; set; }
+        public static int goldCoins { get; set; }
 
         public static void LevelSystem(int inExperience)
         {
@@ -39,9 +40,11 @@ namespace Labb_6___DungeonKryper.Classes.Objects
                     else
                     {
                         Level++;
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Congratulations. You have reached level {0}.", Level);
                         Console.WriteLine("You have a total of {0} experience left to reach level {1}.", MaxExperience - Experience, Level + 1);
                         LevelUpSystem();
+                        Console.ResetColor();
                     }
 
                     return;
@@ -49,7 +52,10 @@ namespace Labb_6___DungeonKryper.Classes.Objects
                 else
                 {
                     Experience = Experience + inExperience;
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You gained {0} experience.", inExperience);
                     Console.WriteLine("You have a total of {0} experience left to reach level {1}.", MaxExperience - Experience, Level + 1);
+                    Console.ResetColor();
                     return;
                 }
             }
@@ -80,6 +86,17 @@ namespace Labb_6___DungeonKryper.Classes.Objects
             Console.WriteLine("━━━");
         }
 
+        internal static void Gains(List<IEnvironment> environments, int currentRoomNumber, int playerInput)
+        {
+            Random goldGain = new Random();
+            int goldGained = goldGain.Next(environments[currentRoomNumber - 1000].RoomContent[playerInput].Level, environments[currentRoomNumber - 1000].RoomContent[playerInput].Level + 11);
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("You got {0} gold from the corpse of the {1}.", goldGained, environments[currentRoomNumber - 1000].RoomContent[playerInput].Description);
+            Console.ResetColor();
+            goldCoins = goldCoins + goldGained;
+            Console.ReadLine();
+        }
+
         public static void WhoisScreen()
         {
             Console.Clear();
@@ -90,6 +107,7 @@ namespace Labb_6___DungeonKryper.Classes.Objects
             Console.WriteLine("┃   Moves: {0}                    ", FullMoves);
             Console.WriteLine("┃   Strength: {0}                  ", Strength);
             Console.WriteLine("┃   Experience: {0}                  ", Experience);
+            Console.WriteLine("┃   Gold coins: {0}                  ", goldCoins);
             Console.WriteLine("┃ ");
             Console.WriteLine("Press <enter> to return to the game.");
             Console.ReadLine();
@@ -113,6 +131,8 @@ namespace Labb_6___DungeonKryper.Classes.Objects
             Console.WriteLine("┃  listen / list - Listen to the mobs in the room              ┃");
             Console.WriteLine("┃  noexp - Toggle experience gains                             ┃");
             Console.WriteLine("┃  whois - Check your current stats                            ┃");
+            Console.WriteLine("┃  kill / k - Attacks a mob                                    ┃");
+            Console.WriteLine("┃  consider / con - Considers a mob before a fight             ┃");
             Console.WriteLine("┃  help - shows this screen                                    ┃");
             Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
             Console.WriteLine("Press <enter> to return to the game.");
