@@ -18,5 +18,7 @@ namespace Labb_6___DungeonKryper.Classes.Objects
         public int ObjectNumber { get; set; }
         public int Health { get; set; }
         public int Level { get; set; }
+        public int AttackRatio { get; set; }
+        public int Strength { get; set; }
     }
 }

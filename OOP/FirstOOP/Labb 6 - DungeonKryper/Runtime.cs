@@ -29,7 +29,8 @@ namespace Labb_6___DungeonKryper
                 runtime, 
                 userInterface, 
                 currentLocation, 
-                playerControls
+                playerControls,
+                myLists.Environment
                 );
         }
 

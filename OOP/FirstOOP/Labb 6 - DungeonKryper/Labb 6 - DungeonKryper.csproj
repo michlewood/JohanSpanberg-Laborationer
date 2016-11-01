@@ -52,6 +52,7 @@
     <Compile Include="Classes\Objects\Questor.cs" />
     <Compile Include="Interfaces\IEnvironment.cs" />
     <Compile Include="Interfaces\INonPlayerCharacter.cs" />
+    <Compile Include="Other Classes\AttackHandler.cs" />
     <Compile Include="Other Classes\Location.cs" />
     <Compile Include="Other Classes\Map.cs" />
     <Compile Include="Other Classes\NewGameReset.cs" />

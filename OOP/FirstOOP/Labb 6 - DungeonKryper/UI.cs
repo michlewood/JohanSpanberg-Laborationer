@@ -1,4 +1,5 @@
 ﻿using Labb_6___DungeonKryper.Classes.Objects;
+using Labb_6___DungeonKryper.Interfaces;
 using Labb_6___DungeonKryper.Other_Classes;
 using System;
 using System.Collections.Generic;
@@ -10,16 +11,16 @@ namespace Labb_6___DungeonKryper
 {
     class UI
     {
-        public void ShownUserInterface(Map map, Runtime runtime, UI userInterface, Location currentLocation, PlayerControls playerControls)
+        public void ShownUserInterface(Map map, Runtime runtime, UI userInterface, Location currentLocation, PlayerControls playerControls, List<IEnvironment> environments)
         {
             bool gameLoop = true;
             while (gameLoop)
             {
                 runtime.ExitUpdater(currentLocation, runtime, currentLocation.CurrentRoomNumber);
                 runtime.UpdateList(currentLocation.CurrentRoomNumber);
-                map.ShowMap(); // Not implemented yet.
+                map.ShowMap(currentLocation, environments); // Not implemented yet.
 
-                Console.WriteLine("---");
+                Console.WriteLine("━━━");
                 Console.WriteLine(runtime.RoomDescription(map, 
                                                             currentLocation, 
                                                             currentLocation.CurrentRoomX, 
@@ -35,13 +36,13 @@ namespace Labb_6___DungeonKryper
 
                 Console.WriteLine("X: {0} Y: {1}", currentLocation.CurrentRoomX, 
                                                     currentLocation.CurrentRoomY);
-                Console.WriteLine("---");
+                Console.WriteLine("━━━");
                 Console.Write("Command: ");
 
                 runtime.Exits = "";
                 playerControls.UserInput(userInterface, 
                                             runtime, 
-                                            currentLocation);
+                                            currentLocation, environments, currentLocation.CurrentRoomNumber);
 
                 Console.Clear();
             }

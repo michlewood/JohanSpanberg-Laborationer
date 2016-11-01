@@ -19,6 +19,7 @@ namespace Labb_6___DungeonKryper.Other_Classes
             Player.Experience = 0;
             Player.MaxExperience = 1000;
             Player.noExperience = false;
+            Player.Strength = 1;
 
             currentLocation.CurrentRoomNumber = 1000;
             currentLocation.CurrentRoomX = 0;

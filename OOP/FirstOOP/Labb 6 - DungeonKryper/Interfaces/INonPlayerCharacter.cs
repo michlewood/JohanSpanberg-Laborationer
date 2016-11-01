@@ -17,5 +17,7 @@ namespace Labb_6___DungeonKryper.Interfaces
         int ObjectNumber { get; set; }
         int Health { get; set; }
         int Level { get; set; }
+        int AttackRatio { get; set; }
+        int Strength { get; set; }
     }
 }

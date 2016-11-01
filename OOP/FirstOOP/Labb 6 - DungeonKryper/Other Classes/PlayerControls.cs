@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Labb_6___DungeonKryper.Interfaces;
 
 namespace Labb_6___DungeonKryper.Other_Classes
 {
     class PlayerControls
     {
-        public void UserInput(UI userInterface, Runtime runtime, Location currentLocation)
+        public void UserInput(UI userInterface, Runtime runtime, Location currentLocation, List<IEnvironment> environments, int CurrentRoomNumber)
         {
             string input = Console.ReadLine().ToLower();
 
@@ -91,6 +92,11 @@ namespace Labb_6___DungeonKryper.Other_Classes
                     QuestSystem.Questgetter(currentLocation, 
                                             userInterface, 
                                             runtime);
+                }
+                else if (input == "kill"
+                    || input == "k")
+                {
+                    AttackHandler.Kill(currentLocation, runtime, userInterface, environments, CurrentRoomNumber);
                 }
                 else if (input == "cheat")
                 {

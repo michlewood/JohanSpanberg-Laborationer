@@ -50,7 +50,8 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationY = 0,
                 ObjectNumber = 1000,
                 Health = 50,
-                Level = 11
+                Level = 11,
+                Strength = 20
             });
             Environment.Add(new Yard
             {
@@ -144,8 +145,9 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationX = 1,
                 ObjectLocationY = -1,
                 ObjectNumber = 1001,
-                Health = 8,
-                Level = 1,
+                Health = 500,
+                Level = 500,
+                Strength = 500
 
             });
 
@@ -185,7 +187,8 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationY = 0,
                 ObjectNumber = 1001,
                 Health = 3,
-                Level = 1
+                Level = 1,
+                Strength = 1
             });
             Environment.Add(new Yard
             {
@@ -209,8 +212,9 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationX = 4,
                 ObjectLocationY = 0,
                 ObjectNumber = 1002,
-                Health = 2,
-                Level = 1
+                Health = 4,
+                Level = 1,
+                Strength = 1
             });
             Environment[5].RoomContent.Add(new Animal
             {
@@ -222,7 +226,8 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationY = 0,
                 ObjectNumber = 1002,
                 Health = 3,
-                Level = 1
+                Level = 1,
+                Strength = 2
             });
             Environment.Add(new Room
             {
@@ -260,7 +265,8 @@ namespace Labb_6___DungeonKryper.Classes.Lists
                 ObjectLocationY = 0,
                 ObjectNumber = 1004,
                 Health = 99999,
-                Level = 201,
+                Level = 500,
+                Strength = 500
 
             });
 

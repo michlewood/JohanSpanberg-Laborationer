@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Labb_6___DungeonKryper.Interfaces;
+using Labb_6___DungeonKryper.Other_Classes;
+using Labb_6___DungeonKryper.Classes.Lists;
 
 namespace Labb_6___DungeonKryper.Classes.Objects
 {
@@ -16,8 +19,8 @@ namespace Labb_6___DungeonKryper.Classes.Objects
         public static int Experience { get; set; }
         public static int MaxExperience { get; set; }
         public static int Strength { get; set; }
-        public static int FullStrength { get; set; }
         public static bool noExperience { get; set; }
+        public static int attackRatio { get; set; }
 
         public static void LevelSystem(int inExperience)
         {
@@ -64,30 +67,30 @@ namespace Labb_6___DungeonKryper.Classes.Objects
             FullMoves = FullMoves + additionalMoves;
 
             var additionalStrength = random.Next(1, 10);
-            FullStrength = FullStrength + additionalStrength;
+            Strength = Strength + additionalStrength;
 
             var additionalHealth = random.Next(1, 10);
             FullHealth = FullHealth + additionalHealth;
 
-            Console.WriteLine("---");
+            Console.WriteLine("━━━");
             Console.WriteLine("You gained:");
             Console.WriteLine("+{0} moves", additionalMoves);
             Console.WriteLine("+{0} strength", additionalStrength);
             Console.WriteLine("+{0} health", additionalHealth);
-            Console.WriteLine("---");
+            Console.WriteLine("━━━");
         }
 
         public static void WhoisScreen()
         {
             Console.Clear();
-            Console.WriteLine("***");
-            Console.WriteLine("***         Player Stats           ");
-            Console.WriteLine("***");
-            Console.WriteLine("***   Level: {0}                     ", Level);
-            Console.WriteLine("***   Moves: {0}                    ", FullMoves);
-            Console.WriteLine("***   Strength: {0}                  ", FullStrength);
-            Console.WriteLine("***   Experience: {0}                  ", Experience);
-            Console.WriteLine("*** ");
+            Console.WriteLine("");
+            Console.WriteLine("┃         Player Stats           ");
+            Console.WriteLine("┃");
+            Console.WriteLine("┃   Level: {0}                     ", Level);
+            Console.WriteLine("┃   Moves: {0}                    ", FullMoves);
+            Console.WriteLine("┃   Strength: {0}                  ", Strength);
+            Console.WriteLine("┃   Experience: {0}                  ", Experience);
+            Console.WriteLine("┃ ");
             Console.WriteLine("Press <enter> to return to the game.");
             Console.ReadLine();
         }
@@ -95,20 +98,23 @@ namespace Labb_6___DungeonKryper.Classes.Objects
         public static void Help()
         {
             Console.Clear();
-            Console.WriteLine("Available commands:");
-            Console.WriteLine("---");
-            Console.WriteLine("n - Go north");
-            Console.WriteLine("s - Go south");
-            Console.WriteLine("w - Go west");
-            Console.WriteLine("e - Go east");
-            Console.WriteLine("---");
-            Console.WriteLine("sleep / sl - Go to sleep, replenishes mana");
-            Console.WriteLine("quest accept / q a / qa - Accept/Move forward with quest");
-            Console.WriteLine("examine / ex - Examine the room you are in");
-            Console.WriteLine("listen / list - Listen to the mobs in the room");
-            Console.WriteLine("whois - Check your current stats");
-            Console.WriteLine("help - shows this screen");
-            Console.WriteLine("---");
+            Console.WriteLine("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+            Console.WriteLine("┃                      Available commands:                     ┃");
+            Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
+            Console.WriteLine("┃  n - Go north                                                ┃");
+            Console.WriteLine("┃  s - Go south                                                ┃");
+            Console.WriteLine("┃  w - Go west                                                 ┃");
+            Console.WriteLine("┃  e - Go east                                                 ┃");
+            Console.WriteLine("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
+            Console.WriteLine("┃  sleep / sl - Go to sleep, replenishes stats                 ┃");
+            Console.WriteLine("┃  quest accept / q a / qa - Accept/Move forward with quest    ┃");
+            Console.WriteLine("┃  examine / ex - Examine the room you are in                  ┃");
+            Console.WriteLine("┃  examine mob / ex mob - Examine the mobs in the room         ┃");
+            Console.WriteLine("┃  listen / list - Listen to the mobs in the room              ┃");
+            Console.WriteLine("┃  noexp - Toggle experience gains                             ┃");
+            Console.WriteLine("┃  whois - Check your current stats                            ┃");
+            Console.WriteLine("┃  help - shows this screen                                    ┃");
+            Console.WriteLine("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
             Console.WriteLine("Press <enter> to return to the game.");
             Console.ReadLine();
         }
