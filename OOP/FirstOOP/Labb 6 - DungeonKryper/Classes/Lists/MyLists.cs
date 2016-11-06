@@ -1,5 +1,6 @@
 ﻿using Labb_6___DungeonKryper.Classes.Environment;
 using Labb_6___DungeonKryper.Classes.Objects;
+using Labb_6___DungeonKryper.Classes.Objects.Armor;
 using Labb_6___DungeonKryper.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,43 @@ namespace Labb_6___DungeonKryper.Classes.Lists
 {
     class MyLists
     {
-        public List<Equipment> items { get; set; }
-
-        List<Worn> wornEquipment { get; set; }
-        public List<Worn> WornEquipment
+        List<IEquipment> items;
+        public List<IEquipment> Items
         {
             get
             {
-                if (wornEquipment == null) wornEquipment = new List<Worn>();
-                return wornEquipment;
+                if (items == null) items = new List<IEquipment>();
+                return items;
+            }
+        }
+
+        List<IItems> itemsList;
+        public List<IItems> ItemsList
+        {
+            get
+            {
+                if (itemsList == null) itemsList = new List<IItems>();
+                return itemsList;
+            }
+        }
+
+        List<ArmorItem> armorItem;
+        public List<ArmorItem> ArmorItem
+        {
+            get
+            {
+                if (armorItem == null) armorItem = new List<ArmorItem>();
+                return armorItem;
+            }
+        }
+
+        List<ArmorSlot> armorSlot;
+        public List<ArmorSlot> ArmorSlot
+        {
+            get
+            {
+                if (armorSlot == null) armorSlot = new List<ArmorSlot>();
+                return armorSlot;
             }
         }
 
@@ -35,70 +64,122 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             }
         }
 
+
+
+
         public MyLists()
         {
-            WornEquipment.Add(new Worn
+            ArmorSlot.Add(new ArmorSlot
             {
-                Name = "Empty",
-                Strength = 0,
-                Weight = 0,
-                Worth = 0,
+                ArmorName = "Head",
+                Position = 0
+            }
+            );
+
+            ArmorSlot[0].ArmorSlotContains.Add(new ArmorItem
+            {
+                ArmorName = "Empty",
+                ArmorStrength = 0,
+                ArmorWeight = 0,
+                ArmorWorth = 0,
                 Position = 0
             });
-            WornEquipment.Add(new Worn
+            ArmorSlot.Add(new ArmorSlot
             {
-                Name = "Empty",
-                Strength = 0,
-                Weight = 0,
-                Worth = 0,
+                ArmorName = "Neck",
+                Position = 1
+            }
+);
+            ArmorSlot[1].ArmorSlotContains.Add(new ArmorItem
+            {
+                ArmorName = "Empty",
+                ArmorStrength = 0,
+                ArmorWeight = 0,
+                ArmorWorth = 0,
                 Position = 1
             });
-            WornEquipment.Add(new Worn
+            ArmorSlot.Add(new ArmorSlot
             {
-                Name = "Empty",
-                Strength = 0,
-                Weight = 0,
-                Worth = 0,
+                ArmorName = "Shoulders",
+                Position = 2
+            }
+);
+            ArmorSlot[2].ArmorSlotContains.Add(new ArmorItem
+            {
+                ArmorName = "Empty",
+                ArmorStrength = 0,
+                ArmorWeight = 0,
+                ArmorWorth = 0,
                 Position = 2
             });
-            WornEquipment.Add(new Worn
+            ArmorSlot.Add(new ArmorSlot
             {
-                Name = "Empty",
-                Strength = 0,
-                Weight = 0,
-                Worth = 0,
+                ArmorName = "Torso",
+                Position = 3
+            }
+);
+            ArmorSlot[3].ArmorSlotContains.Add(new ArmorItem
+            {
+                ArmorName = "Empty",
+                ArmorStrength = 0,
+                ArmorWeight = 0,
+                ArmorWorth = 0,
                 Position = 3
             });
-            WornEquipment.Add(new Worn
+            ArmorSlot.Add(new ArmorSlot
             {
-                Name = "Empty",
-                Strength = 0,
-                Weight = 0,
-                Worth = 0,
+                ArmorName = "Arms",
+                Position = 4
+            }
+);
+            ArmorSlot[4].ArmorSlotContains.Add(new ArmorItem
+            {
+                ArmorName = "Empty",
+                ArmorStrength = 0,
+                ArmorWeight = 0,
+                ArmorWorth = 0,
                 Position = 4
             });
-            WornEquipment.Add(new Worn
+            ArmorSlot.Add(new ArmorSlot
             {
-                Name = "Empty",
-                Strength = 0,
-                Weight = 0,
-                Worth = 0,
+                ArmorName = "Hands",
+                Position = 5
+            }
+);
+            ArmorSlot[5].ArmorSlotContains.Add(new ArmorItem
+            {
+                ArmorName = "Empty",
+                ArmorStrength = 0,
+                ArmorWeight = 0,
+                ArmorWorth = 0,
                 Position = 5
             });
-            WornEquipment.Add(new Worn
+            ArmorSlot.Add(new ArmorSlot
             {
-                Name = "Empty",
-                Strength = 0,
-                Weight = 0,
-                Worth = 0,
+                ArmorName = "Legs",
+                Position = 6
+            }
+);
+            ArmorSlot[6].ArmorSlotContains.Add(new ArmorItem
+            {
+                ArmorName = "Empty",
+                ArmorStrength = 0,
+                ArmorWeight = 0,
+                ArmorWorth = 0,
                 Position = 6
             });
-            WornEquipment.Add(new Worn
+            ArmorSlot.Add(new ArmorSlot
             {
-                Name = "Empty",
-                Strength = 0,
-                Weight = 0,
-                Worth = 0,
+                ArmorName = "Feet",
+                Position = 7
+            }
+);
+            ArmorSlot[7].ArmorSlotContains.Add(new ArmorItem
+            {
+                ArmorName = "Empty",
+                ArmorStrength = 0,
+                ArmorWeight = 0,
+                ArmorWorth = 0,
                 Position = 7
             });
 

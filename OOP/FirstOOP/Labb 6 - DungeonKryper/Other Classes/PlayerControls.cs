@@ -10,7 +10,7 @@ namespace Labb_6___DungeonKryper.Other_Classes
 {
     class PlayerControls
     {
-        public void UserInput(UI userInterface, Runtime runtime, Location currentLocation, List<IEnvironment> environments, Worn wornEquipment, int CurrentRoomNumber)
+        public void UserInput(UI userInterface, Runtime runtime, Location currentLocation, List<IEnvironment> environments, Worn wornEquipment, int CurrentRoomNumber, EquipmentHandler equipmentHandler)
         {
             string input = Console.ReadLine().ToLower();
 
@@ -60,7 +60,7 @@ namespace Labb_6___DungeonKryper.Other_Classes
                 }
                 else if (input == "eq")
                 {
-                    runtime.Inventory(wornEquipment);
+                    equipmentHandler.Inventory(wornEquipment, runtime);
                 }
                 else if (input == "listen" 
                     || input == "lis")

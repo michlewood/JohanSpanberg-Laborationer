@@ -16,15 +16,10 @@ namespace Labb_6___DungeonKryper.Classes.Environment
         public int EnvironmentLocationY { get; set; }
         public int EnvironmentLocationX { get; set; }
         public string Exits { get; set; }
-
         public int ExitNorth { get; set; }
-
         public int ExitSouth { get; set; }
-
         public int ExitWest { get; set; }
-
         public int ExitEast { get; set; }
-
         public int RoomNumber { get; set; }
 
         public Room()

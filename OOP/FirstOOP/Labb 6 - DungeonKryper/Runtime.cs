@@ -13,7 +13,8 @@ namespace Labb_6___DungeonKryper
 {
     class Runtime
     {
-        MyLists myLists = new MyLists();
+        public MyLists myLists = new MyLists();
+        //public MyLists MyListsProperties { get; set; }
         public string Exits { get; set; }
 
         public void Start(Runtime runtime, PlayerControls playerControls)
@@ -22,6 +23,7 @@ namespace Labb_6___DungeonKryper
             var userInterface = new UI();
             var map = new Map();
             var wornEquipment = new Worn();
+            var equipmentHandler = new EquipmentHandler();
 
             NewGameReset.ResetGame(currentLocation);
 
@@ -32,7 +34,9 @@ namespace Labb_6___DungeonKryper
                 currentLocation, 
                 playerControls,
                 myLists.Environment,
-                wornEquipment
+                wornEquipment,
+                equipmentHandler
+                
                 );
         }
 
@@ -90,49 +94,7 @@ namespace Labb_6___DungeonKryper
             return "You can't see an exit that way. Try again.";
         }
 
-        internal void Inventory(Worn wornEquipment)
-        {
-            Console.Clear();
-            Console.WriteLine("Current equipment:");
-            foreach (var pieceOfEquipment in myLists.WornEquipment)
-            {
-                if (pieceOfEquipment.Position == 0)
-                {
-                    Console.Write("Head: ");
-                }
-                else if (pieceOfEquipment.Position == 1)
-                {
-                    Console.Write("Neck: ");
-                }
-                else if (pieceOfEquipment.Position == 2)
-                {
-                    Console.Write("Shoulders: ");
-                }
-                else if (pieceOfEquipment.Position == 3)
-                {
-                    Console.Write("Torso: ");
-                }
-                else if (pieceOfEquipment.Position == 4)
-                {
-                    Console.Write("Arms: ");
-                }
-                else if (pieceOfEquipment.Position == 5)
-                {
-                    Console.Write("Hands: ");
-                }
-                else if (pieceOfEquipment.Position == 6)
-                {
-                    Console.Write("Legs: ");
-                }
-                else if (pieceOfEquipment.Position == 7)
-                {
-                    Console.Write("Feet: ");
-                }
-                Console.WriteLine(pieceOfEquipment.Name);
-            }
 
-            Console.Read();
-        }
 
         public void LocationUpdater(Location currentLocation, IEnvironment location)
         {

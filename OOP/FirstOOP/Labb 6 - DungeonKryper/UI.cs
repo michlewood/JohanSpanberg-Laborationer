@@ -11,14 +11,14 @@ namespace Labb_6___DungeonKryper
 {
     class UI
     {
-        public void ShownUserInterface(Map map, Runtime runtime, UI userInterface, Location currentLocation, PlayerControls playerControls, List<IEnvironment> environments, Worn wornEquipment)
+        public void ShownUserInterface(Map map, Runtime runtime, UI userInterface, Location currentLocation, PlayerControls playerControls, List<IEnvironment> environments, Worn wornEquipment, EquipmentHandler equipmentHandler)
         {
             bool gameLoop = true;
             while (gameLoop)
             {
                 runtime.ExitUpdater(currentLocation, runtime, currentLocation.CurrentRoomNumber);
                 runtime.UpdateList(currentLocation.CurrentRoomNumber);
-                map.ShowMap(currentLocation, environments); // Not implemented yet.
+                map.ShowMap(currentLocation, environments);
 
                 Console.WriteLine("━━━");
                 Console.WriteLine(runtime.RoomDescription(map, 
@@ -42,7 +42,7 @@ namespace Labb_6___DungeonKryper
                 runtime.Exits = "";
                 playerControls.UserInput(userInterface, 
                                             runtime, 
-                                            currentLocation, environments, wornEquipment, currentLocation.CurrentRoomNumber);
+                                            currentLocation, environments, wornEquipment, currentLocation.CurrentRoomNumber, equipmentHandler);
 
                 Console.Clear();
             }
