@@ -45,9 +45,11 @@
   <ItemGroup>
     <Compile Include="Classes\Lists\MyLists.cs" />
     <Compile Include="Classes\Objects\Animal.cs" />
+    <Compile Include="Classes\Objects\Equipment.cs" />
     <Compile Include="Classes\Objects\Human.cs" />
     <Compile Include="Classes\Environment\Room.cs" />
     <Compile Include="Classes\Environment\Yard.cs" />
+    <Compile Include="Classes\Objects\Worn.cs" />
     <Compile Include="Classes\Objects\Player.cs" />
     <Compile Include="Classes\Objects\Questor.cs" />
     <Compile Include="Interfaces\IEnvironment.cs" />

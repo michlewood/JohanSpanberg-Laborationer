@@ -11,7 +11,7 @@ namespace Labb_6___DungeonKryper
 {
     class UI
     {
-        public void ShownUserInterface(Map map, Runtime runtime, UI userInterface, Location currentLocation, PlayerControls playerControls, List<IEnvironment> environments)
+        public void ShownUserInterface(Map map, Runtime runtime, UI userInterface, Location currentLocation, PlayerControls playerControls, List<IEnvironment> environments, Worn wornEquipment)
         {
             bool gameLoop = true;
             while (gameLoop)
@@ -42,7 +42,7 @@ namespace Labb_6___DungeonKryper
                 runtime.Exits = "";
                 playerControls.UserInput(userInterface, 
                                             runtime, 
-                                            currentLocation, environments, currentLocation.CurrentRoomNumber);
+                                            currentLocation, environments, wornEquipment, currentLocation.CurrentRoomNumber);
 
                 Console.Clear();
             }

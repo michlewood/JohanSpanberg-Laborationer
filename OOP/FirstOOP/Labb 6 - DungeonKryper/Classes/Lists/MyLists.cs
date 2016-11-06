@@ -11,7 +11,20 @@ namespace Labb_6___DungeonKryper.Classes.Lists
 {
     class MyLists
     {
+        public List<Equipment> items { get; set; }
+
+        List<Worn> wornEquipment { get; set; }
+        public List<Worn> WornEquipment
+        {
+            get
+            {
+                if (wornEquipment == null) wornEquipment = new List<Worn>();
+                return wornEquipment;
+            }
+        }
+
         public List<INonPlayerCharacter> NonPlayerCharacters { get; set; }
+
         List<IEnvironment> environment;
         public List<IEnvironment> Environment
         {
@@ -24,6 +37,71 @@ namespace Labb_6___DungeonKryper.Classes.Lists
 
         public MyLists()
         {
+            WornEquipment.Add(new Worn
+            {
+                Name = "Empty",
+                Strength = 0,
+                Weight = 0,
+                Worth = 0,
+                Position = 0
+            });
+            WornEquipment.Add(new Worn
+            {
+                Name = "Empty",
+                Strength = 0,
+                Weight = 0,
+                Worth = 0,
+                Position = 1
+            });
+            WornEquipment.Add(new Worn
+            {
+                Name = "Empty",
+                Strength = 0,
+                Weight = 0,
+                Worth = 0,
+                Position = 2
+            });
+            WornEquipment.Add(new Worn
+            {
+                Name = "Empty",
+                Strength = 0,
+                Weight = 0,
+                Worth = 0,
+                Position = 3
+            });
+            WornEquipment.Add(new Worn
+            {
+                Name = "Empty",
+                Strength = 0,
+                Weight = 0,
+                Worth = 0,
+                Position = 4
+            });
+            WornEquipment.Add(new Worn
+            {
+                Name = "Empty",
+                Strength = 0,
+                Weight = 0,
+                Worth = 0,
+                Position = 5
+            });
+            WornEquipment.Add(new Worn
+            {
+                Name = "Empty",
+                Strength = 0,
+                Weight = 0,
+                Worth = 0,
+                Position = 6
+            });
+            WornEquipment.Add(new Worn
+            {
+                Name = "Empty",
+                Strength = 0,
+                Weight = 0,
+                Worth = 0,
+                Position = 7
+            });
+
 
             Environment.Add(new Yard
             {

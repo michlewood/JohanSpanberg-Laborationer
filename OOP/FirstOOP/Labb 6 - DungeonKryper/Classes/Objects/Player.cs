@@ -97,6 +97,19 @@ namespace Labb_6___DungeonKryper.Classes.Objects
             Console.ReadLine();
         }
 
+        internal static void EquipmentGainSystem(int gearDropChance)
+        {
+            Random equipmentDropChance = new Random();
+            Random equipmentDropType = new Random();
+
+            int dropType = equipmentDropType.Next(0, 8);
+            int dropChance = equipmentDropChance.Next(1, 1001);
+            if (dropChance >= (1001 - gearDropChance))
+            {
+
+            }
+        }
+
         public static void WhoisScreen()
         {
             Console.Clear();

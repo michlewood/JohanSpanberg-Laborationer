@@ -87,24 +87,29 @@ namespace Labb_6___DungeonKryper.Other_Classes
                     if (environments[currentRoomNumber - 1000].RoomContent[playerInput].Level == Player.Level)
                     {
                         Player.LevelSystem(experienceGain.Next(90, 110));
+                        Player.EquipmentGainSystem(90);
                     }
 
                     else if (environments[currentRoomNumber - 1000].RoomContent[playerInput].Level + 1 == Player.Level)
                     {
                         Player.LevelSystem(experienceGain.Next(20, 40));
+                        Player.EquipmentGainSystem(20);
                     }
 
                     else if (environments[currentRoomNumber - 1000].RoomContent[playerInput].Level + 2 == Player.Level)
                     {
                         Player.LevelSystem(experienceGain.Next(1, 8));
+                        Player.EquipmentGainSystem(1);
                     }
                     else if (environments[currentRoomNumber - 1000].RoomContent[playerInput].Level - 1 == Player.Level)
                     {
                         Player.LevelSystem(experienceGain.Next(200, 240));
+                        Player.EquipmentGainSystem(200);
                     }
                     else if (environments[currentRoomNumber - 1000].RoomContent[playerInput].Level - 2 == Player.Level)
                     {
                         Player.LevelSystem(experienceGain.Next(300, 380));
+                        Player.EquipmentGainSystem(300);
                     }
                     else
                     {
