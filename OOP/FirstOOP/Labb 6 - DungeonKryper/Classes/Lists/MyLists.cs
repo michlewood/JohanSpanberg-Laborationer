@@ -71,7 +71,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
         {
             ArmorSlot.Add(new ArmorSlot
             {
-                ArmorName = "Head",
+                ArmorPosition = "Head",
                 Position = 0
             }
             );
@@ -86,7 +86,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             ArmorSlot.Add(new ArmorSlot
             {
-                ArmorName = "Neck",
+                ArmorPosition = "Neck",
                 Position = 1
             }
 );
@@ -100,7 +100,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             ArmorSlot.Add(new ArmorSlot
             {
-                ArmorName = "Shoulders",
+                ArmorPosition = "Shoulders",
                 Position = 2
             }
 );
@@ -114,7 +114,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             ArmorSlot.Add(new ArmorSlot
             {
-                ArmorName = "Torso",
+                ArmorPosition = "Torso",
                 Position = 3
             }
 );
@@ -128,7 +128,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             ArmorSlot.Add(new ArmorSlot
             {
-                ArmorName = "Arms",
+                ArmorPosition = "Arms",
                 Position = 4
             }
 );
@@ -142,7 +142,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             ArmorSlot.Add(new ArmorSlot
             {
-                ArmorName = "Hands",
+                ArmorPosition = "Hands",
                 Position = 5
             }
 );
@@ -156,7 +156,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             ArmorSlot.Add(new ArmorSlot
             {
-                ArmorName = "Legs",
+                ArmorPosition = "Legs",
                 Position = 6
             }
 );
@@ -170,7 +170,7 @@ namespace Labb_6___DungeonKryper.Classes.Lists
             });
             ArmorSlot.Add(new ArmorSlot
             {
-                ArmorName = "Feet",
+                ArmorPosition = "Feet",
                 Position = 7
             }
 );

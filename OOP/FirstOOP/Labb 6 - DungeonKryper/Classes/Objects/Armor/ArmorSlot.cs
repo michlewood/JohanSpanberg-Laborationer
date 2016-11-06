@@ -14,7 +14,7 @@ namespace Labb_6___DungeonKryper.Classes.Objects.Armor
         public int ArmorStrength { get; set; }
         public int ArmorWorth { get; set; }
         public int ArmorWeight { get; set; }
-
+        public string ArmorPosition { get; set; }
         public ArmorSlot()
         {
             ArmorSlotContains = new List<IItems>();
