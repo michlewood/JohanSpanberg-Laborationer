@@ -32,7 +32,6 @@ namespace Labb_9___TicTacToe
                 else
                     player = 'X';
 
-                
                 Console.WriteLine("Congratulations {0}! You won.", player);
                 gameResults.PlayAgainQuestion(counter, playerNodes, gameBoard, counterWin);
             };
@@ -77,17 +76,12 @@ namespace Labb_9___TicTacToe
 
                 if (counterWin.Total == 1)
                 {
-                    counterWin.OnThresholdReached(EventArgs.Empty);
+                    counterWin.OnThresholdReached(this, EventArgs.Empty);
                 }
-
-                //else if (counter.Total == 9 && counterWin.Total == 1)
-                //{
-                //    counterWin.OnThresholdReached(EventArgs.Empty);
-                //}
 
                 if (counter.Total == 9 && counterWin.Total == 0)
                 {
-                    counter.OnThresholdReached(EventArgs.Empty);
+                    counter.OnThresholdReached(this, EventArgs.Empty);
                 }
             }
         }

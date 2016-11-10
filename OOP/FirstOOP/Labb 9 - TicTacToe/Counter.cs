@@ -21,12 +21,12 @@ namespace Labb_9___TicTacToe
             Total += n;
         }
 
-        public virtual void OnThresholdReached(EventArgs e)
+        public virtual void OnThresholdReached(object sender, EventArgs e)
         {
             EventHandler handler = ThresholdReached;
             if (handler != null)
             {
-                handler(this, e);
+                handler(sender, e);
             }
 
         }
