@@ -8,6 +8,11 @@ namespace Labb_9___TicTacToe
 {
     interface IGrid
     {
-        void PlaceMarker(int row, int col, int player, Node[,] playerNodes, Runtime runtime);
+        void PlaceMarker(
+            int row, 
+            int col, 
+            int player, 
+            Node[,] playerNodes, 
+            Runtime runtime);
     }
 }

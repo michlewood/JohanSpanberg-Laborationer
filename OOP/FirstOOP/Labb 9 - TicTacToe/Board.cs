@@ -12,25 +12,25 @@ namespace Labb_9___TicTacToe
 
         public Node[,] NodeGenerator()
         {
-            var nodeOne = new Node { Player = '1' };
-            var nodeTwo = new Node { Player = '2' };
-            var nodeThree = new Node { Player = '3' };
-            var nodeFour = new Node { Player = '4' };
-            var nodeFive = new Node { Player = '5' };
-            var nodeSix = new Node { Player = '6' };
-            var nodeSeven = new Node { Player = '7' };
-            var nodeEight = new Node { Player = '8' };
-            var nodeNine = new Node { Player = '9' };
+            var nodeOne     = new Node { Player = '1' };
+            var nodeTwo     = new Node { Player = '2' };
+            var nodeThree   = new Node { Player = '3' };
+            var nodeFour    = new Node { Player = '4' };
+            var nodeFive    = new Node { Player = '5' };
+            var nodeSix     = new Node { Player = '6' };
+            var nodeSeven   = new Node { Player = '7' };
+            var nodeEight   = new Node { Player = '8' };
+            var nodeNine    = new Node { Player = '9' };
 
-            Node[,] playerNodes = new Node[,] { { nodeOne, nodeTwo, nodeThree },
-                                        { nodeFour, nodeFive, nodeSix },
-                                        { nodeSeven, nodeEight, nodeNine }
+            Node[,] playerNodes = new Node[,] 
+            
+            { 
+                { nodeOne,      nodeTwo,    nodeThree },
+                { nodeFour,     nodeFive,   nodeSix },
+                { nodeSeven,    nodeEight,  nodeNine }
+            };
 
-
-        };
             return playerNodes;
-
-
         }
 
         public void PlayerBoard(Node[,] playerNodes)
@@ -45,18 +45,26 @@ namespace Labb_9___TicTacToe
         }
 
 
-        public void PlaceMarker(int row, int col, int player, Node[,] playerNodes, Runtime runtime)
+        public void PlaceMarker(
+            int row, 
+            int col, 
+            int player, 
+            Node[,] 
+            playerNodes, 
+            Runtime runtime)
+
         {
             if (runtime.Player == 'X')
             {
                 playerNodes[row, col].Player = 'X';
-
             }
             else
             {
                 playerNodes[row, col].Player = 'O';
             }
         }
+
+
         public void ResetPlayerNodes(Node[,] playerNodes)
         {
             playerNodes[0, 0].Player = '1';

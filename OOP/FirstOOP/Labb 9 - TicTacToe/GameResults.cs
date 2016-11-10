@@ -11,19 +11,37 @@ namespace Labb_9___TicTacToe
         public int Row { get; set; }
         public int Col { get; set; }
 
-        internal void CheckInput(Node[,] playerNodes, Board gameBoard, char input, Runtime runtime, Counter counter)
+        internal void CheckInput(
+            Node[,] playerNodes, 
+            Board gameBoard, 
+            char input, 
+            Runtime runtime, 
+            Counter counter)
         {
             ConvertInputToCoordinates(input);
 
             if (playerNodes[Row, Col].Player == input)
             {
-                gameBoard.PlaceMarker(Row, Col, runtime.Player, playerNodes, runtime);
+                gameBoard.PlaceMarker(
+                    Row, 
+                    Col, 
+                    runtime.Player, 
+                    playerNodes, 
+                    runtime);
+
                 counter.Add(1);
+
                 if (runtime.Player == 'O')
+                {
                     runtime.Player = 'X';
+                }
+
                 else
+                {
                     runtime.Player = 'O';
+                }
             }
+
             else
             {
                 Console.WriteLine("Already taken by a player. Try again.");
@@ -34,17 +52,52 @@ namespace Labb_9___TicTacToe
         private void ConvertInputToCoordinates(char input)
         {
             if (input == '1') { Row = 0; Col = 0; }
-            else if (input == '2') { Row = 0; Col = 1; }
-            else if (input == '3') { Row = 0; Col = 2; }
-            else if (input == '4') { Row = 1; Col = 0; }
-            else if (input == '5') { Row = 1; Col = 1; }
-            else if (input == '6') { Row = 1; Col = 2; }
-            else if (input == '7') { Row = 2; Col = 0; }
-            else if (input == '8') { Row = 2; Col = 1; }
-            else if (input == '9') { Row = 2; Col = 2; }
+            else if (input == '2')
+            {
+                Row = 0;
+                Col = 1;
+            }
+            else if (input == '3')
+            {
+                Row = 0;
+                Col = 2;
+            }
+            else if (input == '4')
+            {
+                Row = 1;
+                Col = 0;
+            }
+            else if (input == '5')
+            {
+                Row = 1;
+                Col = 1;
+            }
+            else if (input == '6')
+            {
+                Row = 1;
+                Col = 2;
+            }
+            else if (input == '7')
+            {
+                Row = 2;
+                Col = 0;
+            }
+            else if (input == '8')
+            {
+                Row = 2;
+                Col = 1;
+            }
+            else if (input == '9')
+            {
+                Row = 2;
+                Col = 2;
+            }
         }
 
-        internal void CheckWin(Runtime runtime, Node[,] playerNodes, Counter counterWin)
+        internal void CheckWin(
+            Runtime runtime, 
+            Node[,] playerNodes, 
+            Counter counterWin)
         {
             char player = 'X';
             if (runtime.Player == 'O')
@@ -99,11 +152,17 @@ namespace Labb_9___TicTacToe
                 row++;
             }
 
-            if (playerNodes[0, 0].Player == playerNodes[1, 1].Player && playerNodes[1, 1].Player == playerNodes[2, 2].Player)
+            if (playerNodes[0, 0].Player 
+                == playerNodes[1, 1].Player 
+                && playerNodes[1, 1].Player 
+                == playerNodes[2, 2].Player)
             {
                 addToWin = true;
             }
-            else if (playerNodes[2, 0].Player == playerNodes[1, 1].Player && playerNodes[1, 1].Player == playerNodes[0, 2].Player)
+            else if (playerNodes[2, 0].Player 
+                == playerNodes[1, 1].Player 
+                && playerNodes[1, 1].Player 
+                == playerNodes[0, 2].Player)
             {
                 addToWin = true;
             }
@@ -114,7 +173,11 @@ namespace Labb_9___TicTacToe
             }
         }
 
-        public void PlayAgainQuestion(Counter counter, Node[,] playerNodes, Board gameBoard, Counter counterWin)
+        public void PlayAgainQuestion(
+            Counter counter, 
+            Node[,] playerNodes, 
+            Board gameBoard, 
+            Counter counterWin)
         {
             while (counterWin.Total == 1)
             {
@@ -127,14 +190,13 @@ namespace Labb_9___TicTacToe
                     counterWin.Total = 0;
                     Console.WriteLine("Reseting the playerfield.");
                     gameBoard.ResetPlayerNodes(playerNodes);
-
-
                 }
+
                 else if (input == "n")
                 {
-
                     Environment.Exit(0);
                 }
+
                 else
                 {
                     Console.WriteLine("Not a valid input, try again.");
