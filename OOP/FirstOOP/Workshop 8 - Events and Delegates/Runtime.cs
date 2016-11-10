@@ -110,7 +110,7 @@ namespace Workshop_8___Events_and_Delegates
             Console.WriteLine("---");
 
             var loop = true;
-            var counter = new Counter { Threshold = 3 };
+            var counter = new Counter { Threshold = 9 };
 
             counter.ThresholdReached += (sender, e) =>
             {
