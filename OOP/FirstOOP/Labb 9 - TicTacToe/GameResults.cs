@@ -44,7 +44,7 @@ namespace Labb_9___TicTacToe
             else if (input == '9') { Row = 2; Col = 2; }
         }
 
-        internal void CheckWin(Runtime runtime, Node[,] playerNodes)
+        internal void CheckWin(Runtime runtime, Node[,] playerNodes, Counter counterWin)
         {
             char player = 'X';
             if (runtime.Player == 'O')
@@ -56,6 +56,8 @@ namespace Labb_9___TicTacToe
                 player = 'O';
             }
 
+            bool addToWin = false;
+
             for (int i = 0; i < 3; i++)
             {
                 int col = 0;
@@ -66,7 +68,8 @@ namespace Labb_9___TicTacToe
                     && playerNodes[col, row + 1].Player 
                     == playerNodes[col, row + 2].Player)
                 {
-                    runtime.IsWin = true;
+                    addToWin = true;
+                    break;
                 }
 
                 if (col == 2)
@@ -85,7 +88,8 @@ namespace Labb_9___TicTacToe
                     && playerNodes[col + 1, row].Player 
                     == playerNodes[col + 2, row].Player)
                 {
-                    runtime.IsWin = true;
+                    addToWin = true;
+                    break;
                 }
    
                 if (row == 2)
@@ -97,17 +101,22 @@ namespace Labb_9___TicTacToe
 
             if (playerNodes[0, 0].Player == playerNodes[1, 1].Player && playerNodes[1, 1].Player == playerNodes[2, 2].Player)
             {
-                runtime.IsWin = true;
+                addToWin = true;
             }
             else if (playerNodes[2, 0].Player == playerNodes[1, 1].Player && playerNodes[1, 1].Player == playerNodes[0, 2].Player)
             {
-                runtime.IsWin = true;
+                addToWin = true;
+            }
+
+            if (addToWin)
+            {
+                counterWin.Add(1);
             }
         }
 
-        public void PlayAgainQuestion(Runtime runtime, Counter counter, Node[,] playerNodes, Board gameBoard)
+        public void PlayAgainQuestion(Counter counter, Node[,] playerNodes, Board gameBoard, Counter counterWin)
         {
-            while (runtime.IsWin)
+            while (counterWin.Total == 1)
             {
                 Console.WriteLine("Do you want to play again (y/n)");
                 string input = Console.ReadLine().ToLower();
@@ -115,14 +124,15 @@ namespace Labb_9___TicTacToe
                 if (input == "y")
                 {
                     counter.Total = 0;
+                    counterWin.Total = 0;
                     Console.WriteLine("Reseting the playerfield.");
                     gameBoard.ResetPlayerNodes(playerNodes);
 
-                    runtime.IsWin = false;
+
                 }
                 else if (input == "n")
                 {
-                    runtime.IsWin = false;
+
                     Environment.Exit(0);
                 }
                 else
