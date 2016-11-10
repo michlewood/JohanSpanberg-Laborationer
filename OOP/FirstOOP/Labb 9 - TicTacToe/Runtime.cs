@@ -19,7 +19,7 @@ namespace Labb_9___TicTacToe
 
             var counter = new Counter { Threshold = 9 };
 
-            char input = '0';
+            string input = "";
 
             counter.ThresholdReached += (sender, e) =>
             {
@@ -40,20 +40,23 @@ namespace Labb_9___TicTacToe
                     Console.WriteLine("");
                     Console.WriteLine("Player {0}", Player);
 
-                    input = Convert.ToChar(Console.ReadLine());
+                    input = Console.ReadLine();
 
-                    /*if (input > 9 || input < 1)
+                    
+                    if (input != "1" && input != "2" && input != "3" && input != "4" && input != "5" && input != "6" && input != "7" && input != "8" && input != "9")
                     {
                         Console.WriteLine("Wrong input, press <ENTER> to try again.");
                         Console.ReadLine();
                     }
                     else
-                    {*/
+                    {
                         gameErrorController = false;
-                    //}
+                    }
                 }
 
-                gameResults.CheckInput(playerNodes, gameBoard, input, this, counter);
+                char output = input[0];
+
+                gameResults.CheckInput(playerNodes, gameBoard, output, this, counter);
                 gameResults.CheckWin(this, playerNodes);
 
                 if (IsWin == true)
