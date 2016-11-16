@@ -105,7 +105,7 @@ namespace Labb_9___TicTacToe
                         EventArgs.Empty);
                 }
 
-                if (counter.Total == 9 && counterWin.Total == 0)
+                else if (counter.Total == 9)
                 {
                     counter.OnThresholdReached(
                         this, 
