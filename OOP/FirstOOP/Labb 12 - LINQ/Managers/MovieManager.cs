@@ -138,14 +138,7 @@ namespace Labb_12___LINQ.Managers
             Console.Write("Which genre: ");
             string input = Console.ReadLine();
 
-            var searchResults = Movies.Where(movie => movie
-            .Title[0]
-            .ToString()
-            .Equals("T") 
-            && movie
-            .Genre == input 
-            && movie
-            .Length > 120);
+            var searchResults = Movies.Where(movie => movie.Title[0].ToString().Equals("T") && movie.Genre == input && movie.Length > 120);
 
             foreach (var movie in searchResults)
             {
